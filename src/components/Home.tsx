@@ -1,8 +1,10 @@
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaCloud, FaCentercode } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import Select from "react-select";
 import { VscGraph } from "react-icons/vsc";
 import { IoBriefcaseOutline } from "react-icons/io5";
+import { GrTechnology } from "react-icons/gr";
+import { DiCompass } from "react-icons/di";
 
 function Home() {
   const options = [
@@ -36,12 +38,22 @@ function Home() {
     <p className="text-slate-600">
       Explore a diverse array of career opportunities in <br /> multiple sectors. Whether you're seeking <br /> a position in technology, healthcare, finance, <br /> or any other industry, we have the perfect role <br /> to match your skills and aspirations.
     </p>
+    <div className="flex items-center mt-4 text-slate-500 font-bold">
+    <DiCompass className="mx-2" />
+    <p>agency</p>
+    <FaCloud className="mx-2"/>
+    <p>application</p>
+    <GrTechnology className="mx-2"/>
+    <p>business</p>
+    <FaCentercode className="mx-2" />
+    <p>company</p>
+    </div>
   </div>
   <div className="flex flex-col items-center justify-center w-full flex-grow">
     <div className="flex items-center border border-gray-400 rounded p-4 w-max">
       <div className="flex items-center rounded border border-gray-300">
         <div className="flex items-center p-2">
-          <FaSearch className="text-gray-500" />
+          <FaSearch className="text-grey-500" />
         </div>
         <input
           type="text"
