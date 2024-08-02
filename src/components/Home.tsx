@@ -1,6 +1,8 @@
 import { FaSearch } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import Select from "react-select";
+import { VscGraph } from "react-icons/vsc";
+import { IoBriefcaseOutline } from "react-icons/io5";
 
 function Home() {
   const options = [
@@ -20,19 +22,19 @@ function Home() {
     placeholder: (provided: any) => ({
       ...provided,
       color: 'gray',
-      fontSize: '0.875rem', // Tailwind equivalent for text-sm
+      fontSize: '0.875rem',
     }),
   };
   return (
     <div className="background flex">
-      <div className="m-20">
+      <div className="m-20 ">
         <p className="font-bold text-sky-500">TOP CAREER OPPORTUNITIES</p>
         <p className="text-4xl font-semibold mt-2 mb-5">Find your ideal job 
           <br /> accross all industries</p>
         <p className="text-slate-600">Explore a diverse array of career opportunities in 
           <br /> multiple sectors. Whether you're seeking <br /> a position in technology, healthcare, finance, <br /> or any other industry, we have the perfect role <br /> to match your skills and aspirations.</p>
       </div>
-      <div className="flex items-center border border-gray-400 rounded mt-20 mt-auto p-5">
+      <div className="flex items-center border border-gray-400 rounded mt-auto p-5">
       <div className="flex items-center rounded mt-20 mt-auto">
       <div className="flex items-center px-2">
         <FaSearch className="text-gray-500" />
@@ -61,12 +63,25 @@ function Home() {
     </div>
     <div className="flex items-center rounded mt-20 mt-auto">
       <div className="flex items-center px-2">
-        <CiLocationOn className="text-gray-500" />
+      <VscGraph className="text-gray-500"/>
       </div>
       <div className="w-48">
       <Select
           options={options}
-          placeholder="Location"
+          placeholder="Job level"
+          classNamePrefix="react-select"
+          styles={customStyles}
+        />
+      </div>
+    </div>
+    <div className="flex items-center rounded mt-20 mt-auto">
+      <div className="flex items-center px-2">
+      <IoBriefcaseOutline className="text-gray-500"/>
+      </div>
+      <div className="w-48">
+      <Select
+          options={options}
+          placeholder="Department"
           classNamePrefix="react-select"
           styles={customStyles}
         />
