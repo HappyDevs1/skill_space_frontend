@@ -19,23 +19,23 @@ function App() {
   }
 
   return (
-    <div>
-      <nav>
-        <div>
+    <div className="">
+      <nav className="flex h-20 items-center border-b-2">
+        <div className="items-start ml-20">
           <a href="/">SkillSpace</a>
         </div>
-        <div>
-          <ul>
-            <li>
+        <div className="ml-auto">
+          <ul className="flex gap-10 mr-20">
+            <li className="hover:text-sky-500">
               <a href="/">Home</a>
             </li>
-            <li>
+            <li className="hover:text-sky-500">
               <a href="/about">About</a>
             </li>
-            <li>
+            <li className="hover:text-sky-500">
               <a href="/blog">Blog</a>
             </li>
-            <li>
+            <li className="hover:text-sky-500">
               <a href="/contact">Contact</a>
             </li>
             <li>
