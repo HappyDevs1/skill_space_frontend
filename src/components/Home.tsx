@@ -39,7 +39,7 @@ function Home() {
       Explore a diverse array of career opportunities in <br /> multiple sectors. Whether you're seeking <br /> a position in technology, healthcare, finance, <br /> or any other industry, we have the perfect role <br /> to match your skills and aspirations.
     </p>
     <div className="flex items-center mt-4 text-slate-500 font-bold">
-    <DiCompass className="mx-2" />
+    <DiCompass className="mr-2" />
     <p>agency</p>
     <FaCloud className="mx-2"/>
     <p>application</p>
@@ -105,6 +105,12 @@ function Home() {
       </div>
     </div>
   </div>
+  {/* <div>
+    <p>Feautured jobs</p>
+    <div>
+will add featured jobs here
+    </div>
+  </div> */}
   </div>
 </div>
   )
