@@ -119,16 +119,16 @@ function Home() {
               <p className="font-semibold text-gray-400 my-2">Facebook</p>
               <p className="font-bold text-xl">Software engineer</p>
               <div className="flex gap-2.5 mt-4">
-                <div className="flex items-center border border-gray-300 rounded p-0.5">
-                  <CiLocationOn className="text-blue-500" />
+                <div className="flex items-center border border-gray-300 rounded p-1">
+                  <CiLocationOn className="text-blue-500 mr-1.5 h-3 w-3" />
                   <p className="text-xs font-medium">Remote</p>
                 </div>
-                <div className="flex items-center border border-gray-300 rounded p-0.5">
-                  <VscGraph className="text-blue-500" />
+                <div className="flex items-center border border-gray-300 rounded p-1">
+                  <VscGraph className="text-blue-500 mr-1.5 h-3 w-3" />
                   <p className="text-xs font-medium">Senior</p>
                 </div>
-                <div className="flex items-center border border-gray-300 rounded p-0.5">
-                  <IoBriefcaseOutline className="text-blue-500" />
+                <div className="flex items-center border border-gray-300 rounded p-1">
+                  <IoBriefcaseOutline className="text-blue-500 mr-1.5 h-3 w-3" />
                   <p className="text-xs font-medium">Technology</p>
                 </div>
               </div>
