@@ -23,11 +23,32 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 // }
 
 function Home() {
-  const options = [
-    { value: "option1", label: "Option 1" },
-    { value: "option2", label: "Option 2" },
-    { value: "option3", label: "Option 3" },
+  const locationDropdown = [
+    { value: "Gauteng", label: "Gauteng" },
+    { value: "Eastern-Cape", label: "Eastern-Cape" },
+    { value: "Mpumalanga", label: "Mpumalanga" },
+    { value: "Free-State", label: "Free-State" },
+    { value: "Limpopo", label: "Limpopo" },
+    { value: "North-West", label: "North-West" },
+    { value: "Nothern-Cape", label: "Nothern-Cape" },
+    { value: "KwaZulu-Natal", label: "KwaZulu-Natal" },
+    { value: "Western-Cape", label: "Western-Cape" },
   ];
+
+  const levelDropdown = [
+    { value: "Internship", label: "Internship" },
+    { value: "Junior", label: "Junior" },
+    { value: "Mid-level", label: "Mid-level" },
+    { value: "Senior", label: "Senior" },
+  ];
+
+  const departmentDropdown = [
+    { value: "Finance", label: "Finance" },
+    { value: "Technology", label: "Technology" },
+    { value: "Healthcare", label: "Healthcare" },
+    { value: "Real-estate", label: "Real-estate" },
+    { value: "Construction", label: "Construction" },
+  ]
 
   const customStyles = {
     control: (provided: any) => ({
@@ -118,7 +139,7 @@ function Home() {
               </div>
               <div className="w-48">
                 <Select
-                  options={options}
+                  options={locationDropdown}
                   placeholder="Location"
                   classNamePrefix="react-select"
                   styles={customStyles}
@@ -131,7 +152,7 @@ function Home() {
               </div>
               <div className="w-48">
                 <Select
-                  options={options}
+                  options={levelDropdown}
                   placeholder="Job level"
                   classNamePrefix="react-select"
                   styles={customStyles}
@@ -144,7 +165,7 @@ function Home() {
               </div>
               <div className="w-48">
                 <Select
-                  options={options}
+                  options={departmentDropdown}
                   placeholder="Department"
                   classNamePrefix="react-select"
                   styles={customStyles}
