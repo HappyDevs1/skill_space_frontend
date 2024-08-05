@@ -5,6 +5,7 @@ import { VscGraph } from "react-icons/vsc";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { GrTechnology } from "react-icons/gr";
 import { DiCompass } from "react-icons/di";
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 function Home() {
   const options = [
@@ -111,26 +112,31 @@ function Home() {
         <div className="flex flex-col items-center justify-center w-full flex-grow mt-28">
           <p className="font-semibold text-xl mb-6">Feautured jobs</p>
           <div className="flex border rounded border-gray-400 px-3 py-3 w-auto">
-            <div className="flex rounded items center justify-center w-full flex-grow bg-sky-500 px-11 py-14">
+            <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
               <p>P.Pic</p>
             </div>
-            <div className="pl-7">
+            <div className="pl-7 pr-20">
               <p className="font-semibold text-gray-400 my-2">Facebook</p>
-              <p className="font-bold text-xl">Backend software engineer</p>
-              <div className="flex">
-                <div className="flex items-center border border-gray-300">
-                  <CiLocationOn className="text-gray-500" />
-                  <p>Remote</p>
+              <p className="font-bold text-xl">Software engineer</p>
+              <div className="flex gap-2.5 mt-4">
+                <div className="flex items-center border border-gray-300 rounded p-0.5">
+                  <CiLocationOn className="text-blue-500" />
+                  <p className="text-xs font-medium">Remote</p>
                 </div>
-                <div className="flex items-center border border-gray-300">
-                  <VscGraph className="text-gray-500" />
-                  <p>Senior</p>
+                <div className="flex items-center border border-gray-300 rounded p-0.5">
+                  <VscGraph className="text-blue-500" />
+                  <p className="text-xs font-medium">Senior</p>
                 </div>
-                <div className="flex items-center border border-gray-300">
-                  <IoBriefcaseOutline className="text-gray-500" />
-                  <p>Technology</p>
+                <div className="flex items-center border border-gray-300 rounded p-0.5">
+                  <IoBriefcaseOutline className="text-blue-500" />
+                  <p className="text-xs font-medium">Technology</p>
                 </div>
               </div>
+            </div>
+            <div>
+              <div className="border border-gray-400 rounded">
+            <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
+            </div>
             </div>
           </div>
         </div>
