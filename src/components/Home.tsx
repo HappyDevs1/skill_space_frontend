@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { getAllJobs } from "../services/jobService";
 import { FaSearch, FaCloud, FaCentercode } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import Select from "react-select";
@@ -8,18 +9,18 @@ import { GrTechnology } from "react-icons/gr";
 import { DiCompass } from "react-icons/di";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
-interface Job {
-  _id: string;
-  title: string;
-  description: string;
-  price: number;
-  location: string;
-  level: string;
-  department: string;
-  featured: boolean;
-  createdAt: string;
-  updatedAt: string;
-}
+// interface Job {
+//   _id: string;
+//   title: string;
+//   description: string;
+//   price: number;
+//   location: string;
+//   level: string;
+//   department: string;
+//   featured: boolean;
+//   createdAt: string;
+//   updatedAt: string;
+// }
 
 function Home() {
   const options = [
@@ -43,11 +44,34 @@ function Home() {
     }),
   };
 
-  const [jobs, setJobs] = useState<Job[]>([]);
+  const [jobs, setJobs] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await getAllJobs();
+        console.log('Fetched Jobs:', response); // Add this line to check the response structure
+        if (response && response.service) {
+          setJobs(response.service);
+        } else {
+          setJobs([]); // In case there are no jobs or the structure is unexpected
+        }
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching jobs:", error);
+        setError("Failed to fetch jobs.");
+        setLoading(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
     <div className="flex flex-col items-center min-h-screen mb-52">
       <div className="background w-full">
@@ -160,37 +184,45 @@ function Home() {
             </div>
           </div>
         </div>
+        {/* Displaying latest jobs */}
         <div className="flex flex-col items-center justify-center w-full flex-grow mt-24">
           <p className="font-semibold text-xl mb-6">Latest jobs</p>
-          <div className="flex border rounded border-gray-400 px-3 py-3 w-auto">
-            <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
-              <p>P.Pic</p>
-            </div>
-            <div className="pl-7 pr-20">
-              <p className="font-semibold text-gray-400 my-2">Facebook</p>
-              <p className="font-bold text-xl">Software engineer</p>
-              <div className="flex gap-2.5 mt-4">
-                <div className="flex items-center border border-gray-300 rounded p-1">
-                  <CiLocationOn className="text-blue-500 mr-1.5 h-3 w-3" />
-                  <p className="text-xs font-medium">Remote</p>
+          {jobs.length > 0 ? (
+            jobs.map((job) => (
+              <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto">
+                <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
+                  <p>P.Pic</p>
                 </div>
-                <div className="flex items-center border border-gray-300 rounded p-1">
-                  <VscGraph className="text-blue-500 mr-1.5 h-3 w-3" />
-                  <p className="text-xs font-medium">Senior</p>
+                <div className="pl-7 pr-20">
+                  <p className="font-semibold text-gray-400 my-2">Company Name</p>
+                  <p className="font-bold text-xl">{job.title}</p>
+                  <div className="flex gap-2.5 mt-4">
+                    <div className="flex items-center border border-gray-300 rounded p-1">
+                      <CiLocationOn className="text-blue-500 mr-1.5 h-3 w-3" />
+                      <p className="text-xs font-medium">{job.location}</p>
+                    </div>
+                    <div className="flex items-center border border-gray-300 rounded p-1">
+                      <VscGraph className="text-blue-500 mr-1.5 h-3 w-3" />
+                      <p className="text-xs font-medium">{job.level}</p>
+                    </div>
+                    <div className="flex items-center border border-gray-300 rounded p-1">
+                      <IoBriefcaseOutline className="text-blue-500 mr-1.5 h-3 w-3" />
+                      <p className="text-xs font-medium">{job.department}</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center border border-gray-300 rounded p-1">
-                  <IoBriefcaseOutline className="text-blue-500 mr-1.5 h-3 w-3" />
-                  <p className="text-xs font-medium">Technology</p>
+                <div>
+                  <div className="border border-gray-400 rounded">
+                <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
+                </div>
                 </div>
               </div>
-            </div>
-            <div>
-              <div className="border border-gray-400 rounded">
-            <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
-            </div>
-            </div>
-          </div>
+            ))
+          ) : (
+            <div>No jobs available</div>
+          )}
         </div>
+
       </div>
     </div>
   );

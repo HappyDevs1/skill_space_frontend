@@ -12,7 +12,6 @@ const apiClient = axios.create({
 export const createJob = async (jobData: any) => {
   try {
     const response = await apiClient.post("/create", jobData);
-
     return response.data;
   } catch (error) {
     console.error("Error creating a job", error);
@@ -23,7 +22,6 @@ export const createJob = async (jobData: any) => {
 export const getAllJobs = async () => {
   try {
     const response = await apiClient.get("/services");
-
     return response.data;
   } catch (error) {
     console.error("Error fetching jobs", error);
@@ -33,18 +31,17 @@ export const getAllJobs = async () => {
 
 export const getJobById = async (id: string) => {
   try {
-    const response = await apiClient.get(`${id}`);
-    
+    const response = await apiClient.get(`/${id}`);
     return response.data;
   } catch (error) {
-    console.error("Error fetching job by id", id);
+    console.error("Error fetching job by id", error);
+    throw error;
   }
 };
 
 export const getJobByFilter = async (filterData: any) => {
   try {
-    const response = await apiClient.get("/filter", filterData);
-    
+    const response = await apiClient.get("/filter", { params: filterData });
     return response.data;
   } catch (error) {
     console.error("Error fetching filtered jobs", error);
@@ -55,7 +52,6 @@ export const getJobByFilter = async (filterData: any) => {
 export const getFeaturedJob = async () => {
   try {
     const response = await apiClient.get("/featured");
-
     return response.data;
   } catch (error) {
     console.error("Error fetching featured jobs", error);
@@ -63,10 +59,9 @@ export const getFeaturedJob = async () => {
   }
 };
 
-export const editJob = async (id: string) => {
+export const editJob = async (id: string, jobData: any) => {
   try {
-    const response = await apiClient.put(`${id}/edit`);
-
+    const response = await apiClient.put(`/${id}/edit`, jobData);
     return response.data;
   } catch (error) {
     console.error("Error editing job", error);
@@ -74,10 +69,9 @@ export const editJob = async (id: string) => {
   }
 };
 
-export const deleteJob =  async (id: string) => {
+export const deleteJob = async (id: string) => {
   try {
-    const response = await apiClient.delete(`${id}/delete`);
-
+    const response = await apiClient.delete(`/${id}/delete`);
     return response.data;
   } catch (error) {
     console.error("Error deleting job", error);
