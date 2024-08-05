@@ -73,11 +73,11 @@ function Home() {
     const fetchJobs = async () => {
       try {
         const response = await getAllJobs();
-        console.log('Fetched Jobs:', response); // Add this line to check the response structure
+        console.log('Fetched Jobs:', response); 
         if (response && response.service) {
           setJobs(response.service);
         } else {
-          setJobs([]); // In case there are no jobs or the structure is unexpected
+          setJobs([]);
         }
         setLoading(false);
       } catch (error) {
