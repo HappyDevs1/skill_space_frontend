@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { FaSearch, FaCloud, FaCentercode } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import Select from "react-select";
@@ -6,6 +7,19 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { GrTechnology } from "react-icons/gr";
 import { DiCompass } from "react-icons/di";
 import { IoIosArrowRoundForward } from "react-icons/io";
+
+interface Job {
+  _id: string;
+  title: string;
+  description: string;
+  price: number;
+  location: string;
+  level: string;
+  department: string;
+  featured: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
 
 function Home() {
   const options = [
@@ -28,6 +42,12 @@ function Home() {
       fontSize: "0.875rem",
     }),
   };
+
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  
   return (
     <div className="flex flex-col items-center min-h-screen mb-52">
       <div className="background w-full">
