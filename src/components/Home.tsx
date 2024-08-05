@@ -140,6 +140,37 @@ function Home() {
             </div>
           </div>
         </div>
+        <div className="flex flex-col items-center justify-center w-full flex-grow mt-24">
+          <p className="font-semibold text-xl mb-6">Latest jobs</p>
+          <div className="flex border rounded border-gray-400 px-3 py-3 w-auto">
+            <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
+              <p>P.Pic</p>
+            </div>
+            <div className="pl-7 pr-20">
+              <p className="font-semibold text-gray-400 my-2">Facebook</p>
+              <p className="font-bold text-xl">Software engineer</p>
+              <div className="flex gap-2.5 mt-4">
+                <div className="flex items-center border border-gray-300 rounded p-1">
+                  <CiLocationOn className="text-blue-500 mr-1.5 h-3 w-3" />
+                  <p className="text-xs font-medium">Remote</p>
+                </div>
+                <div className="flex items-center border border-gray-300 rounded p-1">
+                  <VscGraph className="text-blue-500 mr-1.5 h-3 w-3" />
+                  <p className="text-xs font-medium">Senior</p>
+                </div>
+                <div className="flex items-center border border-gray-300 rounded p-1">
+                  <IoBriefcaseOutline className="text-blue-500 mr-1.5 h-3 w-3" />
+                  <p className="text-xs font-medium">Technology</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="border border-gray-400 rounded">
+            <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
+            </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
