@@ -28,7 +28,7 @@ function Home() {
     }),
   };
   return (
-    <div className="flex flex-col items-center min-h-screen">
+    <div className="flex flex-col items-center min-h-screen mb-52">
       <div className="background w-full">
         <div className="m-20 self-start">
           <p className="font-bold text-sky-500">TOP CAREER OPPORTUNITIES</p>
@@ -108,13 +108,15 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center w-full flex-grow">
-          <p className="font-semibold text-xl">Feautured jobs</p>
-          <div className="flex border border-gray-400 px-5">
-            <div>Profile Picture</div>
-            <div>
-              <p>Facebook</p>
-              <p>Backend software engineer</p>
+        <div className="flex flex-col items-center justify-center w-full flex-grow mt-28">
+          <p className="font-semibold text-xl mb-6">Feautured jobs</p>
+          <div className="flex border rounded border-gray-400 px-3 py-3 w-auto">
+            <div className="flex rounded items center justify-center w-full flex-grow bg-sky-500 px-11 py-14">
+              <p>P.Pic</p>
+            </div>
+            <div className="pl-7">
+              <p className="font-semibold text-gray-400 my-2">Facebook</p>
+              <p className="font-bold text-xl">Backend software engineer</p>
               <div className="flex">
                 <div className="flex items-center border border-gray-300">
                   <CiLocationOn className="text-gray-500" />
