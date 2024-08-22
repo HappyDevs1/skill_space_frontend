@@ -212,10 +212,10 @@ function Home() {
             jobs.map((job) => (
               <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto">
                 <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
-                  <p>P.Pic</p>
+                  <img src={job.freelancer.profilePicture} className="w-13 h-11"></img>
                 </div>
                 <div className="pl-7 pr-20">
-                  <p className="font-semibold text-gray-400 my-2">Company Name</p>
+                  <p className="font-semibold text-gray-400 my-2">{job.freelancer.name}</p>
                   <p className="font-bold text-xl">{job.title}</p>
                   <div className="flex gap-2.5 mt-4">
                     <div className="flex items-center border border-gray-300 rounded p-1">
@@ -242,8 +242,22 @@ function Home() {
           ) : (
             <div>No jobs available</div>
           )}
+          <div className="flex flex-row mt-16 items-center">
+            <p className="mx-8 font-medium">1/2</p>
+            <button className="bg-blue-500 text-white font-bold px-3 py-1.5 rounded">Next</button>
+          </div>
+          <div className="mt-20">
+            <div className="flex items-center gap-x-36">
+            <div className="items-start">
+              <p className="font-bold text-3xl">Featured companies</p>
+              <p className="text-gray-500">These are the featured companies, I will come back to edit this text to <br /> ensure that it makes sense</p>
+            </div>
+            <div>
+              <button className="border border-gray-300 rounded px-2 py-0.5">See all companies</button>
+            </div>
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
   );
