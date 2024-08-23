@@ -68,27 +68,41 @@ function Home() {
   const [jobs, setJobs] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  // const [featured, setFeatured] = useState<any[]>([]);
+  const [featured, setFeatured] = useState<any[]>([]);
+
+  const fetchJobs = async () => {
+    try {
+      const response = await getAllJobs();
+      console.log("Fetched Jobs: ", response); 
+      if (response && response.service) {
+        setJobs(response.service);
+      } else {
+        setJobs([]);
+      }
+    } catch (error) {
+      console.error("Error fetching jobs: ", error);
+      setError("Failed to fetch jobs.");
+    }
+  };
+
+  const fetchFeatured = async () => {
+    try {
+      const response = await getFeaturedJob();
+      console.log("Fetched Featured Jobs: ", response);
+      if (response && response.service) {
+        setFeatured(response.service)
+      } else {
+        setFeatured([]);
+      }
+    } catch (error) {
+      console.error("Error fetching featured jobs: ", error)
+      setError("Failed to fetch featured jobs.");
+    }
+  };
 
   useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const response = await getAllJobs();
-        console.log('Fetched Jobs:', response); 
-        if (response && response.service) {
-          setJobs(response.service);
-        } else {
-          setJobs([]);
-        }
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching jobs:", error);
-        setError("Failed to fetch jobs.");
-        setLoading(false);
-      }
-    };
-
     fetchJobs();
+    fetchFeatured();
   }, []);
 
   if (loading) return <p>Loading...</p>;
@@ -248,30 +262,35 @@ function Home() {
             <button className="bg-blue-500 text-white font-bold px-3 py-1.5 rounded">Next</button>
           </div>
           <div className="mt-20">
-            <div className="flex items-center gap-x-36">
-            <div className="items-start">
-              <p className="font-bold text-3xl">Featured companies</p>
-              <p className="text-gray-500">These are the featured companies, I will come back to edit this text to <br /> ensure that it makes sense</p>
-            </div>
-            <div>
-              <button className="border border-gray-300 rounded px-2 py-0.5">See all companies</button>
-            </div>
-            </div>
-            <div>
-              <div className="container m-auto grid grid-col-4 md:grid-colls5 lg:grid-cols-8 gap-4">
-                <div className="flex gap-7">
-                  <div>P.P</div>
-                  <div>
-                    <p>Company</p>
-                    <div className="flex">
-                    <p>Learn more</p>
-                    <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+  <div className="flex items-center gap-x-36 mx-10 md:mx-52 my-10">
+    <div className="items-start">
+      <p className="font-bold text-3xl">Featured companies</p>
+      <p className="text-gray-500">
+        These are the featured companies, I will come back to edit this text to <br />
+        ensure that it makes sense
+      </p>
+    </div>
+    <div>
+      <button className="border border-gray-300 rounded px-2 py-0.5">See all companies</button>
+    </div>
+  </div>
+  <div className="container m-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto justify-items-center">
+      <div className="flex gap-7 bg-gray-300 p-2 w-full max-w-xs rounded">
+        <div>P.P</div>
+        <div>
+          <p>Company</p>
+          <div className="flex items-center">
+            <p>Learn more</p>
+            <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
           </div>
+        </div>
+      </div>
+      {/* Repeat the above block for each grid item */}
+    </div>
+  </div>
+</div>
+
         </div>
       </div>
     </div>
