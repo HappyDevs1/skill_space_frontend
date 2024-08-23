@@ -103,6 +103,7 @@ function Home() {
   useEffect(() => {
     fetchJobs();
     fetchFeatured();
+    setLoading(false);
   }, []);
 
   if (loading) return <p>Loading...</p>;
