@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAllJobs } from "../services/jobService";
+import { getAllJobs, getFeaturedJob } from "../services/jobService";
 import { FaSearch, FaCloud, FaCentercode } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import Select from "react-select";
@@ -68,6 +68,7 @@ function Home() {
   const [jobs, setJobs] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  // const [featured, setFeatured] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -255,6 +256,20 @@ function Home() {
             <div>
               <button className="border border-gray-300 rounded px-2 py-0.5">See all companies</button>
             </div>
+            </div>
+            <div>
+              <div className="container m-auto grid grid-col-4 md:grid-colls5 lg:grid-cols-8 gap-4">
+                <div className="flex gap-7">
+                  <div>P.P</div>
+                  <div>
+                    <p>Company</p>
+                    <div className="flex">
+                    <p>Learn more</p>
+                    <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
