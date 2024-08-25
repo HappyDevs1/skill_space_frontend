@@ -1,6 +1,7 @@
 import { useState } from "react";
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import { useNavigate } from "react-router-dom";
 import Home from "../src/components/Home";
 import About from "../src/components/About";
 import Contact from "../src/components/Contact";
@@ -11,8 +12,10 @@ import Signup from "../src/components/Signup";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  // let navigate = useNavigate();
   const login = () => {
     setIsAuthenticated(true);
+    // navigate("/login");
   }
   const logout = () => {
     setIsAuthenticated(false);
