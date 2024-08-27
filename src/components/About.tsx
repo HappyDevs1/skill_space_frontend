@@ -37,30 +37,30 @@ function About() {
               <div className="flex gap-7 p-2 w-full max-w-xs rounded">
                 <div className="flex flex-col items-center">
                   <p className="text-4xl font-bold">
-                    20,583 <span className="text-blue-500">+</span>
+                    581 <span className="text-blue-500">+</span>
                   </p>
                   <p className="text-gray-400 text-xs font-bold mt-3">
-                    JOB POSTED
+                    VERIFIED COMPANIES
                   </p>
                 </div>
               </div>
               <div className="flex gap-7 p-2 w-full max-w-xs rounded">
                 <div className="flex flex-col items-center">
                   <p className="text-4xl font-bold">
-                    20,583 <span className="text-blue-500">+</span>
+                    3,896 <span className="text-blue-500">+</span>
                   </p>
                   <p className="text-gray-400 text-xs font-bold mt-3">
-                    JOB POSTED
+                    SUCCESSFUL HIRES
                   </p>
                 </div>
               </div>
               <div className="flex gap-7 p-2 w-full max-w-xs rounded">
                 <div className="flex flex-col items-center">
                   <p className="text-4xl font-bold">
-                    20,583 <span className="text-blue-500">+</span>
+                    100K <span className="text-blue-500">+</span>
                   </p>
                   <p className="text-gray-400 text-xs font-bold mt-3">
-                    JOB POSTED
+                    MONTHLY VISITS
                   </p>
                 </div>
               </div>
