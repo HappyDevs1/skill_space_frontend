@@ -1,6 +1,8 @@
 import { LiaLightbulb } from "react-icons/lia";
 import { FaRegStar } from "react-icons/fa6";
 import { SiTicktick } from "react-icons/si";
+import { AiOutlineTeam, AiOutlineSafety } from "react-icons/ai";
+import { IoSearch } from "react-icons/io5";
 
 function About() {
   return (
@@ -82,10 +84,12 @@ function About() {
             will come back soon.
           </p>
           <div className="container m-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24 mx-auto justify-items-center">
-              <div className="flex flex-col p-4 w-full max-w-xs shadow-xl rounded">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-auto justify-items-center">
+              <div className="flex flex-col px-6 py-5 w-full max-w-xs shadow-xl rounded">
                 <div className="flex justify-between items-start">
-                  <LiaLightbulb className="self-start" />
+                  <div className="border rounded p-1">
+                  <LiaLightbulb className="self-start text-blue-500 text-xl" />
+                  </div>
                   <p className="font-bold text-center flex-1">Innovation</p>
                 </div>
                 <p className="text-gray-500 text-left mt-2">
@@ -95,10 +99,12 @@ function About() {
                 </p>
               </div>
 
-              <div className="flex flex-col p-4 w-full max-w-xs shadow-xl rounded">
+              <div className="flex flex-col px-6 py-5 w-full max-w-xs shadow-xl rounded">
                 <div className="flex justify-between items-start">
-                  <FaRegStar className="self-start" />
-                  <p className="font-bold text-center flex-1">Innovation</p>
+                  <div className="border rounded p-1">
+                  <FaRegStar className="self-start text-blue-500 text-lg" />
+                  </div>
+                  <p className="font-bold text-center flex-1">Accountability</p>
                 </div>
                 <p className="text-gray-500 text-left mt-2">
                   This is a test message about one of the values of the company;
@@ -107,10 +113,54 @@ function About() {
                 </p>
               </div>
 
-              <div className="flex flex-col p-4 w-full max-w-xs shadow-lg rounded">
+              <div className="flex flex-col px-6 py-5 w-full max-w-xs shadow-lg rounded">
                 <div className="flex justify-between items-start">
-                  <SiTicktick className="self-start" />
-                  <p className="font-bold text-center flex-1">Innovation</p>
+                  <div className="border rounded p-1">
+                  <SiTicktick className="self-start text-blue-500" />
+                  </div>
+                  <p className="font-bold text-center flex-1">Commitment</p>
+                </div>
+                <p className="text-gray-500 text-left mt-2">
+                  This is a test message about one of the values of the company;
+                  however, I will come back and edit this text. This is just a
+                  test message; I will come back to edit the text.
+                </p>
+              </div>
+
+              <div className="flex flex-col px-6 py-5 w-full max-w-xs shadow-lg rounded">
+                <div className="flex justify-between items-start">
+                  <div className="border rounded p-1">
+                  <AiOutlineTeam className="self-start text-blue-500 text-xl" />
+                  </div>
+                  <p className="font-bold text-center flex-1">Teamwork</p>
+                </div>
+                <p className="text-gray-500 text-left mt-2">
+                  This is a test message about one of the values of the company;
+                  however, I will come back and edit this text. This is just a
+                  test message; I will come back to edit the text.
+                </p>
+              </div>
+
+              <div className="flex flex-col px-6 py-5 w-full max-w-xs shadow-lg rounded">
+                <div className="flex justify-between items-start">
+                  <div className="border rounded p-1">
+                  <IoSearch className="self-start text-blue-500 text-lg" />
+                  </div>
+                  <p className="font-bold text-center flex-1">Transparency</p>
+                </div>
+                <p className="text-gray-500 text-left mt-2">
+                  This is a test message about one of the values of the company;
+                  however, I will come back and edit this text. This is just a
+                  test message; I will come back to edit the text.
+                </p>
+              </div>
+
+              <div className="flex flex-col px-6 py-5 w-full max-w-xs shadow-lg rounded">
+                <div className="flex justify-between items-start">
+                  <div className="border rounded p-1">
+                  <AiOutlineSafety className="self-start text-blue-500 text-xl" />
+                  </div>
+                  <p className="font-bold text-center flex-1">Security</p>
                 </div>
                 <p className="text-gray-500 text-left mt-2">
                   This is a test message about one of the values of the company;
