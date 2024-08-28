@@ -1,3 +1,4 @@
+import Postjob from "./Postjob";
 import { LiaLightbulb } from "react-icons/lia";
 import { FaRegStar } from "react-icons/fa6";
 import { SiTicktick } from "react-icons/si";
@@ -172,6 +173,7 @@ function About() {
           </div>
         </div>
       </div>
+      <Postjob />
     </div>
   );
 }
