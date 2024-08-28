@@ -86,7 +86,7 @@ function About() {
           </p>
           <div className="container m-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-auto justify-items-center">
-              <div className="flex flex-col px-6 py-5 w-full max-w-xs shadow-xl rounded">
+              <div className="flex flex-col px-6 py-5 w-full max-w-xs border-2 border-opacity-5 rounded">
                 <div className="flex justify-between items-start">
                   <div className="border rounded p-1">
                   <LiaLightbulb className="self-start text-blue-500 text-xl" />
@@ -100,7 +100,7 @@ function About() {
                 </p>
               </div>
 
-              <div className="flex flex-col px-6 py-5 w-full max-w-xs shadow-xl rounded">
+              <div className="flex flex-col px-6 py-5 w-full max-w-xs border-2 border-opacity-5 rounded">
                 <div className="flex justify-between items-start">
                   <div className="border rounded p-1">
                   <FaRegStar className="self-start text-blue-500 text-lg" />
@@ -114,7 +114,7 @@ function About() {
                 </p>
               </div>
 
-              <div className="flex flex-col px-6 py-5 w-full max-w-xs shadow-lg rounded">
+              <div className="flex flex-col px-6 py-5 w-full max-w-xs border-2 border-opacity-5 rounded">
                 <div className="flex justify-between items-start">
                   <div className="border rounded p-1">
                   <SiTicktick className="self-start text-blue-500" />
@@ -128,7 +128,7 @@ function About() {
                 </p>
               </div>
 
-              <div className="flex flex-col px-6 py-5 w-full max-w-xs shadow-lg rounded">
+              <div className="flex flex-col px-6 py-5 w-full max-w-xs border-2 border-opacity-5 rounded">
                 <div className="flex justify-between items-start">
                   <div className="border rounded p-1">
                   <AiOutlineTeam className="self-start text-blue-500 text-xl" />
@@ -142,7 +142,7 @@ function About() {
                 </p>
               </div>
 
-              <div className="flex flex-col px-6 py-5 w-full max-w-xs shadow-lg rounded">
+              <div className="flex flex-col px-6 py-5 w-full max-w-xs border-2 border-opacity-5 rounded">
                 <div className="flex justify-between items-start">
                   <div className="border rounded p-1">
                   <IoSearch className="self-start text-blue-500 text-lg" />
@@ -156,7 +156,7 @@ function About() {
                 </p>
               </div>
 
-              <div className="flex flex-col px-6 py-5 w-full max-w-xs shadow-lg rounded">
+              <div className="flex flex-col px-6 py-5 w-full max-w-xs border-2 border-opacity-5 rounded">
                 <div className="flex justify-between items-start">
                   <div className="border rounded p-1">
                   <AiOutlineSafety className="self-start text-blue-500 text-xl" />
