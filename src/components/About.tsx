@@ -11,7 +11,7 @@ function About() {
       <div className="flex justify-center bg-gray-100 py-24">
         <div className="flex flex-col items-center">
           <p className="font-bold text-4xl mb-5">About our company</p>
-          <p className="mb-7">
+          <p className="text-gray-500 mb-7">
             This is a small description about the company. I will come back to
             this text and <br /> edit this text so that it makes more sense.
             This is a test text, I will come back to it.
