@@ -48,7 +48,7 @@ function Blog() {
       <p className="text-white">This is a test message for the newsletter. I will come back to it to finalise this <br /> text. This is just a test message. I will come back to it to edit it later on, sharp.</p>
       <div className="flex gap-5 mt-7">
         <input className="w-80 h-9 px-5 rounded" placeholder="Enter your email address..." />
-        <button className="bg-white text-black">Subscribe</button>
+        <button className="bg-white text-black px-4 rounded">Subscribe</button>
       </div>
     </div>
   </div>
