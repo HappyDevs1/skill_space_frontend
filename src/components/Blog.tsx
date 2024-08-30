@@ -53,7 +53,22 @@ function Blog() {
     </div>
   </div>
 </div>
+<div className="flex flex-col">
+  <p className="font-bold text-4xl">Latest posts</p>
+  <div className="flex justify-end gap-4">
+    <button className="bg-blue-600 text-white text-xs rounded px-3 py-1">All</button>
+    <button className="border border-2 rounded px-3 py-1 text-xs">Marketing</button>
+    <button className="border border-2 rounded px-3 py-1 text-xs">Design</button>
+    <button className="border border-2 rounded px-3 py-1 text-xs">Development</button>
+  </div>
+<div className="container mx-auto p-4">
+  <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
+    <div className="flex flex-col items-center">
 
+    </div>
+    </div>
+  </div>
+</div>
     </div>
     </div>
   )
