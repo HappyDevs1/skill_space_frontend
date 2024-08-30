@@ -41,6 +41,18 @@ function Blog() {
   </div>
 </div>
 
+<div className="container mx-auto p-4">
+  <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
+    <div className="flex flex-col items-center bg-blue-600 rounded-lg shadow-lg my-20 py-14">
+      <h1 className="text-white font-bold text-4xl mb-4">Subscribe to our newsletter</h1>
+      <p className="text-white">This is a test message for the newsletter. I will come back to it to finalise this <br /> text. This is just a test message. I will come back to it to edit it later on, sharp.</p>
+      <div className="flex gap-5 mt-7">
+        <input className="w-80 h-9 px-5 rounded" placeholder="Enter your email address..." />
+        <button className="bg-white text-black">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     </div>
     </div>
