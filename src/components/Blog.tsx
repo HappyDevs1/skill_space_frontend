@@ -17,7 +17,7 @@ function Blog() {
     <div className="bg-white rounded-lg shadow-lg">
       <img src="https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/649cf7a8738eb73adf31d215_career-ui-ux-designer-featured-image-jobboardly-x-webflow-template-p-800.png" className="rounded-t-lg" />
       <div className="p-6">
-        <div className="flex items-center text-xs my-7">
+        <div className="flex items-center text-xs my-7 font-bold">
           <p className="text-blue-500 font-bold">DESIGN</p>
           <p className="text-gray-500 mx-3">-</p>
           <p className="text-gray-500">JUN 28, 2024</p>
@@ -29,8 +29,8 @@ function Blog() {
     <div className="bg-white rounded-lg shadow-lg">
       <img src="https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/649cf7ce647e2a80f773e00f_8-innovative-design-ideas-featured-image-jobboardly-x-webflow-template-p-800.png" className="rounded-t-lg" />
       <div className="p-6">
-      <div className="flex items-center text-xs my-7">
-          <p className="text-blue-500 font-bold">DESIGN</p>
+      <div className="flex items-center text-xs my-7 font-bold">
+          <p className="text-blue-500">DESIGN</p>
           <p className="text-gray-500 mx-3">-</p>
           <p className="text-gray-500">JUN 28, 2024</p>
         </div>
@@ -67,7 +67,7 @@ function Blog() {
       <img src="https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/649cf761ba75cbd927cb4823_technical-interview-thumbnail-image-jobboardly-x-webflow-template.png" className="rounded-t-xl" />
       <div className="p-6">
       <div className="flex items-center text-xs my-7 font-bold">
-          <p className="text-blue-500">DESIGN</p>
+          <p className="text-blue-500">DEVELOPMENT</p>
           <p className="text-gray-500 mx-3">-</p>
           <p className="text-gray-500">JUN 28, 2024</p>
         </div>
@@ -79,7 +79,7 @@ function Blog() {
       <img src="https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/649cf7892b81d5ad8223aa61_digital-marketing-trends-thumbnail-image-jobboardly-x-webflow-template.png" className="rounded-t-xl" />
       <div className="p-6">
       <div className="flex items-center text-xs my-7 font-bold">
-          <p className="text-blue-500">DESIGN</p>
+          <p className="text-blue-500">MARKETING</p>
           <p className="text-gray-500 mx-3">-</p>
           <p className="text-gray-500">JUN 28, 2024</p>
         </div>
@@ -115,7 +115,7 @@ function Blog() {
       <img src="https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/649cf8048fa7ad5b02bb0360_top-5-fastest-growing-marketing-thumbnail-image-jobboardly-x-webflow-template.png" className="rounded-t-xl" />
       <div className="p-6">
       <div className="flex items-center text-xs my-7 font-bold">
-          <p className="text-blue-500">DESIGN</p>
+          <p className="text-blue-500">MARKETING</p>
           <p className="text-gray-500 mx-3">-</p>
           <p className="text-gray-500">JUN 28, 2024</p>
         </div>
@@ -127,7 +127,7 @@ function Blog() {
       <img src="https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/649c36c8e477d081c9699dee_easily-collaborate-thumbnail-image-jobboardly-x-webflow-template.png" className="rounded-t-xl" />
       <div className="p-6">
       <div className="flex items-center text-xs my-7 font-bold">
-          <p className="text-blue-500">DESIGN</p>
+          <p className="text-blue-500">DEVELOPMENT</p>
           <p className="text-gray-500 mx-3">-</p>
           <p className="text-gray-500">JUN 28, 2024</p>
         </div>
@@ -137,6 +137,9 @@ function Blog() {
 
     </div>
   </div>
+  <div className="flex justify-center mt-7">
+      <button className="bg-blue-600 font-bold text-white px-3 py-1 rounded">Next</button>
+    </div>
 </div>
     </div>
     </div>
