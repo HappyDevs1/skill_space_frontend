@@ -62,10 +62,79 @@ function Blog() {
     <button className="border border-2 rounded px-3 py-1 text-xs">Development</button>
   </div>
 <div className="container mx-auto p-4">
-  <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
-    <div className="flex flex-col items-center">
-
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+    <div className="flex flex-col items-center shadow-lg rounded-xl">
+      <img src="https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/649cf761ba75cbd927cb4823_technical-interview-thumbnail-image-jobboardly-x-webflow-template.png" className="rounded-t-xl" />
+      <div className="p-6">
+      <div className="flex items-center text-xs my-7 font-bold">
+          <p className="text-blue-500">DESIGN</p>
+          <p className="text-gray-500 mx-3">-</p>
+          <p className="text-gray-500">JUN 28, 2024</p>
+        </div>
+        <h2 className="text-xl font-bold mb-2">8 innovative design ideas to make your resume pop</h2>
+      </div>
     </div>
+
+    <div className="flex flex-col items-center shadow-lg rounded-xl">
+      <img src="https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/649cf7892b81d5ad8223aa61_digital-marketing-trends-thumbnail-image-jobboardly-x-webflow-template.png" className="rounded-t-xl" />
+      <div className="p-6">
+      <div className="flex items-center text-xs my-7 font-bold">
+          <p className="text-blue-500">DESIGN</p>
+          <p className="text-gray-500 mx-3">-</p>
+          <p className="text-gray-500">JUN 28, 2024</p>
+        </div>
+        <h2 className="text-xl font-bold mb-2">8 innovative design ideas to make your resume pop</h2>
+      </div>
+    </div>
+
+    <div className="flex flex-col items-center shadow-lg rounded-xl">
+      <img src="https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/649cf7ac1c92b85a2e4387ed_career-ui-ux-designer-thumbnail-image-jobboardly-x-webflow-template.png" className="rounded-t-xl" />
+      <div className="p-6">
+      <div className="flex items-center text-xs my-7 font-bold">
+          <p className="text-blue-500">DESIGN</p>
+          <p className="text-gray-500 mx-3">-</p>
+          <p className="text-gray-500">JUN 28, 2024</p>
+        </div>
+        <h2 className="text-xl font-bold mb-2">8 innovative design ideas to make your resume pop</h2>
+      </div>
+    </div>
+
+    <div className="flex flex-col items-center shadow-lg rounded-xl">
+      <img src="https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/649cf7e4ea437f1f11997f45_8-innovative-design-ideas-thumbnail-image-jobboardly-x-webflow-template.png" className="rounded-t-xl" />
+      <div className="p-6">
+      <div className="flex items-center text-xs my-7 font-bold">
+          <p className="text-blue-500">DESIGN</p>
+          <p className="text-gray-500 mx-3">-</p>
+          <p className="text-gray-500">JUN 28, 2024</p>
+        </div>
+        <h2 className="text-xl font-bold mb-2">8 innovative design ideas to make your resume pop</h2>
+      </div>
+    </div>
+
+    <div className="flex flex-col items-center shadow-lg rounded-xl">
+      <img src="https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/649cf8048fa7ad5b02bb0360_top-5-fastest-growing-marketing-thumbnail-image-jobboardly-x-webflow-template.png" className="rounded-t-xl" />
+      <div className="p-6">
+      <div className="flex items-center text-xs my-7 font-bold">
+          <p className="text-blue-500">DESIGN</p>
+          <p className="text-gray-500 mx-3">-</p>
+          <p className="text-gray-500">JUN 28, 2024</p>
+        </div>
+        <h2 className="text-xl font-bold mb-2">8 innovative design ideas to make your resume pop</h2>
+      </div>
+    </div>
+
+    <div className="flex flex-col items-center shadow-lg rounded-xl">
+      <img src="https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/649c36c8e477d081c9699dee_easily-collaborate-thumbnail-image-jobboardly-x-webflow-template.png" className="rounded-t-xl" />
+      <div className="p-6">
+      <div className="flex items-center text-xs my-7 font-bold">
+          <p className="text-blue-500">DESIGN</p>
+          <p className="text-gray-500 mx-3">-</p>
+          <p className="text-gray-500">JUN 28, 2024</p>
+        </div>
+        <h2 className="text-xl font-bold mb-2">8 innovative design ideas to make your resume pop</h2>
+      </div>
+    </div>
+
     </div>
   </div>
 </div>
