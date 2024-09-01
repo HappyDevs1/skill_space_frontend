@@ -1,4 +1,6 @@
 import { MdHeadsetMic } from "react-icons/md";
+import { FaRegStar } from "react-icons/fa6";
+import { PiBuildings } from "react-icons/pi";
 
 function Contact() {
   return (
@@ -9,7 +11,7 @@ function Contact() {
         <div className="container mx-auto p-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-5">
             <div className="flex gap-6 items-center border-2 rounded-xl px-5 py-3">
-              <div className="border-2 px-2 py-2 rounded-lg">
+              <div className="border-2 px-1 py-1 rounded-lg">
               <MdHeadsetMic className="text-2xl text-blue-500" />
               </div>
               <div className="flex flex-col gap-0.5 font-bold text-sm">
@@ -18,9 +20,9 @@ function Contact() {
               </div>
             </div>
 
-            <div className="flex gap-6 px-6 py-5 w-full max-w-xs border-2 border-opacity-5 rounded-lg">
-              <div className="border-2 px-2 py-2 rounded-lg">
-              <MdHeadsetMic className="text-2xl text-blue-500" />
+            <div className="flex gap-6 items-center border-2 rounded-xl px-5 py-3">
+              <div className="border-2 px-1 py-1 rounded-lg">
+              <FaRegStar className="text-2xl text-blue-500 " />
               </div>
               <div className="flex flex-col gap-0.5 font-bold text-sm">
                 <p className="font-bold text-gray-400">FEATURED JOBS</p>
@@ -29,8 +31,8 @@ function Contact() {
             </div>
 
             <div className="flex gap-6 items-center border-2 rounded-xl px-5 py-3">
-              <div className="border-2 px-2 py-2 rounded-lg">
-              <MdHeadsetMic className="text-2xl text-blue-500" />
+              <div className="border-2 px-1 py-1 rounded-lg">
+              <PiBuildings className="text-2xl text-blue-500" />
               </div>
               <div className="flex flex-col gap-0.5 font-bold text-sm">
                 <p className="font-bold text-gray-400">PARTNERSHIPS</p>
@@ -38,6 +40,9 @@ function Contact() {
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          
         </div>
       </div>
     </div>
