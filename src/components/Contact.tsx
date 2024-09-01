@@ -1,3 +1,4 @@
+import AccordionExpandIcon from "./AccordionExpandIcon";
 import { MdHeadsetMic } from "react-icons/md";
 import { FaRegStar } from "react-icons/fa6";
 import { PiBuildings } from "react-icons/pi";
@@ -5,6 +6,8 @@ import { CiMail } from "react-icons/ci";
 import { BsTelephone } from "react-icons/bs";
 import { TiSocialYoutube, TiSocialLinkedin, TiSocialTwitter, TiSocialFacebook } from "react-icons/ti";
 import { AiFillInstagram } from "react-icons/ai";
+import { Accordion } from "@mui/material";
+
 
 function Contact() {
   return (
@@ -101,6 +104,13 @@ function Contact() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="flex flex-col items-center">
+          <p className="text-4xl font-bold">Frequently asked questions</p>
+          <p>This is a test message I will come back to it later on to edit it so that it make sense. <br /> This is just a test message I will therefore come back to it later on to edit it, Great !</p>
+        </div>
+        <div>
+          <AccordionExpandIcon />
         </div>
       </div>
     </div>
