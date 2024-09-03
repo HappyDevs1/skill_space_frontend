@@ -39,7 +39,7 @@ function Signup() {
         <div className="flex flex-col items-center px-16 py-10 rounded">
           <div className="flex flex-col items-center gap-3">
           <p className="font-bold text-4xl">Our numbers</p>
-          <p>This is a test message I will come back to it later on to fix it so <br /> that it makes sense. I will come back to it later on to finalise it.</p>
+          <p className="text-gray-500">This is a test message I will come back to it later on to fix it so <br /> that it makes sense. I will come back to it later on to finalise it.</p>
           </div>
           <div className="container m-auto">
             <div className="flex grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mx-auto justify-items-center">
