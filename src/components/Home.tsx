@@ -129,7 +129,7 @@ function Home() {
             <p>agency</p>
             <FaCloud className="mx-2" />
             <p>application</p>
-            <GrTechnology className="mx-2" />
+            <GrTechnology className="mx-2" /> 
             <p>business</p>
             <FaCentercode className="mx-2" />
             <p>company</p>
@@ -193,34 +193,43 @@ function Home() {
         </div>
         <div className="flex flex-col items-center justify-center w-full flex-grow mt-28">
           <p className="font-semibold text-xl mb-6">Feautured jobs</p>
-          <div className="flex border rounded border-gray-400 px-3 py-3 w-auto">
-            <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
-              <p>P.Pic</p>
-            </div>
-            <div className="pl-7 pr-20">
-              <p className="font-semibold text-gray-400 my-2">Facebook</p>
-              <p className="font-bold text-xl">Software engineer</p>
-              <div className="flex gap-2.5 mt-4">
-                <div className="flex items-center border border-gray-300 rounded p-1">
-                  <CiLocationOn className="text-blue-500 mr-1.5 h-3 w-3" />
-                  <p className="text-xs font-medium">Remote</p>
+          {
+            jobs.length > 0 ? (
+              jobs.map((job) => (
+                <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto">
+                <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
+                  <img src={job.freelancer.profilePicture} className="w-13 h-11"></img>
                 </div>
-                <div className="flex items-center border border-gray-300 rounded p-1">
-                  <VscGraph className="text-blue-500 mr-1.5 h-3 w-3" />
-                  <p className="text-xs font-medium">Senior</p>
+                <div className="pl-7 pr-20">
+                  <p className="font-semibold text-gray-400 my-2">{job.freelancer.name}</p>
+                  <p className="font-bold text-xl">{job.title}</p>
+                  <div className="flex gap-2.5 mt-4">
+                    <div className="flex items-center border border-gray-300 rounded p-1">
+                      <CiLocationOn className="text-blue-500 mr-1.5 h-3 w-3" />
+                      <p className="text-xs font-medium">{job.location}</p>
+                    </div>
+                    <div className="flex items-center border border-gray-300 rounded p-1">
+                      <VscGraph className="text-blue-500 mr-1.5 h-3 w-3" />
+                      <p className="text-xs font-medium">{job.level}</p>
+                    </div>
+                    <div className="flex items-center border border-gray-300 rounded p-1">
+                      <IoBriefcaseOutline className="text-blue-500 mr-1.5 h-3 w-3" />
+                      <p className="text-xs font-medium">{job.department}</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center border border-gray-300 rounded p-1">
-                  <IoBriefcaseOutline className="text-blue-500 mr-1.5 h-3 w-3" />
-                  <p className="text-xs font-medium">Technology</p>
+                <div>
+                  <div className="border border-gray-400 rounded">
+                <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
+                </div>
                 </div>
               </div>
-            </div>
-            <div>
-              <div className="border border-gray-400 rounded">
-            <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
-            </div>
-            </div>
-          </div>
+              ))
+            ) :
+            (
+              <div>No jobs available</div>
+            )
+          }
         </div>
         {/* Displaying latest jobs */}
         <div className="flex flex-col items-center justify-center w-full flex-grow mt-24">
@@ -277,19 +286,28 @@ function Home() {
     </div>
   </div>
   <div className="container m-auto">
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto justify-items-center">
-      <div className="flex gap-7 bg-gray-300 p-2 w-full max-w-xs rounded">
-        <div>P.P</div>
+    {
+      jobs.length > 0 ? (
+        jobs.map((job) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto justify-items-center">
+      <div className="flex gap-7 bg-gray-300 px-4 py-5 w-full max-w-xs rounded">
+        <img className="h-16 rounded-lg" src={job.freelancer.profilePicture} />
         <div>
-          <p>Company</p>
+          <p className="font-bold text-lg">{job.freelancer.name}</p>
           <div className="flex items-center">
             <p>Learn more</p>
             <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
           </div>
         </div>
       </div>
-      
     </div>
+        ))
+      ) :
+      (
+        <div>No featured companies</div>
+      )
+    }
+    
     <Postjob />
   </div>
 </div>
