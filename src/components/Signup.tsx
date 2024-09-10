@@ -1,4 +1,29 @@
+import { useState } from "react";
+import { createUser } from "../services/userService";
+import { Select } from "react-select"
+
+interface userForm {
+  name: string;
+  email: string;
+  password: string;
+}
+
 function Signup() {
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [role, setRole] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChange = async (event: React.FormEvent) => {
+    event.preventDefault();
+    try {
+      const result = await createUser({ name, email, password, role });
+      console.log(result);
+    } catch (error) {
+      setError((error as Error).message);
+    }
+  };
   return (
     <div>
       <div className="flex mt-24 justify-center mb-20">
@@ -25,7 +50,14 @@ function Signup() {
           </div>
           <div className="flex flex-col gap-3">
             <label>Confirm your password</label>
-            <input className="border-2 rounded px-3 py-1" placeholder="Enter your password" />
+            <input type="select" className="border-2 rounded px-3 py-1" placeholder="Enter your password" />
+          </div>
+          <div className="flex flex-col gap-3">
+            <label>Are you looking for a job or are you looking to hire?</label>
+            <select className="border-2 rounded px-3 py-1">
+              <option value="option1">I want a job</option>
+              <option value="option2">I want to hire</option>
+            </select>
           </div>
           <div className="flex gap-4">
             <input type="checkbox" className="self-start my-2" />
