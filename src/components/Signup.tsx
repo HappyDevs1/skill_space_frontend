@@ -16,6 +16,10 @@ function Signup() {
     try {
       const result = await createUser({ name, email, password, role });
       console.log(result);
+      setName("");
+      setEmail("");
+      setPassword("");
+      setRole(freelancer);
     } catch (error) {
       setError((error as Error).message);
     }
@@ -60,6 +64,7 @@ function Signup() {
                 <input
                   className="border-2 rounded px-3 py-1"
                   placeholder="Enter your password"
+                  type="password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                   required
@@ -87,7 +92,7 @@ function Signup() {
                   </p>
                 </div>
               </div>
-              <button className="bg-blue-600 text-white font-bold rounded py-1">
+              <button className="bg-blue-600 text-white font-bold rounded py-1" type="submit">
                 Sign up
               </button>
             </div>
