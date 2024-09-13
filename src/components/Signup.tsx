@@ -9,17 +9,19 @@ function Signup() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [role, setRole] = useState<string>(freelancer);
+  const [profilePicture, setProfilePicture] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      const result = await createUser({ name, email, password, role });
+      const result = await createUser({ name, email, password, role, profilePicture });
       console.log(result);
       setName("");
       setEmail("");
       setPassword("");
       setRole(freelancer);
+      setProfilePicture("");
     } catch (error) {
       setError((error as Error).message);
     }
