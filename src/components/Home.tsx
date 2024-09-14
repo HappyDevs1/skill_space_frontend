@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import  Postjob   from "./Postjob";
-import { getAllJobs, getFeaturedJob } from "../services/jobService";
+import { getAllJobs, getFeaturedJob, getJobByFilter } from "../services/jobService";
 import { FaSearch, FaCloud, FaCentercode } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import Select from "react-select";
@@ -70,6 +70,9 @@ function Home() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [featured, setFeatured] = useState<any[]>([]);
+  const [location, setLocation] = useState<string>("");
+  const [level, setLevel] = useState<string>("");
+  const [department, setDepartment] = useState<string>("");
 
   const fetchJobs = async () => {
     try {
@@ -117,6 +120,25 @@ function Home() {
     fetchData();
   }, []);
 
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault;
+    try {
+      const formData = new FormData;
+      formData.append("location", location);
+      formData.append("level", level);
+      formData.append("department", department);
+
+      const result = await getJobByFilter(formData);
+      console.log(result);
+
+      setLocation("");
+      setLevel("");
+      setDepartment("");
+    } catch (error) {
+      console.error("Error when searching for jobs.");
+    }
+  }
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
@@ -146,6 +168,7 @@ function Home() {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center w-full flex-grow">
+          <form onSubmit={handleSubmit}>
           <div className="flex items-center border border-gray-400 rounded p-4 w-max">
             <div className="flex items-center rounded border border-gray-300">
               <div className="flex items-center p-2">
@@ -156,7 +179,7 @@ function Home() {
                 placeholder="Search for jobs"
                 className="flex-grow py-2 px-2 focus:outline-none"
               />
-              <button className="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600" type="submit">
                 Search
               </button>
             </div>
@@ -200,6 +223,7 @@ function Home() {
               </div>
             </div>
           </div>
+          </form>
         </div>
         <div className="flex flex-col items-center justify-center w-full flex-grow mt-28">
           <p className="font-semibold text-xl mb-6">Feautured jobs</p>
