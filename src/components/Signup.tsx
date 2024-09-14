@@ -9,23 +9,35 @@ function Signup() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [role, setRole] = useState<string>(freelancer);
-  const [profilePicture, setProfilePicture] = useState<string>("");
+  const [profilePicture, setProfilePicture] = useState<File | null>(null);
   const [error, setError] = useState<string | null>(null);
-
+  const [successMessage, setSuccessMessage] = useState<string | null>(null)
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      const result = await createUser({ name, email, password, role, profilePicture });
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("role", role);
+
+      if (profilePicture) {
+        formData.append("profilePicture", profilePicture);
+      }
+
+      const result = await createUser(formData);
       console.log(result);
       setName("");
       setEmail("");
       setPassword("");
       setRole(freelancer);
-      setProfilePicture("");
+      setProfilePicture(null);
+      setSuccessMessage("User created successfully!");
     } catch (error) {
       setError((error as Error).message);
     }
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -85,6 +97,16 @@ function Signup() {
                   <option value={client}>I want to hire</option>
                 </select>
               </div>
+              {/* <div>
+                <label>Profile Picture</label>
+                <input type="file" accept="image/*" onChange={(event) => {
+                  if (event.target.files && event.target.files.length > 0) {
+                    setProfilePicture(event.target.files[0]);
+                  } else {
+                    setProfilePicture(null);
+                  }
+                }}/>
+              </div> */}
               <div className="flex gap-4">
                 <input type="checkbox" className="self-start my-2" />
                 <div className="flex flex-col">
