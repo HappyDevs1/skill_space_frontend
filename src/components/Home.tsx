@@ -90,8 +90,8 @@ function Home() {
     try {
       const response = await getFeaturedJob();
       console.log("Fetched Featured Jobs: ", response);
-      if (response && response.service) {
-        setFeatured(response.service)
+      if (response && response.services) {
+        setFeatured(response.services)
       } else {
         setFeatured([]);
       }
@@ -102,9 +102,19 @@ function Home() {
   };
 
   useEffect(() => {
-    fetchJobs();
-    fetchFeatured();
-    setLoading(false);
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        await Promise.all([fetchJobs(), fetchFeatured()]);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data", error);
+        setError("Failed to fetch data.");
+        setLoading(false);
+      }
+    };
+    
+    fetchData();
   }, []);
 
   if (loading) return <p>Loading...</p>;
@@ -194,8 +204,8 @@ function Home() {
         <div className="flex flex-col items-center justify-center w-full flex-grow mt-28">
           <p className="font-semibold text-xl mb-6">Feautured jobs</p>
           {
-            jobs.length > 0 ? (
-              jobs.map((job) => (
+            featured.length > 0 ? (
+              featured.map((job) => (
                 <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto">
                 <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
                   <img src={job.freelancer.profilePicture} className="w-13 h-11"></img>
