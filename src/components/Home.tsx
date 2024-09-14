@@ -70,6 +70,7 @@ function Home() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [featured, setFeatured] = useState<any[]>([]);
+  const [title, setTitle] = useState<string>("");
   const [location, setLocation] = useState<string>("");
   const [level, setLevel] = useState<string>("");
   const [department, setDepartment] = useState<string>("");
@@ -121,23 +122,26 @@ function Home() {
   }, []);
 
   const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault;
+    event.preventDefault();
     try {
-      const formData = new FormData;
-      formData.append("location", location);
-      formData.append("level", level);
-      formData.append("department", department);
-
-      const result = await getJobByFilter(formData);
-      console.log(result);
-
+      const response = await getJobByFilter({
+        title,
+        location,
+        level,
+        department
+      });
+      console.log(response);
+      setTitle("");
       setLocation("");
       setLevel("");
       setDepartment("");
     } catch (error) {
-      console.error("Error when searching for jobs.");
+      console.error("Error when searching for jobs: ", error);
+      setError("Failed to search for jobs.");
     }
-  }
+  };
+  
+  
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -178,6 +182,8 @@ function Home() {
                 type="text"
                 placeholder="Search for jobs"
                 className="flex-grow py-2 px-2 focus:outline-none"
+                value={title}
+                onChange={(event) => {setTitle(event.target.value)}}
               />
               <button className="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600" type="submit">
                 Search
@@ -190,9 +196,11 @@ function Home() {
               <div className="w-48">
                 <Select
                   options={locationDropdown}
+                  value={locationDropdown.find(option => option.value === location)}
                   placeholder="Location"
                   classNamePrefix="react-select"
                   styles={customStyles}
+                  onChange={(selectedOption) => setLocation(selectedOption?.value || "")}
                 />
               </div>
             </div>
@@ -203,9 +211,11 @@ function Home() {
               <div className="w-48">
                 <Select
                   options={levelDropdown}
+                  value={levelDropdown.find(option => option.value === level)}
                   placeholder="Job level"
                   classNamePrefix="react-select"
                   styles={customStyles}
+                  onChange={(selectedOption) => {setLevel(selectedOption?.value || "")}}
                 />
               </div>
             </div>
@@ -216,9 +226,11 @@ function Home() {
               <div className="w-48">
                 <Select
                   options={departmentDropdown}
+                  value={departmentDropdown.find(option => option.value === department)}
                   placeholder="Department"
                   classNamePrefix="react-select"
                   styles={customStyles}
+                  onChange={(selectedOption) => {setDepartment(selectedOption?.value || "")}}
                 />
               </div>
             </div>

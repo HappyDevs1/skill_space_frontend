@@ -39,9 +39,9 @@ export const getJobById = async (id: string) => {
   }
 };
 
-export const getJobByFilter = async (filterData: any) => {
+export const getJobByFilter = async (filters: { title: string, location: string, level: string, department: string }) => {
   try {
-    const response = await apiClient.get("/filter", { params: filterData });
+    const response = await apiClient.get("/filter", { params: filters });
     return response.data;
   } catch (error) {
     console.error("Error fetching filtered jobs", error);
