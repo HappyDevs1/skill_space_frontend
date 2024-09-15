@@ -71,7 +71,7 @@ SkillSpace</a>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/filter" element={<SearchedJobsPage />} />
-          <Route path="/services/:id" element={<ViewJob />} />
+          <Route path="/job/:id" element={<ViewJob />} />
         </Routes>
       </Router>
     </div>
