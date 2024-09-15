@@ -15,6 +15,14 @@ function SearchedJobsPage() {
     navigate(-1);
   };
 
+  const handleJobClick = async (jobId: any) => {
+    try {
+      navigate(`/job/${jobId}`, { state: { filteredJobs: filteredJobs }});
+    } catch (error) {
+      console.error("Failed to fetch the job.", error);
+    }
+  };
+
   return (
     <div className="mx-36 my-8">
       <div className="flex flex-col gap-12">
@@ -38,6 +46,7 @@ function SearchedJobsPage() {
                   <div
                     key={job._id}
                     className="flex gap-7 justify-center py-4 w-full max-w-xs rounded-lg border-2"
+                    onClick={() => {handleJobClick(job._id)}}
                   >
                     <div className="px-7 py-3">
                       <div className="flex justify-between">
