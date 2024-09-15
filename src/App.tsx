@@ -8,6 +8,8 @@ import Contact from "../src/components/Contact";
 import Blog from "../src/components/Blog";
 import Login from "../src/components/Login";
 import Signup from "../src/components/Signup";
+import SearchedJobsPage from "./components/SearchedJobsPage";
+import ViewJob from "./components/ViewJob";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -68,6 +70,8 @@ SkillSpace</a>
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/filter" element={<SearchedJobsPage />} />
+          <Route path="/services/:id" element={<ViewJob />} />
         </Routes>
       </Router>
     </div>
