@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import Postjob from "./Postjob";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { VscGraph } from "react-icons/vsc";
@@ -17,7 +18,6 @@ function SearchedJobsPage() {
         </div>
         <div className="flex gap-64 items-center">
           <div className="flex flex-col">
-            <p className="font-bold text-gray-400">SORT BY</p>
           </div>
           <div className="flex flex-col gap-3">
             <p className="font-bold text-3xl text-gray-700">Found Results</p>
@@ -71,6 +71,7 @@ function SearchedJobsPage() {
           </div>
         </div>
       </div>
+      <Postjob />
     </div>
   );
 }
