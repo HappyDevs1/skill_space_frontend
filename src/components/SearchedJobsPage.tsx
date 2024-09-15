@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Postjob from "./Postjob";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
@@ -7,13 +7,19 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 
 function SearchedJobsPage() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { filteredJobs } = location.state || {};
+
+
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   return (
     <div className="mx-36 my-8">
       <div className="flex flex-col gap-12">
         <div className="flex gap-1 items-center">
-          <IoIosArrowRoundBack className="h-7 w-7 text-gray-500" />
+          <IoIosArrowRoundBack className="h-7 w-7 text-gray-500" onClick={handleBack} />
           <p className="text">Back to all jobs</p>
         </div>
         <div className="flex gap-64 items-center">
