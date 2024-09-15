@@ -32,7 +32,7 @@ export const getAllJobs = async () => {
 export const getJobById = async (id: string) => {
   try {
     const response = await apiClient.get(`/${id}`);
-    return response.data;
+    return response.data.service;
   } catch (error) {
     console.error("Error fetching job by id", error);
     throw error;
