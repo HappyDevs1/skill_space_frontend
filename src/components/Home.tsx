@@ -9,6 +9,7 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { GrTechnology } from "react-icons/gr";
 import { DiCompass } from "react-icons/di";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 // interface Job {
 //   _id: string;
@@ -74,6 +75,8 @@ function Home() {
   const [location, setLocation] = useState<string>("");
   const [level, setLevel] = useState<string>("");
   const [department, setDepartment] = useState<string>("");
+  const [results, setResults] = useState<any[]>([]);
+  const navigate = useNavigate();
 
   const fetchJobs = async () => {
     try {
@@ -121,16 +124,18 @@ function Home() {
     fetchData();
   }, []);
 
-  const handleSubmit = async (event: React.FormEvent) => {
+  const handleSearch = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      const response = await getJobByFilter({
+      const filteredJobs = await getJobByFilter({
         title,
         location,
         level,
         department
       });
-      console.log(response);
+      console.log(filteredJobs);
+
+      navigate("/filter", { state: {filteredJobs: filteredJobs}})
       setTitle("");
       setLocation("");
       setLevel("");
@@ -172,7 +177,7 @@ function Home() {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center w-full flex-grow">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSearch}>
           <div className="flex items-center border border-gray-400 rounded p-4 w-max">
             <div className="flex items-center rounded border border-gray-300">
               <div className="flex items-center p-2">
@@ -242,7 +247,7 @@ function Home() {
           {
             featured.length > 0 ? (
               featured.map((job) => (
-                <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto">
+                <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto cursor-pointer">
                 <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
                   <img src={job.freelancer.profilePicture} className="w-13 h-11"></img>
                 </div>
@@ -282,7 +287,7 @@ function Home() {
           <p className="font-semibold text-xl mb-6">Latest jobs</p>
           {jobs.length > 0 ? (
             jobs.map((job) => (
-              <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto">
+              <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto cursor-pointer mb-5">
                 <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
                   <img src={job.freelancer.profilePicture} className="w-13 h-11"></img>
                 </div>
@@ -332,27 +337,28 @@ function Home() {
     </div>
   </div>
   <div className="container m-auto">
-    {
-      jobs.length > 0 ? (
-        jobs.map((job) => (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto justify-items-center">
-      <div className="flex gap-7 bg-gray-300 px-4 py-5 w-full max-w-xs rounded">
-        <img className="h-16 rounded-lg" src={job.freelancer.profilePicture} />
-        <div>
-          <p className="font-bold text-lg">{job.freelancer.name}</p>
-          <div className="flex items-center">
-            <p>Learn more</p>
-            <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
+  {
+  jobs.length > 0 ? (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {jobs.map((job) => (
+        <div key={job._id} className="bg-gray-300 px-4 py-5 w-full max-w-xs rounded flex items-center gap-4 cursor-pointer">
+          <img className="h-16 rounded-lg" src={job.freelancer.profilePicture} alt={job.freelancer.name} />
+          <div>
+            <p className="font-bold text-lg">{job.freelancer.name}</p>
+            <div className="flex items-center mt-2">
+              <p>Learn more</p>
+              <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
+            </div>
           </div>
         </div>
-      </div>
+      ))}
     </div>
-        ))
-      ) :
-      (
-        <div>No featured companies</div>
-      )
-    }
+  ) : (
+    <div>No featured companies</div>
+  )
+}
+
+
     
     <Postjob />
   </div>
