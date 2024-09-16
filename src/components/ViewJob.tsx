@@ -63,9 +63,10 @@ function ViewJob() {
             <p>See all jobs</p>
             </div>
             <div className="flex justify-between my-10 w-9/10">
-              <div className="flex flex-col border-2 px-8 py-7">
+            <div>
+              <div className="flex flex-col border-2 px-8 py-7 bg-gray-100">
                 <div className="flex gap-5">
-                  <div className="bg-gray-200 items-center px-5 py-5 rounded-lg">
+                  <div className="bg-gray-300 items-center px-5 py-5 rounded-lg">
                     <p>P.P</p>
                   </div>
                   <div className="flex flex-col">
@@ -100,11 +101,18 @@ function ViewJob() {
                   </div>
                 </div>
                 </div>
-              <div className="flex 1/10">
+                <div className="flex flex-col">
+                  <div className="flex">
+                    <p>Job description</p>
+                    <p>Posted on: {job.createdAt}</p>
+                  </div>
+                </div>
+            </div>
+            <div className="flex 1/10">
                 <p>Hello world</p>
               </div>
-            </div>
             <div className="">
+              </div>
             </div>
           </div>
         ) : (
