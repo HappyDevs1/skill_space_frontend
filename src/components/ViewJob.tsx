@@ -63,8 +63,8 @@ function ViewJob() {
             <p>See all jobs</p>
             </div>
             <div className="flex justify-between my-10 w-9/10">
-            <div>
-              <div className="flex flex-col border-2 px-8 py-7 bg-gray-100">
+            <div className="border-2">
+              <div className="flex flex-col px-8 py-7 bg-gray-100">
                 <div className="flex gap-5">
                   <div className="bg-gray-300 items-center px-5 py-5 rounded-lg">
                     <p>P.P</p>
@@ -101,10 +101,14 @@ function ViewJob() {
                   </div>
                 </div>
                 </div>
-                <div className="flex flex-col">
-                  <div className="flex">
+                <div className="flex flex-col px-10">
+                  <div className="flex justify-between">
                     <p>Job description</p>
-                    <p>Posted on: {job.createdAt}</p>
+                    <p><span className="font-bold">Posted on:</span>{new Date(job.createdAt).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric"
+                    })}</p>
                   </div>
                 </div>
             </div>
