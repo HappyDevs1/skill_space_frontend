@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getJobById } from "../services/jobService";
 import { IoIosArrowRoundBack } from "react-icons/io";
+import { CiLocationOn } from "react-icons/ci";
+import { IoBriefcaseOutline } from "react-icons/io5";
+import { VscGraph } from "react-icons/vsc";
 
 interface Freelancer {
   _id: string;
@@ -49,18 +52,57 @@ function ViewJob() {
 
   return (
     <div>
-      <div className="mx-36 my-8">
+      <div className="mx-36 my-8 flex">
       {
         job ? (
-          <div>
+          <div className="flex flex-col w-full">
             <div className="flex items-center">
             <IoIosArrowRoundBack className="h-7 w-7 text-gray-500" onClick={handleBack} />
             <p>See all jobs</p>
             </div>
-            <h1>{job.title}</h1>
-            <p>{job.description}</p>
-            <p>{job.department}</p>
-            <p>Freelancer: {job.freelancer.name}</p>
+            <div className="flex justify-between my-10 w-9/10">
+              <div className="flex flex-col border-2 px-8 py-7">
+                <div className="flex gap-5">
+                  <div className="bg-gray-200 items-center px-5 py-5 rounded-lg">
+                    <p>P.P</p>
+                  </div>
+                  <div className="flex flex-col">
+                    <p>{job.freelancer.name}</p>
+                    <p>{job.title}</p>
+                  </div>
+                </div>
+                <div className="flex my-5">
+                <p className="text-gray-500">{job.freelancer.name} is looking for a {job.title} to join their team.</p>
+                </div>
+                <div className="flex gap-3">
+                  <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
+                  <CiLocationOn className="text-blue-600" />
+                  <p>{job.location}</p>
+                  </div>
+                  <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
+                  <IoBriefcaseOutline className="text-blue-600" />
+                  <p>{job.department}</p>
+                  </div>
+                  <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
+                  <VscGraph className="text-blue-600" />
+                  <p>{job.level}</p>
+                  </div>
+                  <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
+                  <CiLocationOn className="text-blue-600" />
+                  <p>{job.location}</p>
+                  </div>
+                  <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
+                  <CiLocationOn className="text-blue-600" />
+                  <p>{job.location}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex 1/10">
+                <p>Hello world</p>
+              </div>
+            </div>
+            <div className="">
+            </div>
           </div>
         ) : (
           <p>Job not found</p>
