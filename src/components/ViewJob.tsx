@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getJobById } from "../services/jobService";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 interface Freelancer {
   _id: string;
@@ -20,13 +21,14 @@ interface Job {
 }
 
 function ViewJob() {
-  const { id } = useParams<{ id: string }>(); // Get the job ID from the URL
-  const [job, setJob] = useState<Job | null>(null); // Explicitly typing the state
+  const { id } = useParams<{ id: string }>();
+  const [job, setJob] = useState<Job | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const data = await getJobById(id); // Fetch the job details using the job ID
+        const data = await getJobById(id);
         setJob(data);
         console.log("Viewed job: ", data)
       } catch (error) {
@@ -41,21 +43,30 @@ function ViewJob() {
     return <div>Loading...</div>;
   }
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div>
+      <div className="mx-36 my-8">
       {
         job ? (
           <div>
+            <div className="flex items-center">
+            <IoIosArrowRoundBack className="h-7 w-7 text-gray-500" onClick={handleBack} />
+            <p>See all jobs</p>
+            </div>
             <h1>{job.title}</h1>
             <p>{job.description}</p>
             <p>{job.department}</p>
             <p>Freelancer: {job.freelancer.name}</p>
-            {/* Display more details as needed */}
           </div>
         ) : (
           <p>Job not found</p>
         )
       }
+      </div>
     </div>
   );
 }
