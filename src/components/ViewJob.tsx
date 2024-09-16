@@ -5,6 +5,8 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { VscGraph } from "react-icons/vsc";
+import { IoMdTime } from "react-icons/io";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
 
 interface Freelancer {
   _id: string;
@@ -88,15 +90,16 @@ function ViewJob() {
                   <p>{job.level}</p>
                   </div>
                   <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
-                  <CiLocationOn className="text-blue-600" />
-                  <p>{job.location}</p>
+                  <IoMdTime className="text-blue-600 font-bold"/>
+                  {/* Will come back to edit this to make it dynamic */}
+                  <p>Full Time</p>
                   </div>
                   <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
-                  <CiLocationOn className="text-blue-600" />
-                  <p>{job.location}</p>
+                  <RiMoneyDollarCircleLine className="text-blue-600" />
+                  <p>R {job.price} ZAR</p>
                   </div>
                 </div>
-              </div>
+                </div>
               <div className="flex 1/10">
                 <p>Hello world</p>
               </div>
