@@ -7,6 +7,7 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { VscGraph } from "react-icons/vsc";
 import { IoMdTime } from "react-icons/io";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { MdOutlinePostAdd } from "react-icons/md";
 
 interface Freelancer {
   _id: string;
@@ -132,7 +133,18 @@ function ViewJob() {
                   </div>
                   <p className="font-bold text-xl">About {job.freelancer.name}</p>
                   <p>This is the about information about this company. This is still a test message I will come back to it to make it make sense though.</p>
-                  <button className="bg-gray-200 px-3 py-1 rounded">View Company</button>
+                  <button className="bg-gray-200 font-bold px-3 py-1 rounded">View Company</button>
+                </div>
+                <div className="flex flex-col gap-4 border-2 px-5 py-5 rounded-lg">
+                  <div className="flex">
+                    <div className="border-2 rounded-lg px-1 py-1">
+                    <MdOutlinePostAdd className="text-4xl text-blue-500"/>
+                    </div>
+                  </div>
+                  <p className="font-bold text-xl">Post a job today</p>
+                  <p>This is the about information about this company. This is still a test message I will come back to it to make it make sense though.</p>
+                  <button className="bg-blue-500 text-white px-3 py-1 rounded font-bold">Post a job</button>
+                  <p className="text-gray-500 underline self-center text-lg">or post a free job</p>
                 </div>
               </div>
             </div>
