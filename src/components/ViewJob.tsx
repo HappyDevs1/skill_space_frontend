@@ -70,12 +70,12 @@ function ViewJob() {
               <div className="border-2 w-[70%]">
                 <div className="flex flex-col px-8 py-7 bg-gray-100">
                   <div className="flex gap-5">
-                    <div className="bg-gray-300 items-center px-5 py-5 rounded-lg">
-                      <p>P.P</p>
-                    </div>
-                    <div className="flex flex-col">
-                      <p>{job.freelancer.name}</p>
-                      <p>{job.title}</p>
+                    <div className="bg-blue-100 px-3 py-3 rounded-lg">
+                  <img src={job.freelancer.profilePicture} className="h-16 w-auto rounded-lg"></img>
+                  </div>
+                    <div className="flex flex-col justify-center gap-1">
+                      <p className="font-bold text-gray-500">{job.freelancer.name}</p>
+                      <p className="font-bold text-xl">{job.title}</p>
                     </div>
                   </div>
 
@@ -110,8 +110,8 @@ function ViewJob() {
 
                 {/* Job description */}
                 <div className="flex flex-col px-10">
-                  <div className="flex justify-between">
-                    <p>Job description</p>
+                  <div className="flex justify-between mt-20 mb-7">
+                    <p className="font-bold text-lg">Job description</p>
                     <p>
                       <span className="font-bold">Posted on:</span>{" "}
                       {new Date(job.createdAt).toLocaleDateString("en-US", {
@@ -129,7 +129,7 @@ function ViewJob() {
               <div className="flex flex-col w-[30%] p-4 gap-5">
                 <div className="flex flex-col gap-4 border-2 px-5 py-5 rounded-lg">
                   <div className="flex">
-                    <div className="bg-gray-200 px-3 py-2 rounded-lg">P.P</div>
+                    <img src={job.freelancer.profilePicture} className="h-10 w-auto rounded-lg"></img>
                   </div>
                   <p className="font-bold text-xl">About {job.freelancer.name}</p>
                   <p>This is the about information about this company. This is still a test message I will come back to it to make it make sense though.</p>
@@ -147,6 +147,80 @@ function ViewJob() {
                   <p className="text-gray-500 underline self-center text-lg">or post a free job</p>
                 </div>
               </div>
+            </div>
+            <div className="flex flex-col">
+              <div className="flex justify-between">
+                <p className="font-bold text-xl">More job openings</p>
+                <button className="bg-gray-100 border-2 px-3 py-1 rounded font-bold text-sm">See all jobs</button>
+              </div>
+          <div className="flex justify-evenly gap-10 my-7">
+          <div className="flex flex-col border-2 rounded-lg px-10 py-10 w-[50%] gap-5">
+              <div className="flex items-center gap-5">
+              <div className="flex">
+              <img src={job.freelancer.profilePicture} className="h-14 rounded-xl"></img>
+              </div>
+              <div>
+                <p className="font-bold text-gray-400">Microsoft</p>
+                <p className="font-bold text-lg">Systems Administator</p>
+              </div>
+              </div>
+              <div>
+                <p className="text-gray-500">This is a test message, but I will come back to it to edit it to make it make sense. But for now I will use it just to test.</p>
+              </div>
+              <div className="flex justify-between">
+                <div className="flex gap-1 text-sm">
+                <div className="flex gap-2 border-2 rounded px-2 items-center">
+                  <CiLocationOn />
+                  <p>Location</p>
+                </div>
+                <div className="flex gap-2 border-2 rounded px-2 items-center">
+                <VscGraph />
+                  <p>Level</p>
+                </div>
+                <div className="flex gap-2 border-2 rounded px-2 items-center">
+                  <IoBriefcaseOutline />
+                  <p>Department</p>
+                </div>
+              </div>
+              <div>
+                <button className="bg-gray-100 px-3 py-1 rounded border-2 text-sm font-bold">Apply now</button>
+              </div>
+              </div>
+            </div>
+            <div className="flex flex-col border-2 rounded-lg px-10 py-10 w-[50%] gap-5">
+              <div className="flex items-center gap-5">
+              <div className="flex">
+              <img src={job.freelancer.profilePicture} className="h-14 rounded-xl"></img>
+              </div>
+              <div>
+                <p className="font-bold text-gray-400">Google</p>
+                <p className="font-bold text-lg">Mobile product manager</p>
+              </div>
+              </div>
+              <div>
+                <p className="text-gray-500">This is a test message, but I will come back to it to edit it to make it make sense. But for now I will use it just to test.</p>
+              </div>
+              <div className="flex justify-between">
+                <div className="flex gap-1 text-sm">
+                <div className="flex gap-2 border-2 rounded px-2 items-center">
+                  <CiLocationOn />
+                  <p>Location</p>
+                </div>
+                <div className="flex gap-2 border-2 rounded px-2 items-center">
+                <VscGraph />
+                  <p>Level</p>
+                </div>
+                <div className="flex gap-2 border-2 rounded px-2 items-center">
+                  <IoBriefcaseOutline />
+                  <p>Department</p>
+                </div>
+              </div>
+              <div>
+                <button className="bg-gray-100 px-3 py-1 rounded border-2 text-sm font-bold">Apply now</button>
+              </div>
+              </div>
+            </div>
+          </div>
             </div>
           </div>
         ) : (
