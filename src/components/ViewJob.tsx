@@ -8,6 +8,7 @@ import { VscGraph } from "react-icons/vsc";
 import { IoMdTime } from "react-icons/io";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { MdOutlinePostAdd } from "react-icons/md";
+import { CiCalendar } from "react-icons/ci";
 
 interface Freelancer {
   _id: string;
@@ -111,7 +112,9 @@ function ViewJob() {
                 {/* Job description */}
                 <div className="flex flex-col px-10">
                   <div className="flex justify-between mt-20 mb-7">
-                    <p className="font-bold text-lg">Job description</p>
+                    <p className="font-bold text-xl">Job description</p>
+                    <div className="flex items-center gap-1">
+                    <CiCalendar className="text-xl"/>
                     <p className="text-gray-500">
                       <span className="font-bold text-black">Posted on:</span>{" "}
                       {new Date(job.createdAt).toLocaleDateString("en-US", {
@@ -120,6 +123,7 @@ function ViewJob() {
                         day: "numeric",
                       })}
                     </p>
+                    </div>
                   </div>
                   <p className="text-gray-500">{job.description} This is a test message, I will come back to it to edit it. This is just a test message I will come back to edit it later on. This is just a test message I will come back to it later on to make it make much more sense.</p>
                 </div>
