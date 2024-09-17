@@ -60,7 +60,7 @@ function ViewJob() {
           <div className="flex flex-col w-full">
             {/* Back button */}
             <div className="flex items-center">
-              <IoIosArrowRoundBack className="h-7 w-7 text-gray-500" onClick={handleBack} />
+              <IoIosArrowRoundBack className="h-7 w-7 text-gray-500 cursor-pointer" onClick={handleBack} />
               <p>See all jobs</p>
             </div>
 
@@ -144,7 +144,7 @@ function ViewJob() {
                   <p className="font-bold text-xl">Post a job today</p>
                   <p className="text-gray-500">This is the about information about this company. This is still a test message I will come back to it to make it make sense though.</p>
                   <button className="bg-blue-500 text-white px-3 py-1 rounded font-bold">Post a job</button>
-                  <p className="text-gray-500 underline self-center text-lg">or post a free job</p>
+                  <p className="text-gray-500 underline self-center text-lg cursor-pointer">or post a free job</p>
                 </div>
               </div>
             </div>
@@ -154,7 +154,7 @@ function ViewJob() {
                 <button className="bg-gray-100 border-2 px-3 py-1 rounded font-bold text-sm">See all jobs</button>
               </div>
           <div className="flex justify-evenly gap-10 my-7">
-          <div className="flex flex-col border-2 rounded-lg px-10 py-10 w-[50%] gap-5">
+          <div className="flex flex-col border-2 rounded-lg px-10 py-10 w-[50%] gap-5 cursor-pointer">
               <div className="flex items-center gap-5">
               <div className="flex">
               <img src={job.freelancer.profilePicture} className="h-14 rounded-xl"></img>
@@ -187,7 +187,7 @@ function ViewJob() {
               </div>
               </div>
             </div>
-            <div className="flex flex-col border-2 rounded-lg px-10 py-10 w-[50%] gap-5">
+            <div className="flex flex-col border-2 rounded-lg px-10 py-10 w-[50%] gap-5 cursor-pointer">
               <div className="flex items-center gap-5">
               <div className="flex">
               <img src={job.freelancer.profilePicture} className="h-14 rounded-xl"></img>
