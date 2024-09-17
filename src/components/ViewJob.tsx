@@ -35,9 +35,9 @@ function ViewJob() {
       try {
         const data = await getJobById(id);
         setJob(data);
-        console.log("Viewed job: ", data)
+        console.log("Viewed job: ", data);
       } catch (error) {
-        console.error('Error fetching job details:', error);
+        console.error("Error fetching job details:", error);
       }
     };
 
@@ -55,74 +55,91 @@ function ViewJob() {
   return (
     <div>
       <div className="mx-36 my-8 flex">
-      {
-        job ? (
+        {job ? (
           <div className="flex flex-col w-full">
+            {/* Back button */}
             <div className="flex items-center">
-            <IoIosArrowRoundBack className="h-7 w-7 text-gray-500" onClick={handleBack} />
-            <p>See all jobs</p>
+              <IoIosArrowRoundBack className="h-7 w-7 text-gray-500" onClick={handleBack} />
+              <p>See all jobs</p>
             </div>
-            <div className="flex justify-between my-10 w-9/10">
-            <div className="border-2">
-              <div className="flex flex-col px-8 py-7 bg-gray-100">
-                <div className="flex gap-5">
-                  <div className="bg-gray-300 items-center px-5 py-5 rounded-lg">
-                    <p>P.P</p>
+
+            {/* Main content container */}
+            <div className="flex my-10 justify-between">
+              {/* Left side (70%) */}
+              <div className="border-2 w-[70%]">
+                <div className="flex flex-col px-8 py-7 bg-gray-100">
+                  <div className="flex gap-5">
+                    <div className="bg-gray-300 items-center px-5 py-5 rounded-lg">
+                      <p>P.P</p>
+                    </div>
+                    <div className="flex flex-col">
+                      <p>{job.freelancer.name}</p>
+                      <p>{job.title}</p>
+                    </div>
                   </div>
-                  <div className="flex flex-col">
-                    <p>{job.freelancer.name}</p>
-                    <p>{job.title}</p>
+
+                  <div className="flex my-5">
+                    <p className="text-gray-500">{job.freelancer.name} is looking for a {job.title} to join their team.</p>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
+                      <CiLocationOn className="text-blue-600" />
+                      <p>{job.location}</p>
+                    </div>
+                    <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
+                      <IoBriefcaseOutline className="text-blue-600" />
+                      <p>{job.department}</p>
+                    </div>
+                    <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
+                      <VscGraph className="text-blue-600" />
+                      <p>{job.level}</p>
+                    </div>
+                    <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
+                      <IoMdTime className="text-blue-600 font-bold" />
+                      {/* Will come back to edit this to make it dynamic */}
+                      <p>Full Time</p>
+                    </div>
+                    <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
+                      <RiMoneyDollarCircleLine className="text-blue-600" />
+                      <p>R {job.price} ZAR</p>
+                    </div>
                   </div>
                 </div>
-                <div className="flex my-5">
-                <p className="text-gray-500">{job.freelancer.name} is looking for a {job.title} to join their team.</p>
-                </div>
-                <div className="flex gap-3">
-                  <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
-                  <CiLocationOn className="text-blue-600" />
-                  <p>{job.location}</p>
-                  </div>
-                  <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
-                  <IoBriefcaseOutline className="text-blue-600" />
-                  <p>{job.department}</p>
-                  </div>
-                  <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
-                  <VscGraph className="text-blue-600" />
-                  <p>{job.level}</p>
-                  </div>
-                  <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
-                  <IoMdTime className="text-blue-600 font-bold"/>
-                  {/* Will come back to edit this to make it dynamic */}
-                  <p>Full Time</p>
-                  </div>
-                  <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
-                  <RiMoneyDollarCircleLine className="text-blue-600" />
-                  <p>R {job.price} ZAR</p>
-                  </div>
-                </div>
-                </div>
+
+                {/* Job description */}
                 <div className="flex flex-col px-10">
                   <div className="flex justify-between">
                     <p>Job description</p>
-                    <p><span className="font-bold">Posted on:</span>{new Date(job.createdAt).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric"
-                    })}</p>
+                    <p>
+                      <span className="font-bold">Posted on:</span>{" "}
+                      {new Date(job.createdAt).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </p>
                   </div>
+                  <p>{job.description} This is a test message, I will come back to it to edit it. This is just a test message I will come back to edit it later on. This is just a test message I will come back to it later on to make it make much more sense.</p>
                 </div>
-            </div>
-            <div className="flex 1/10">
-                <p>Hello world</p>
               </div>
-            <div className="">
+
+              {/* Right side (30%) */}
+              <div className="flex flex-col w-[30%] p-4 gap-5">
+                <div className="flex flex-col gap-4 border-2 px-5 py-5 rounded-lg">
+                  <div className="flex">
+                    <div className="bg-gray-200 px-3 py-2 rounded-lg">P.P</div>
+                  </div>
+                  <p className="font-bold text-xl">About {job.freelancer.name}</p>
+                  <p>This is the about information about this company. This is still a test message I will come back to it to make it make sense though.</p>
+                  <button className="bg-gray-200 px-3 py-1 rounded">View Company</button>
+                </div>
               </div>
             </div>
           </div>
         ) : (
           <p>Job not found</p>
-        )
-      }
+        )}
       </div>
     </div>
   );
