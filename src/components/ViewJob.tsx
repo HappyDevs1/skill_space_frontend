@@ -112,8 +112,8 @@ function ViewJob() {
                 <div className="flex flex-col px-10">
                   <div className="flex justify-between mt-20 mb-7">
                     <p className="font-bold text-lg">Job description</p>
-                    <p>
-                      <span className="font-bold">Posted on:</span>{" "}
+                    <p className="text-gray-500">
+                      <span className="font-bold text-black">Posted on:</span>{" "}
                       {new Date(job.createdAt).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "long",
@@ -121,7 +121,7 @@ function ViewJob() {
                       })}
                     </p>
                   </div>
-                  <p>{job.description} This is a test message, I will come back to it to edit it. This is just a test message I will come back to edit it later on. This is just a test message I will come back to it later on to make it make much more sense.</p>
+                  <p className="text-gray-500">{job.description} This is a test message, I will come back to it to edit it. This is just a test message I will come back to edit it later on. This is just a test message I will come back to it later on to make it make much more sense.</p>
                 </div>
               </div>
 
@@ -132,8 +132,8 @@ function ViewJob() {
                     <img src={job.freelancer.profilePicture} className="h-10 w-auto rounded-lg"></img>
                   </div>
                   <p className="font-bold text-xl">About {job.freelancer.name}</p>
-                  <p>This is the about information about this company. This is still a test message I will come back to it to make it make sense though.</p>
-                  <button className="bg-gray-200 font-bold px-3 py-1 rounded">View Company</button>
+                  <p className="text-gray-500">This is the about information about this company. This is still a test message I will come back to it to make it make sense though.</p>
+                  <button className="bg-gray-100 border-2 font-bold px-3 py-1 rounded">View Company</button>
                 </div>
                 <div className="flex flex-col gap-4 border-2 px-5 py-5 rounded-lg">
                   <div className="flex">
@@ -142,7 +142,7 @@ function ViewJob() {
                     </div>
                   </div>
                   <p className="font-bold text-xl">Post a job today</p>
-                  <p>This is the about information about this company. This is still a test message I will come back to it to make it make sense though.</p>
+                  <p className="text-gray-500">This is the about information about this company. This is still a test message I will come back to it to make it make sense though.</p>
                   <button className="bg-blue-500 text-white px-3 py-1 rounded font-bold">Post a job</button>
                   <p className="text-gray-500 underline self-center text-lg">or post a free job</p>
                 </div>
