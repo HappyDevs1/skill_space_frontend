@@ -27,7 +27,7 @@ function SearchedJobsPage() {
     <div className="mx-36 my-8">
       <div className="flex flex-col gap-12">
         <div className="flex gap-1 items-center">
-          <IoIosArrowRoundBack className="h-7 w-7 text-gray-500" onClick={handleBack} />
+          <IoIosArrowRoundBack className="h-7 w-7 text-gray-500 cursor-pointer" onClick={handleBack} />
           <p className="text">Back to all jobs</p>
         </div>
         <div className="flex gap-64 items-center">
@@ -45,7 +45,7 @@ function SearchedJobsPage() {
                 filteredJobs.map((job: any) => (
                   <div
                     key={job._id}
-                    className="flex gap-7 justify-center py-4 w-full max-w-xs rounded-lg border-2"
+                    className="flex gap-7 justify-center py-4 w-full max-w-xs rounded-lg border-2 cursor-pointer"
                     onClick={() => {handleJobClick(job._id)}}
                   >
                     <div className="px-7 py-3">
