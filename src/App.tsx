@@ -10,6 +10,7 @@ import Login from "../src/components/Login";
 import Signup from "../src/components/Signup";
 import SearchedJobsPage from "./components/SearchedJobsPage";
 import ViewJob from "./components/ViewJob";
+import PostJobForm from "./components/PostJobForm";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -72,6 +73,7 @@ SkillSpace</a>
           <Route path="/signup" element={<Signup />} />
           <Route path="/filter" element={<SearchedJobsPage />} />
           <Route path="/job/:id" element={<ViewJob />} />
+          <Route path="/create" element={<PostJobForm />} />
         </Routes>
       </Router>
     </div>
