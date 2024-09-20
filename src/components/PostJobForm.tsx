@@ -43,7 +43,23 @@ function PostJobForm() {
           {/* Content section for each button */}
           <div className="mt-4">
             {activeTab === "button1" ? (
-              <p>Content for Button 1</p>
+              <div className="flex flex-col gap-3 border-2 rounded-lg px-10 py-8">
+                <p className="font-bold text-lg">Job information</p>
+                <div>
+                  <label>Job title</label>
+                  <input placeholder="Enter job title"/>
+                </div>
+                <div className="flex justify-between gap-10">
+                  <div className="flex flex-col gap-3">
+                    <label>Job department</label>
+                    <input className="border-2 rounded px-3" placeholder="Finance"/>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <label>Job type</label>
+                    <input className="border-2 rounded px-3" placeholder="Full time"/>
+                  </div>
+                </div>
+              </div>
             ) : (
               <p>Content for Button 2</p>
             )}
