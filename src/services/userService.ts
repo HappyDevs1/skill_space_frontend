@@ -9,15 +9,26 @@ const apiClient = axios.create({
   },
 });
 
-export const createUser = async (userData: any) => {
+export const createUser = async (userData: FormData) => {
   try {
     const response = await apiClient.post("/create", userData);
+    console.log(response.data.user._id);
     return response.data;
   } catch (error) {
     console.error("Error creating a new user", error);
     throw error;
   }
 };
+
+export const loginUser = async (userData: FormData) => {
+  try {
+    const response = await apiClient.post("/login", userData);
+    console.log(response.data)
+  } catch (error) {
+    console.error("Error login in user", error);
+    throw error;
+  }
+}
 
 export const getUsers = async () => {
   try {
