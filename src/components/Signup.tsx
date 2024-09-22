@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createUser } from "../services/userService";
 
 const freelancer = "freelancer";
@@ -12,6 +13,7 @@ function Signup() {
   const [profilePicture, setProfilePicture] = useState<File | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
+  const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
@@ -38,6 +40,10 @@ function Signup() {
     }
   };
 
+  const redirectToLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -46,7 +52,7 @@ function Signup() {
             <p className="text-3xl mb-3 font-bold">Create account</p>
             <div className="flex items-center gap-2">
               <p className="text-gray-500">Already have an account?</p>
-              <button className="underline">Sign in.</button>
+              <button className="underline" onClick={redirectToLogin}>Sign in.</button>
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex gap-5 mt-5">
