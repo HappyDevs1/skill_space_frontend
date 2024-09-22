@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { loginUser } from "../services/userService";
 import { FaRegUserCircle } from "react-icons/fa";
 
 function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
@@ -21,6 +23,10 @@ function Login() {
       console.error("Error loggin in user.");
     }
   }
+
+  const navigateToSignUp = () => {
+    navigate("/signup");
+  };
 
   return (
     <div>
@@ -58,7 +64,7 @@ function Login() {
               <button className="bg-blue-500 text-white font-bold rounded py-1">Login</button>
               <div className="flex justify-center">
               <p className="text-gray-500">Don't have an account?
-              <button className="text-black underline ml-2" type="submit">Sign up today?</button>
+              <button className="text-black underline ml-2" type="submit" onClick={navigateToSignUp}>Sign up today?</button>
               </p>
               </div>
             </div>
