@@ -50,8 +50,8 @@ export const getUsers = async () => {
 
 export const getUserById = async (id: string) => {
   try {
-    const response = await apiClient(`:${id}`);
-    return response.data;
+    const response = await apiClient.get(`/${id}`);
+    return response.data.user;
   } catch (error) {
     console.error("Error fetching user by id", error);
     throw error;
