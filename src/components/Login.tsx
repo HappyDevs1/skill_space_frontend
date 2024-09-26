@@ -15,8 +15,13 @@ function Login() {
       formData.append("email", email);
       formData.append("password", password);
 
-      const result = await loginUser(formData);
-      console.log(result);
+      const redirectUrl = await loginUser(formData);
+      console.log(redirectUrl);
+
+      if (redirectUrl) {
+        navigate(redirectUrl);
+      }
+      
       setEmail("");
       setPassword("");
     } catch (error) {

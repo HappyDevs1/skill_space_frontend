@@ -25,10 +25,12 @@ export const loginUser = async (userData: FormData) => {
     const response = await apiClient.post("/login", userData);
     console.log(response.data)
 
-    const token = response.data.token;
+    const token = response.data.loginToken;
 
     localStorage.setItem("token", token);
-    
+
+    return response.data.redirectUrl;
+
     console.log("User logged in successfully");
   } catch (error) {
     console.error("Error login in user", error);
