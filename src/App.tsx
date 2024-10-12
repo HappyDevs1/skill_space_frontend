@@ -14,17 +14,25 @@ import PostJobForm from "./components/PostJobForm";
 import Profile from "./components/Profile";
 
 function App() {
-  
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
 
   return (
     <div className="">
-      <NavBar />
+        <NavBar
+        isAuthenticated={isAuthenticated}
+        setIsAuthenticated={setIsAuthenticated}
+        />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={
+            <Login
+          isAuthenticated={isAuthenticated}
+          setIsAuthenticated={setIsAuthenticated}
+          />}
+          />
           <Route path="/signup" element={<Signup />} />
           <Route path="/filter" element={<SearchedJobsPage />} />
           <Route path="/job/:id" element={<ViewJob />} />

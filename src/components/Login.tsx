@@ -3,7 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { loginUser } from "../services/userService";
 import { FaRegUserCircle } from "react-icons/fa";
 
-function Login() {
+type NavBarProps = {
+  isAuthenticated: boolean;
+  setIsAuthenticated: (auth: boolean) => void;
+};
+
+function Login({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
@@ -20,6 +25,9 @@ function Login() {
 
       if (redirectUrl) {
         navigate(redirectUrl);
+      
+        setIsAuthenticated(true);
+        console.log(isAuthenticated)
       }
       
       setEmail("");
