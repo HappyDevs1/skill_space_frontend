@@ -19,7 +19,6 @@ function App() {
   return (
     <div className="">
       <NavBar />
-      <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -32,7 +31,6 @@ function App() {
           <Route path="/create" element={<PostJobForm />} />
           <Route path="/profile/:id" element={<Profile />} />
         </Routes>
-      </Router>
     </div>
   )
 }

@@ -1,13 +1,17 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
+
+  const navigateToLogin = () => {
+    navigate("/login");
+  }
   const login = () => {
     setIsAuthenticated(true);
-    // navigate("/login");
+    navigateToLogin();
   }
   const logout = () => {
     setIsAuthenticated(false);
