@@ -1,11 +1,14 @@
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Postjob from "./Postjob";
+import CircularIndeterminate from "./CircularIndeterminate";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { VscGraph } from "react-icons/vsc";
 import { IoBriefcaseOutline } from "react-icons/io5";
 
 function SearchedJobsPage() {
+  const [loading, setLoading] = useState<boolean>(false)
   const location = useLocation();
   const navigate = useNavigate();
   const { filteredJobs } = location.state || {};
@@ -16,6 +19,7 @@ function SearchedJobsPage() {
   };
 
   const handleJobClick = async (jobId: any) => {
+    setLoading(true)
     try {
       navigate(`/job/${jobId}`, { state: { filteredJobs: filteredJobs }});
     } catch (error) {
@@ -24,7 +28,14 @@ function SearchedJobsPage() {
   };
 
   return (
-    <div className="mx-36 my-8">
+    <div>
+      {
+        loading ? (
+          <div>
+            <CircularIndeterminate />
+          </div>
+        ) : (
+          <div className="mx-36 my-8">
       <div className="flex flex-col gap-12">
         <div className="flex gap-1 items-center">
           <IoIosArrowRoundBack className="h-7 w-7 text-gray-500 cursor-pointer" onClick={handleBack} />
@@ -87,6 +98,9 @@ function SearchedJobsPage() {
         </div>
       </div>
       <Postjob />
+    </div>
+        )
+      }
     </div>
   );
 }

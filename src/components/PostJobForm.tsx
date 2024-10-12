@@ -1,10 +1,59 @@
 import { useState } from "react";
+import Select from "react-select";
 
 function PostJobForm() {
   const [activeTab, setActiveTab] = useState<"button1" | "button2">("button1");
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [salary, setSalary] = useState<string>("");
+  const [location, setLocation] = useState<string>("");
+  const [level, setLevel] = useState<string>("");
+  const [department, setDepartment] = useState<string>("");
 
   const handleTabClick = (tab: "button1" | "button2") => {
     setActiveTab(tab);
+  };
+
+  const locationDropdown = [
+    { value: "Gauteng", label: "Gauteng" },
+    { value: "Eastern-Cape", label: "Eastern-Cape" },
+    { value: "Mpumalanga", label: "Mpumalanga" },
+    { value: "Free-State", label: "Free-State" },
+    { value: "Limpopo", label: "Limpopo" },
+    { value: "North-West", label: "North-West" },
+    { value: "Nothern-Cape", label: "Nothern-Cape" },
+    { value: "KwaZulu-Natal", label: "KwaZulu-Natal" },
+    { value: "Western-Cape", label: "Western-Cape" },
+  ];
+
+  const levelDropdown = [
+    { value: "Internship", label: "Internship" },
+    { value: "Junior", label: "Junior" },
+    { value: "Mid-level", label: "Mid-level" },
+    { value: "Senior", label: "Senior" },
+  ];
+
+  const departmentDropdown = [
+    { value: "Finance", label: "Finance" },
+    { value: "Technology", label: "Technology" },
+    { value: "Healthcare", label: "Healthcare" },
+    { value: "Real-estate", label: "Real-estate" },
+    { value: "Construction", label: "Construction" },
+  ]
+
+  const customStyles = {
+    control: (provided: any) => ({
+      ...provided,
+      border: "none",
+      boxShadow: "none",
+      minHeight: "2.5rem",
+      height: "100%",
+    }),
+    placeholder: (provided: any) => ({
+      ...provided,
+      color: "gray",
+      fontSize: "0.875rem",
+    }),
   };
 
   return (
@@ -56,11 +105,19 @@ function PostJobForm() {
                 <div className="flex justify-between gap-10">
                   <div className="flex flex-col gap-3">
                     <label>Job salary</label>
-                    <input className="border-2 rounded px-3" placeholder="Annual Salary in ZAR" />
+                    <input className="border-2 rounded px-3 py-1" placeholder="Annual Salary in ZAR" />
                   </div>
                   <div className="flex flex-col gap-3">
                     <label>Job location</label>
-                    <input className="border-2 rounded px-3" placeholder="Gauteng"/>
+                    <Select
+                  options={locationDropdown}
+                  value={locationDropdown.find(option => option.value === location)}
+                  placeholder="Location"
+                  classNamePrefix="react-select"
+                  styles={customStyles}
+                  onChange={(selectedOption) => setLocation(selectedOption?.value || "")}
+                  className="w-52 border-2 py-0"
+                />
                   </div>
                   
                   </div>

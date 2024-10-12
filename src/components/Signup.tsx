@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../services/userService";
+import CircularIndeterminate from "./CircularIndeterminate";
 
 const freelancer = "freelancer";
 const client = "client";
@@ -12,10 +13,12 @@ function Signup() {
   const [role, setRole] = useState<string>(freelancer);
   const [profilePicture, setProfilePicture] = useState<File | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null)
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setLoading(true);
     try {
       const formData = new FormData();
       formData.append("name", name);
@@ -35,6 +38,8 @@ function Signup() {
       setRole(freelancer);
       setProfilePicture(null);
       setSuccessMessage("User created successfully!");
+      setLoading(false);
+      redirectToLogin()
     } catch (error) {
       setError((error as Error).message);
     }
@@ -46,7 +51,13 @@ function Signup() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      {
+        loading ? (
+          <div>
+            <CircularIndeterminate />
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit}>
         <div className="flex mt-24 justify-center mb-20">
           <div className="px-16 py-10 rounded border-2">
             <p className="text-3xl mb-3 font-bold">Create account</p>
@@ -183,6 +194,8 @@ function Signup() {
           </div>
         </div>
       </form>
+        )
+      }
     </div>
   );
 }

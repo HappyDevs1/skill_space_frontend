@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../services/userService";
+import CircularIndeterminate from "./CircularIndeterminate";
 import { FaRegUserCircle } from "react-icons/fa";
 
 type NavBarProps = {
@@ -11,10 +12,12 @@ type NavBarProps = {
 function Login({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault()
+    event.preventDefault();
+    setLoading(true);
     try {
       const formData = new FormData();
       formData.append("email", email);
@@ -43,7 +46,13 @@ function Login({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
 
   return (
     <div>
-      <div className="container mx-auto p-4 flex justify-center">
+      {
+        loading ? (
+          <div>
+          <CircularIndeterminate />
+          </div>
+        ) : (
+          <div className="container mx-auto p-4 flex justify-center">
         <form onSubmit={handleSubmit}>
         <div className="grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex flex-col bg-white rounded-lg border-2 py-16 px-20">
@@ -85,6 +94,8 @@ function Login({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
         </div>
         </form>
       </div>
+        )
+      }
     </div>
   )
 }

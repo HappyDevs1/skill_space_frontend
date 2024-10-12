@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getJobById } from "../services/jobService";
+import CircularIndeterminate from "./CircularIndeterminate";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { IoBriefcaseOutline } from "react-icons/io5";
@@ -25,18 +26,23 @@ interface Job {
   level: string;
   department: string;
   freelancer: Freelancer;
+  createdAt: Date
 }
 
 function ViewJob() {
   const { id } = useParams<{ id: string }>();
   const [job, setJob] = useState<Job | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchJob = async () => {
+      setLoading(true)
       try {
         const data = await getJobById(id);
         setJob(data);
+        setLoading(false)
         console.log("Viewed job: ", data);
       } catch (error) {
         console.error("Error fetching job details:", error);
@@ -47,7 +53,7 @@ function ViewJob() {
   }, [id]);
 
   if (!job) {
-    return <div>Loading...</div>;
+    return <CircularIndeterminate />;
   }
 
   const handleBack = () => {
@@ -56,7 +62,14 @@ function ViewJob() {
 
   return (
     <div>
-      <div className="mx-36 my-8 flex">
+      {
+        loading ? (
+          <div>
+          <CircularIndeterminate />
+          </div>
+        ) :
+        (
+          <div className="mx-36 my-8 flex">
         {job ? (
           <div className="flex flex-col w-full">
             {/* Back button */}
@@ -231,6 +244,9 @@ function ViewJob() {
           <p>Job not found</p>
         )}
       </div>
+        )
+      }
+      
     </div>
   );
 }

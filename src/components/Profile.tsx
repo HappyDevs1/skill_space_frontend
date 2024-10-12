@@ -12,6 +12,7 @@ interface User {
 
 function Profile() {
   const { id } = useParams<{ id: string}>();
+  // const { id } = useParams(id)
   const [user, setUser] = useState<User | null>(null);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);

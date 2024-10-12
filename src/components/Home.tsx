@@ -10,6 +10,7 @@ import { GrTechnology } from "react-icons/gr";
 import { DiCompass } from "react-icons/di";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import CircularIndeterminate from "./CircularIndeterminate";
 
 // interface Job {
 //   _id: string;
@@ -84,6 +85,8 @@ function Home() {
       console.log("Fetched Jobs: ", response); 
       if (response && response.service) {
         setJobs(response.service);
+      } else if (!response) {
+        setLoading(true)
       } else {
         setJobs([]);
       }
@@ -148,11 +151,18 @@ function Home() {
   
   
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <CircularIndeterminate />;
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="flex flex-col items-center min-h-screen mb-52">
+    <div>
+      {
+        loading ? (
+          <div className="flex justify-center items-center min-h-screen">
+          <CircularIndeterminate />
+          </div>
+        ) :
+        <div className="flex flex-col items-center min-h-screen mb-52">
       <div className="background w-full">
         <div className="m-20 self-start">
           <p className="font-bold text-sky-500">TOP CAREER OPPORTUNITIES</p>
@@ -366,6 +376,9 @@ function Home() {
 
         </div>
       </div>
+    </div>
+      }
+    
     </div>
   );
 }
