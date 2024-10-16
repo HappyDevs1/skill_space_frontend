@@ -348,13 +348,13 @@ function Home() {
   </div>
   <div className="container m-auto">
   {
-  jobs.length > 0 ? (
+  featured.length > 0 ? (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      {jobs.map((job) => (
-        <div key={job._id} className="bg-gray-300 px-4 py-5 w-full max-w-xs rounded flex items-center gap-4 cursor-pointer">
-          <img className="h-16 rounded-lg" src={job.freelancer.profilePicture} alt={job.freelancer.name} />
+      {featured.map((company) => (
+        <div key={company._id} className="bg-gray-300 px-4 py-5 w-full max-w-xs rounded flex items-center gap-4 cursor-pointer">
+          <img className="h-16 rounded-lg" src={company.freelancer.profilePicture} alt={company.freelancer.name} />
           <div>
-            <p className="font-bold text-lg">{job.freelancer.name}</p>
+            <p className="font-bold text-lg">{company.freelancer.name}</p>
             <div className="flex items-center mt-2">
               <p>Learn more</p>
               <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
