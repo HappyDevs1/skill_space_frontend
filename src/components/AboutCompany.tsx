@@ -53,10 +53,23 @@ function AboutCompany() {
               onClick={() => {handleButtonClick("perks")}}
               className={`px-4 py-2 ${activeButton === "perks" ? "border-b-2 border-blue-500" : "text-gray-500"}`}>Company perks & benefits</button>
             </div>
-            <div className="mt-4">
+            <div className="mt-5 mb-16">
               {activeButton === "jobs" && <div>Jobs</div>}
               {activeButton === "about" && <div>About</div>}
-              {activeButton === "perks" && <div>Perks</div>}
+              {
+              activeButton === "perks" && 
+              <div className="flex flex-col gap-5 text-gray-500">
+                <p className="font-bold text-xl text-black">Company perks and benefits</p>
+                <p>This is a test message about the company's perks and benefits, I will come back to it at a later stage to edit it. I will come back at a later stage so that I will make this text to make sense. But for now I will just leave this text as it is.
+                </p>
+                <div>
+                <p>- This is the benefit</p>
+                <p>- This is also a benefit</p>
+                <p>- This is another benefit</p>
+                </div>
+                <p>These are all the listed benefits above of working for this company, However this is just a test I will come back to it and make changes so that it makes sense. But for now I will jsut leave it as a test text just for the interface.</p>
+              </div>
+              }
             </div>
           </div>
         </div>
