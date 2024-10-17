@@ -54,7 +54,12 @@ function AboutCompany() {
               className={`px-4 py-2 ${activeButton === "perks" ? "border-b-2 border-blue-500" : "text-gray-500"}`}>Company perks & benefits</button>
             </div>
             <div className="mt-5 mb-16">
-              {activeButton === "jobs" && <div>Jobs</div>}
+              {
+              activeButton === "jobs" &&
+              <div className="flex flex-col gap-5 text-gray-500">
+                <p className="font-bold text-xl text-black">Company job openings</p>
+              </div>
+              }
               {
               activeButton === "about" &&
               <div className="flex flex-col gap-5 text-gray-500">
