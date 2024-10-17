@@ -55,7 +55,20 @@ function AboutCompany() {
             </div>
             <div className="mt-5 mb-16">
               {activeButton === "jobs" && <div>Jobs</div>}
-              {activeButton === "about" && <div>About</div>}
+              {
+              activeButton === "about" &&
+              <div className="flex flex-col gap-5 text-gray-500">
+                <p className="font-bold text-xl text-black">About company</p>
+                <p>This is a test message about the company's information, I will come back to it at a later stage to edit it. I will come back at a later stage so that I will make this text to make sense. But for now I will just leave this text as it is.
+                </p>
+                <div>
+                <p>- This is information about the company</p>
+                <p>- This is also information about the company</p>
+                <p>- This is another information about the company</p>
+                </div>
+                <p>These are all the listed points about the company above , However this is just a test I will come back to it and make changes so that it makes sense. But for now I will jsut leave it as a test text just for the interface.</p>
+              </div>
+              }
               {
               activeButton === "perks" && 
               <div className="flex flex-col gap-5 text-gray-500">
