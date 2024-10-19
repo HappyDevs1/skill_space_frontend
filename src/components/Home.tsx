@@ -148,6 +148,14 @@ function Home() {
       setError("Failed to search for jobs.");
     }
   };
+
+  const handleCompanyClick = () => {
+    try {
+      navigate("/about/company")
+    } catch (error) {
+      console.error("Error displaying company")
+    }
+  };
   
   
 
@@ -349,7 +357,7 @@ function Home() {
   <div className="container m-auto">
   {
   featured.length > 0 ? (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" onClick={handleCompanyClick}>
       {featured.map((company) => (
         <div key={company._id} className="bg-gray-300 px-4 py-5 w-full max-w-xs rounded flex items-center gap-4 cursor-pointer">
           <img className="h-16 rounded-lg" src={company.freelancer.profilePicture} alt={company.freelancer.name} />
