@@ -58,6 +58,15 @@ export const getUserById = async (id: string) => {
   }
 };
 
+export const getFeaturedUser = async () => {
+  try {
+    const response = await apiClient.get("/featured");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching featured user", error);
+  }
+}
+
 export const editUser = async (id: string, editedData: any) => {
   try {
     const response = await apiClient.put(`:${id}/edit`, editedData);
