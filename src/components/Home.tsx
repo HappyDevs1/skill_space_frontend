@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import  Postjob   from "./Postjob";
 import { getAllJobs, getFeaturedJob, getJobByFilter } from "../services/jobService";
+import { getFeaturedUser } from "../services/userService";
 import { FaSearch, FaCloud, FaCentercode } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import Select from "react-select";
@@ -9,7 +11,6 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { GrTechnology } from "react-icons/gr";
 import { DiCompass } from "react-icons/di";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
 import CircularIndeterminate from "./CircularIndeterminate";
 
 // interface Job {
@@ -72,12 +73,15 @@ function Home() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [featured, setFeatured] = useState<any[]>([]);
+  const [featCompany, setFeatCompany] = useState<any[]>([]);
   const [title, setTitle] = useState<string>("");
   const [location, setLocation] = useState<string>("");
   const [level, setLevel] = useState<string>("");
   const [department, setDepartment] = useState<string>("");
   const [results, setResults] = useState<any[]>([]);
   const navigate = useNavigate();
+  const locationHook = useLocation();
+  const { featuredCompany } = locationHook.state || {};
 
   const fetchJobs = async () => {
     try {
@@ -111,11 +115,21 @@ function Home() {
     }
   };
 
+  const fetchFeaturedCompany = async () => {
+    try {
+      const response = await getFeaturedUser();
+      setFeatCompany(response);
+      console.log("Featured companies: ", featCompany);
+    } catch (error) {
+      console.error("Error fetching featured users: ", error);
+    }
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        await Promise.all([fetchJobs(), fetchFeatured()]);
+        await Promise.all([fetchJobs(), fetchFeatured(), fetchFeaturedCompany()]);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data", error);
@@ -149,11 +163,12 @@ function Home() {
     }
   };
 
-  const handleCompanyClick = () => {
+  const handleCompanyClick = async (id: any) => {
+    setLoading(true);
     try {
-      navigate("/about/company")
+      navigate(`/about/${id}`, {state: { featuredCompany: featuredCompany }});
     } catch (error) {
-      console.error("Error displaying company")
+      console.error("Error displaying company", error);
     }
   };
   

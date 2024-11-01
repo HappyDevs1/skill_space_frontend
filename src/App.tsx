@@ -6,12 +6,12 @@ import Home from "../src/components/Home";
 import About from "../src/components/About";
 import Contact from "../src/components/Contact";
 import Blog from "../src/components/Blog";
-import Login from "../src/components/Login";
-import Signup from "../src/components/Signup";
+import Login from "./components/LoginUser";
+import SignupUser from "./components/SignupUser";
 import SearchedJobsPage from "./components/SearchedJobsPage";
 import ViewJob from "./components/ViewJob";
 import PostJobForm from "./components/PostJobForm";
-import Profile from "./components/Profile";
+import UserProfile from "./components/UserProfile";
 import AboutCompany from "./components/AboutCompany";
 
 function App() {
@@ -34,12 +34,12 @@ function App() {
           setIsAuthenticated={setIsAuthenticated}
           />}
           />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<SignupUser />} />
           <Route path="/filter" element={<SearchedJobsPage />} />
           <Route path="/job/:id" element={<ViewJob />} />
           <Route path="/create" element={<PostJobForm />} />
-          <Route path="/profile/:id" element={<Profile />} />
-          <Route path="/about/company" element={<AboutCompany />} />
+          <Route path="/profile/:id" element={<UserProfile />} />
+          <Route path="/about/:id" element={<AboutCompany />} />
         </Routes>
     </div>
   )

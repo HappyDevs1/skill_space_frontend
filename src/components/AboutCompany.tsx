@@ -1,12 +1,56 @@
 import { useState, useEffect } from "react";
+import { useLocation, useParams } from "react-router-dom";
+import { getUserById } from "../services/userService";
 import Postjob from "./Postjob";
 import { CiLocationOn } from "react-icons/ci";
 import { GoPerson } from "react-icons/go";
 
+interface Freelancer {
+  _id: string;
+  name: string;
+  email: string;
+  role: string;
+  profilePicture: string;
+}
+
+// interface Job {
+//   _id: string;
+//   title: string;
+//   description: string;
+//   price: number;
+//   location: string;
+//   level: string;
+//   department: string;
+//   freelancer: Freelancer;
+//   createdAt: Date
+// }
+
 function AboutCompany() {
   const image = "https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/64b96d206c0fd7f0fadd9e49_facebook-cover-image-jobboardly-webflow-ecommerce-template-p-1080.png";
 
+  const [company, setCompany] = useState<Freelancer | null>(null)
   const [activeButton, setActiveButton] = useState<string>("jobs");
+  const [loading, setLoading] = useState<boolean>(false);
+  const location = useLocation();
+  const { id } = useParams<{ id: string }>();
+
+  useEffect(() => {
+    const fetchedFeaturedCompany = async () => {
+      setLoading(true);
+      try {
+        const data = await getUserById(id);
+        setCompany(data);
+        setLoading;
+        console.log("Viewed Job: ", data);
+      } catch (error) {
+        console.error("Error fetching company information: ", error)
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchedFeaturedCompany();
+  }, [id])
 
   const handleButtonClick = (button: string) => {
     setActiveButton(button)
@@ -14,6 +58,13 @@ function AboutCompany() {
 
   return (
     <div>
+      {
+        company ? (
+          <p>Company found</p>
+        ) : (
+          <p>No company</p>
+        )
+      }
       <div className="flex flex-col">
         <div className="flex flex-col justify-center mx-[19%] my-[5%] py-[%] border-2 rounded-xl">
           <div>

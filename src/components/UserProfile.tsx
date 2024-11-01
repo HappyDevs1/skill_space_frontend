@@ -10,7 +10,7 @@ interface User {
   profilePicture: string;
 };
 
-function Profile() {
+function UserProfile() {
   const { id } = useParams<{ id: string}>();
   // const { id } = useParams(id)
   const [user, setUser] = useState<User | null>(null);
@@ -158,4 +158,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default UserProfile;

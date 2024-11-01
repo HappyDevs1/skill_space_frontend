@@ -6,7 +6,7 @@ import CircularIndeterminate from "./CircularIndeterminate";
 const freelancer = "freelancer";
 const client = "client";
 
-function Signup() {
+function SignupUser() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -200,4 +200,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default SignupUser;
