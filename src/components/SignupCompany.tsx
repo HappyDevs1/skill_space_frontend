@@ -1,77 +1,33 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createUser } from "../services/userService";
 import CircularIndeterminate from "./CircularIndeterminate";
 
-const freelancer = "freelancer";
-const client = "client";
-
-function SignupUser() {
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [role, setRole] = useState<string>(freelancer);
-  const [profilePicture, setProfilePicture] = useState<File | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+function SignUpCommpany () {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    setLoading(true);
+  
+  const handleUserSignup = async () => {
     try {
-      const formData = new FormData();
-      formData.append("name", name);
-      formData.append("email", email);
-      formData.append("password", password);
-      formData.append("role", role);
-
-      if (profilePicture) {
-        formData.append("profilePicture", profilePicture);
-      }
-
-      const result = await createUser(formData);
-      console.log(result);
-      setName("");
-      setEmail("");
-      setPassword("");
-      setRole(freelancer);
-      setProfilePicture(null);
-      setSuccessMessage("User created successfully!");
-      setLoading(false);
-      redirectToLogin()
+      navigate("/user/signup");
     } catch (error) {
-      setError((error as Error).message);
-    }
-  };
-
-  const redirectToLogin = () => {
-    navigate("/login");
-  };
-
-  const handleCompanySignup = () => {
-    try {
-      navigate("/company/signup");
-    } catch (error) {
-      console.log("Error redirecting to company signup");
+      console.log("Error redirecting to the user signup page", error);
     }
   }
-
   return (
-    <div>
+<div>
       {
         loading ? (
           <div>
             <CircularIndeterminate />
           </div>
         ) : (
-          <form onSubmit={handleSubmit}>
+          // <form onSubmit={handleSubmit}>
         <div className="flex mt-24 justify-center mb-20">
           <div className="px-16 py-10 rounded border-2">
             <p className="text-3xl mb-3 font-bold">Create account</p>
             <div className="flex items-center gap-2">
               <p className="text-gray-500">Already have an account?</p>
-              <button className="underline" onClick={redirectToLogin}>Sign in.</button>
+              {/* <button className="underline" onClick={redirectToLogin}>Sign in.</button> */}
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex gap-5 mt-5">
@@ -80,10 +36,10 @@ function SignupUser() {
                   <input
                     className="border-2 rounded px-3 py-1"
                     placeholder="John Carter"
-                    value={name}
-                    onChange={(event) => {
-                      setName(event.target.value);
-                    }}
+                    // value={name}
+                    // onChange={(event) => {
+                    //   setName(event.target.value);
+                    // }}
                     required
                   />
                 </div>
@@ -92,8 +48,8 @@ function SignupUser() {
                   <input
                     className="border-2 rounded px-3 py-1"
                     placeholder="Email address"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
+                    // value={email}
+                    // onChange={(event) => setEmail(event.target.value)}
                     required
                   />
                 </div>
@@ -104,8 +60,8 @@ function SignupUser() {
                   className="border-2 rounded px-3 py-1"
                   placeholder="Enter your password"
                   type="password"
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
+                  // value={password}
+                  // onChange={(event) => setPassword(event.target.value)}
                   required
                 />
               </div>
@@ -113,14 +69,14 @@ function SignupUser() {
                 <label>
                   Are you looking for a job or are you looking to hire?
                 </label>
-                <select
+                {/* <select
                   className="border-2 rounded px-3 py-1"
                   value={role}
-                  onChange={(event) => setRole(event.target.value)}
+                  // onChange={(event) => setRole(event.target.value)}
                 >
                   <option value={freelancer}>I want a job</option>
                   <option value={client}>I want to hire</option>
-                </select>
+                </select> */}
               </div>
               {/* <div>
                 <label>Profile Picture</label>
@@ -145,8 +101,10 @@ function SignupUser() {
                 Sign up
               </button>
               <button 
-              className="text-green underline"
-              onClick={handleCompanySignup}>Signup as a company?</button>
+              onClick={handleUserSignup}
+              className="underline">
+                Signup as an individual user?
+              </button>
             </div>
           </div>
           <div className="flex flex-col items-center px-16 py-10 rounded">
@@ -204,11 +162,11 @@ function SignupUser() {
             </div>
           </div>
         </div>
-      </form>
+      // </form>
         )
       }
     </div>
-  );
+  )
 }
 
-export default SignupUser;
+export default SignUpCommpany;
