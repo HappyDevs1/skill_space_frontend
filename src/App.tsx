@@ -13,6 +13,7 @@ import ViewJob from "./components/ViewJob";
 import PostJobForm from "./components/PostJobForm";
 import UserProfile from "./components/UserProfile";
 import AboutCompany from "./components/AboutCompany";
+import SignUpCompany from "./components/SignupCompany";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
@@ -34,10 +35,11 @@ function App() {
           setIsAuthenticated={setIsAuthenticated}
           />}
           />
-          <Route path="/signup" element={<SignupUser />} />
+          <Route path="/user/signup" element={<SignupUser />} />
+          <Route path="/company/signup" element={<SignUpCompany />} />
           <Route path="/filter" element={<SearchedJobsPage />} />
           <Route path="/job/:id" element={<ViewJob />} />
-          <Route path="/create" element={<PostJobForm />} />
+          <Route path="/create/job" element={<PostJobForm />} />
           <Route path="/profile/:id" element={<UserProfile />} />
           <Route path="/about/:id" element={<AboutCompany />} />
         </Routes>
