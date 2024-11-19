@@ -36,7 +36,7 @@ function App() {
           />}
           />
           <Route path="/user/create" element={<SignupUser />} />
-          <Route path="/company/signup" element={<SignUpCompany />} />
+          <Route path="/company/create" element={<SignUpCompany />} />
           <Route path="/filter" element={<SearchedJobsPage />} />
           <Route path="/job/:id" element={<ViewJob />} />
           <Route path="/create/job" element={<PostJobForm />} />

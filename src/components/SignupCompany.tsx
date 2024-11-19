@@ -1,10 +1,46 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createCompany } from "../services/companyService";
 import CircularIndeterminate from "./CircularIndeterminate";
 
 function SignUpCommpany () {
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [about, setAbout] = useState<string>("");
+  const [profilePicture, setProfilePicture] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setLoading(true);
+    try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("about", about);
+
+      if (profilePicture) {
+        formData.append("profilePicture", profilePicture);
+      }
+
+      const result = await createCompany(formData);
+      console.log(result);
+      setName("");
+      setEmail("");
+      setPassword("");
+      setAbout("");
+      setProfilePicture(null);
+      setLoading(false);
+
+      navigate("/company/login")
+    } catch (error) {
+      setError((error as Error).message);
+    }
+  };
   
   const handleUserSignup = async () => {
     try {
@@ -36,10 +72,10 @@ function SignUpCommpany () {
                   <input
                     className="border-2 rounded px-3 py-1"
                     placeholder="John Carter"
-                    // value={name}
-                    // onChange={(event) => {
-                    //   setName(event.target.value);
-                    // }}
+                    value={name}
+                    onChange={(event) => {
+                      setName(event.target.value);
+                    }}
                     required
                   />
                 </div>
@@ -48,8 +84,8 @@ function SignUpCommpany () {
                   <input
                     className="border-2 rounded px-3 py-1"
                     placeholder="Email address"
-                    // value={email}
-                    // onChange={(event) => setEmail(event.target.value)}
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
                     required
                   />
                 </div>
@@ -60,15 +96,21 @@ function SignUpCommpany () {
                   className="border-2 rounded px-3 py-1"
                   placeholder="Enter your password"
                   type="password"
-                  // value={password}
-                  // onChange={(event) => setPassword(event.target.value)}
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
                   required
                 />
               </div>
               <div className="flex flex-col gap-3">
                 <label>
-                  Are you looking for a job or are you looking to hire?
+                  About the company
                 </label>
+                <textarea className="border-2 rounded px-1 py-1 h-20"
+                placeholder="Information about the company..."
+                value={about}
+                onChange={(event) => setAbout(event.target.value)}
+                required
+                />
                 {/* <select
                   className="border-2 rounded px-3 py-1"
                   value={role}
@@ -97,7 +139,10 @@ function SignUpCommpany () {
                   </p>
                 </div>
               </div>
-              <button className="bg-blue-600 text-white font-bold rounded py-1" type="submit">
+              <button className="bg-blue-600 text-white font-bold rounded py-1"
+              type="submit"
+              onClick={handleSubmit}
+              >
                 Sign up
               </button>
               <button 
