@@ -35,7 +35,7 @@ function App() {
           setIsAuthenticated={setIsAuthenticated}
           />}
           />
-          <Route path="/user/signup" element={<SignupUser />} />
+          <Route path="/user/create" element={<SignupUser />} />
           <Route path="/company/signup" element={<SignUpCompany />} />
           <Route path="/filter" element={<SearchedJobsPage />} />
           <Route path="/job/:id" element={<ViewJob />} />

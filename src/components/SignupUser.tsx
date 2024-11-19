@@ -10,7 +10,7 @@ function SignupUser() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [role, setRole] = useState<string>(freelancer);
+  const [about, setAbout] = useState<string>("");
   const [profilePicture, setProfilePicture] = useState<File | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -24,7 +24,7 @@ function SignupUser() {
       formData.append("name", name);
       formData.append("email", email);
       formData.append("password", password);
-      formData.append("role", role);
+      formData.append("about", about);
 
       if (profilePicture) {
         formData.append("profilePicture", profilePicture);
@@ -35,7 +35,7 @@ function SignupUser() {
       setName("");
       setEmail("");
       setPassword("");
-      setRole(freelancer);
+      setAbout("");
       setProfilePicture(null);
       setSuccessMessage("User created successfully!");
       setLoading(false);
@@ -111,16 +111,14 @@ function SignupUser() {
               </div>
               <div className="flex flex-col gap-3">
                 <label>
-                  Are you looking for a job or are you looking to hire?
+                  Bio
                 </label>
-                <select
-                  className="border-2 rounded px-3 py-1"
-                  value={role}
-                  onChange={(event) => setRole(event.target.value)}
-                >
-                  <option value={freelancer}>I want a job</option>
-                  <option value={client}>I want to hire</option>
-                </select>
+                <textarea className="border-2 rounded px-1 h-20"
+                placeholder="About yourself"
+                value={about}
+                onChange={(event) => setAbout(event.target.value)}
+                required
+                />
               </div>
               {/* <div>
                 <label>Profile Picture</label>
