@@ -49,7 +49,7 @@ function App() {
           <Route path="/job/:id" element={<ViewJob />} />
           <Route path="/create/job" element={<PostJobForm />} />
           <Route path="/profile/:id" element={<UserProfile />} />
-          <Route path="/profile/:id" element={<CompanyProfile />} />
+          <Route path="/profile/company/:id" element={<CompanyProfile />} />
           <Route path="/about/:id" element={<AboutCompany />} />
         </Routes>
     </div>
