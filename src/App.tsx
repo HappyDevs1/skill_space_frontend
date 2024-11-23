@@ -13,6 +13,7 @@ import SearchedJobsPage from "./components/SearchedJobsPage";
 import ViewJob from "./components/ViewJob";
 import PostJobForm from "./components/PostJobForm";
 import UserProfile from "./components/UserProfile";
+import CompanyProfile from "./components/CompanyProfile";
 import AboutCompany from "./components/AboutCompany";
 import SignUpCompany from "./components/SignupCompany";
 
@@ -48,6 +49,7 @@ function App() {
           <Route path="/job/:id" element={<ViewJob />} />
           <Route path="/create/job" element={<PostJobForm />} />
           <Route path="/profile/:id" element={<UserProfile />} />
+          <Route path="/profile/:id" element={<CompanyProfile />} />
           <Route path="/about/:id" element={<AboutCompany />} />
         </Routes>
     </div>
