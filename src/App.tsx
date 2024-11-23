@@ -7,6 +7,7 @@ import About from "../src/components/About";
 import Contact from "../src/components/Contact";
 import Blog from "../src/components/Blog";
 import Login from "./components/LoginUser";
+import LoginCompany from "./components/LoginCompany";
 import SignupUser from "./components/SignupUser";
 import SearchedJobsPage from "./components/SearchedJobsPage";
 import ViewJob from "./components/ViewJob";
@@ -29,8 +30,14 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={
+          <Route path="/user/login" element={
             <Login
+          isAuthenticated={isAuthenticated}
+          setIsAuthenticated={setIsAuthenticated}
+          />}
+          />
+          <Route path="/company/login" element={
+            <LoginCompany
           isAuthenticated={isAuthenticated}
           setIsAuthenticated={setIsAuthenticated}
           />}

@@ -68,7 +68,7 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
                 Logout
               </button>
             ) : (
-              <Link to="/login" className="flex items-center">
+              <Link to="/user/login" className="flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
