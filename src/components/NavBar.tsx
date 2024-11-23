@@ -10,7 +10,7 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
 
   const logout = () => {
     setIsAuthenticated(false);
-    navigate("/login");
+    navigate("/user/login");
   };
 
   return (
