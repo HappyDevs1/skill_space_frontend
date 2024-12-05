@@ -282,10 +282,10 @@ function Home() {
               featured.map((job) => (
                 <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto cursor-pointer">
                 <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
-                  <img src={job.freelancer.profilePicture} className="w-13 h-11"></img>
+                  <img src={job.company.profilePicture} className="w-13 h-11"></img>
                 </div>
                 <div className="pl-7 pr-20">
-                  <p className="font-semibold text-gray-400 my-2">{job.freelancer.name}</p>
+                  <p className="font-semibold text-gray-400 my-2">{job.company.name}</p>
                   <p className="font-bold text-xl">{job.title}</p>
                   <div className="flex gap-2.5 mt-4">
                     <div className="flex items-center border border-gray-300 rounded p-1">
@@ -322,10 +322,10 @@ function Home() {
             jobs.map((job) => (
               <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto cursor-pointer mb-5">
                 <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
-                  <img src={job.freelancer.profilePicture} className="w-13 h-11"></img>
+                  <img src={job.company.profilePicture} className="w-13 h-11"></img>
                 </div>
                 <div className="pl-7 pr-20">
-                  <p className="font-semibold text-gray-400 my-2">{job.freelancer.name}</p>
+                  <p className="font-semibold text-gray-400 my-2">{job.company.name}</p>
                   <p className="font-bold text-xl">{job.title}</p>
                   <div className="flex gap-2.5 mt-4">
                     <div className="flex items-center border border-gray-300 rounded p-1">
@@ -373,11 +373,11 @@ function Home() {
   {
   featured.length > 0 ? (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" onClick={handleCompanyClick}>
-      {featured.map((company) => (
-        <div key={company._id} className="bg-gray-300 px-4 py-5 w-full max-w-xs rounded flex items-center gap-4 cursor-pointer">
-          <img className="h-16 rounded-lg" src={company.freelancer.profilePicture} alt={company.freelancer.name} />
+      {featured.map((comp) => (
+        <div key={comp._id} className="bg-gray-300 px-4 py-5 w-full max-w-xs rounded flex items-center gap-4 cursor-pointer">
+          <img className="h-16 rounded-lg" src={comp.company.profilePicture} alt={comp.company.name} />
           <div>
-            <p className="font-bold text-lg">{company.freelancer.name}</p>
+            <p className="font-bold text-lg">{comp.company.name}</p>
             <div className="flex items-center mt-2">
               <p>Learn more</p>
               <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
