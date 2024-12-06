@@ -11,9 +11,10 @@ import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { MdOutlinePostAdd } from "react-icons/md";
 import { CiCalendar } from "react-icons/ci";
 
-interface Freelancer {
+interface Company {
   _id: string;
   name: string;
+  about: string;
   profilePicture: string;
 }
 
@@ -25,7 +26,7 @@ interface Job {
   location: string;
   level: string;
   department: string;
-  freelancer: Freelancer;
+  company: Company;
   createdAt: Date
 }
 
@@ -85,16 +86,16 @@ function ViewJob() {
                 <div className="flex flex-col px-8 py-7 bg-gray-100">
                   <div className="flex gap-5">
                     <div className="bg-blue-100 px-3 py-3 rounded-lg">
-                  <img src={job.freelancer.profilePicture} className="h-16 w-auto rounded-lg"></img>
+                  <img src={job.company.profilePicture} className="h-16 w-auto rounded-lg"></img>
                   </div>
                     <div className="flex flex-col justify-center gap-1">
-                      <p className="font-bold text-gray-500">{job.freelancer.name}</p>
+                      <p className="font-bold text-gray-500">{job.company.name}</p>
                       <p className="font-bold text-xl">{job.title}</p>
                     </div>
                   </div>
 
                   <div className="flex my-5">
-                    <p className="text-gray-500">{job.freelancer.name} is looking for a {job.title} to join their team.</p>
+                    <p className="text-gray-500">{job.company.name} is looking for a {job.title} to join their team.</p>
                   </div>
 
                   <div className="flex gap-3">
@@ -146,10 +147,10 @@ function ViewJob() {
               <div className="flex flex-col w-[30%] p-4 gap-5">
                 <div className="flex flex-col gap-4 border-2 px-5 py-5 rounded-lg">
                   <div className="flex">
-                    <img src={job.freelancer.profilePicture} className="h-10 w-auto rounded-lg"></img>
+                    <img src={job.company.profilePicture} className="h-10 w-auto rounded-lg"></img>
                   </div>
-                  <p className="font-bold text-xl">About {job.freelancer.name}</p>
-                  <p className="text-gray-500">This is the about information about this company. This is still a test message I will come back to it to make it make sense though.</p>
+                  <p className="font-bold text-xl">About {job.company.name}</p>
+                  <p className="text-gray-500">{job.company.about}</p>
                   <button className="bg-gray-100 border-2 font-bold px-3 py-1 rounded">View Company</button>
                 </div>
                 <div className="flex flex-col gap-4 border-2 px-5 py-5 rounded-lg">
@@ -174,7 +175,7 @@ function ViewJob() {
           <div className="flex flex-col border-2 rounded-lg px-10 py-10 w-[50%] gap-5 cursor-pointer">
               <div className="flex items-center gap-5">
               <div className="flex">
-              <img src={job.freelancer.profilePicture} className="h-14 rounded-xl"></img>
+              <img src={job.company.profilePicture} className="h-14 rounded-xl"></img>
               </div>
               <div>
                 <p className="font-bold text-gray-400">Microsoft</p>
@@ -207,7 +208,7 @@ function ViewJob() {
             <div className="flex flex-col border-2 rounded-lg px-10 py-10 w-[50%] gap-5 cursor-pointer">
               <div className="flex items-center gap-5">
               <div className="flex">
-              <img src={job.freelancer.profilePicture} className="h-14 rounded-xl"></img>
+              <img src={job.company.profilePicture} className="h-14 rounded-xl"></img>
               </div>
               <div>
                 <p className="font-bold text-gray-400">Google</p>

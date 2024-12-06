@@ -62,14 +62,14 @@ function SearchedJobsPage() {
                     <div className="px-7 py-3">
                       <div className="flex justify-between">
                         <img
-                          src={job.freelancer.profilePicture}
+                          src={job.company.profilePicture}
                           className="w-20 rounded-xl"
-                          alt={job.freelancer.name}
+                          alt={job.company.name}
                         />
                         <IoIosArrowRoundForward className="h-10 w-7 text-gray-500" />
                       </div>
                       <div className="flex flex-col gap-1 mt-4">
-                        <p className="text-gray-500 font-bold">{job.freelancer.name}</p>
+                        <p className="text-gray-500 font-bold">{job.company.name}</p>
                         <p className="font-bold">{job.title}</p>
                         <p className="text-gray-500">{job.description}</p>
                       </div>
