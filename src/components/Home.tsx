@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import  Postjob   from "./Postjob";
 import { getAllJobs, getFeaturedJob, getJobByFilter } from "../services/jobService";
-import { getFeaturedUser } from "../services/userService";
+import { getFeaturedCompany } from "../services/companyService";
 import { FaSearch, FaCloud, FaCentercode } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import Select from "react-select";
@@ -117,9 +117,13 @@ function Home() {
 
   const fetchFeaturedCompany = async () => {
     try {
-      const response = await getFeaturedUser();
-      setFeatCompany(response);
-      console.log("Featured companies: ", featCompany);
+      const data = await getFeaturedCompany();
+      console.log("Found featured companies: ", data);
+      if (data && data.company) {
+        setFeatCompany(data.company);
+      } else {
+        setFeatCompany([]);
+      }
     } catch (error) {
       console.error("Error fetching featured users: ", error);
     }
@@ -163,10 +167,10 @@ function Home() {
     }
   };
 
-  const handleCompanyClick = async (id: any) => {
+  const handleCompanyClick = async () => {
     setLoading(true);
     try {
-      navigate(`/about/${id}`, {state: { featuredCompany: featuredCompany }});
+      navigate(`/about/${featured._id}`);
     } catch (error) {
       console.error("Error displaying company", error);
     }
@@ -371,13 +375,13 @@ function Home() {
   </div>
   <div className="container m-auto">
   {
-  featured.length > 0 ? (
+  featCompany.length > 0 ? (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" onClick={handleCompanyClick}>
-      {featured.map((comp) => (
+      {featCompany.map((comp) => (
         <div key={comp._id} className="bg-gray-300 px-4 py-5 w-full max-w-xs rounded flex items-center gap-4 cursor-pointer">
-          <img className="h-16 rounded-lg" src={comp.company.profilePicture} alt={comp.company.name} />
+          <img className="h-16 rounded-lg" src={comp.profilePicture} alt={comp.name} />
           <div>
-            <p className="font-bold text-lg">{comp.company.name}</p>
+            <p className="font-bold text-lg">{comp.name}</p>
             <div className="flex items-center mt-2">
               <p>Learn more</p>
               <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
