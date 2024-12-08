@@ -81,7 +81,6 @@ function Home() {
   const [results, setResults] = useState<any[]>([]);
   const navigate = useNavigate();
   const locationHook = useLocation();
-  const { featuredCompany } = locationHook.state || {};
 
   const fetchJobs = async () => {
     try {
@@ -167,14 +166,15 @@ function Home() {
     }
   };
 
-  const handleCompanyClick = async () => {
-    setLoading(true);
-    try {
-      navigate(`/about/${featured._id}`);
-    } catch (error) {
-      console.error("Error displaying company", error);
+  const handleCompanyClick = (company: any) => {
+    if (!company) {
+      console.error("Company is undefined");
+      return;
     }
+    console.log("Clicked company:", company);
+    navigate(`/about/company/${company._id}`);
   };
+
   
   
 
@@ -376,12 +376,12 @@ function Home() {
   <div className="container m-auto">
   {
   featCompany.length > 0 ? (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" onClick={handleCompanyClick}>
-      {featCompany.map((comp) => (
-        <div key={comp._id} className="bg-gray-300 px-4 py-5 w-full max-w-xs rounded flex items-center gap-4 cursor-pointer">
-          <img className="h-16 rounded-lg" src={comp.profilePicture} alt={comp.name} />
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {featCompany.map((company) => (
+        <div key={company._id} className="bg-gray-300 px-4 py-5 w-full max-w-xs rounded flex items-center gap-4 cursor-pointer" onClick={() => handleCompanyClick(company)}>
+          <img className="h-16 rounded-lg" src={company.profilePicture} alt={company.name} />
           <div>
-            <p className="font-bold text-lg">{comp.name}</p>
+            <p className="font-bold text-lg">{company.name}</p>
             <div className="flex items-center mt-2">
               <p>Learn more</p>
               <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
