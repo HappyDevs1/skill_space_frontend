@@ -114,6 +114,8 @@ function AboutCompany() {
                   {
                   activeButton === "jobs" &&
                   <div className="flex flex-col gap-5 text-gray-500">
+                    <p className="font-bold text-xl text-black">About company</p>
+                    <p>{company.about}</p>
                     <p className="font-bold text-xl text-black">Company job openings</p>
                   </div>
                   }
