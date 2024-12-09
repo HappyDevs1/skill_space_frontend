@@ -370,7 +370,7 @@ function Home() {
       </p>
     </div>
     <div>
-      <button className="border border-gray-300 rounded px-2 py-0.5">See all companies</button>
+      <button className="border border-gray-300 rounded px-2 py-0.5" onClick={() => navigate("/view/companies")}>See all companies</button>
     </div>
   </div>
   <div className="container m-auto">
