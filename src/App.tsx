@@ -16,6 +16,7 @@ import UserProfile from "./components/UserProfile";
 import CompanyProfile from "./components/CompanyProfile";
 import AboutCompany from "./components/AboutCompany";
 import SignUpCompany from "./components/SignupCompany";
+import Companies from "./components/Companies";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
@@ -48,6 +49,7 @@ function App() {
           <Route path="/filter" element={<SearchedJobsPage />} />
           <Route path="/job/:id" element={<ViewJob />} />
           <Route path="/create/job" element={<PostJobForm />} />
+          <Route path="/view/companies" element={<Companies />} />
           <Route path="/profile/user/:id" element={<UserProfile />} />
           <Route path="/profile/company/:id" element={<CompanyProfile />} />
           <Route path="/about/company/:id" element={<AboutCompany />} />
