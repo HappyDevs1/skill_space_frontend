@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getCompany } from "../services/companyService";
 import Postjob from "./Postjob";
-import { IoIosArrowRoundForward } from "react-icons/io";
+import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 
 interface Company {
   _id: string;
@@ -31,12 +32,18 @@ function Companies() {
     fetchCompanies();
   }, []);
 
+  const navigate = useNavigate();
+
   return (
     <div>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <div className="flex flex-col justify-center">
+          <div className="flex items-center gap-3 ml-20 mt-8">
+            <IoIosArrowRoundBack className="h-7 w-7 text-gray-500 cursor-pointer"onClick={() => navigate(-1)}/>
+            <p>Back to Home</p>
+          </div>
           <div className="mt-20 flex flex-col items-center">
             <p className="font-bold text-4xl">Companies</p>
             <p className="text-gray-500 mt-6">
