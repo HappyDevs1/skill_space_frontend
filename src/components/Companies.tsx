@@ -34,6 +34,15 @@ function Companies() {
 
   const navigate = useNavigate();
 
+  const handleClickCompany = async (company: any) => {
+    try {
+      console.log("Clicked company: ", company._id);
+      navigate(`/about/company/${company._id}`);
+    } catch (error) {
+      console.error("Failed to display company information");
+    }
+  }
+
   return (
     <div>
       {loading ? (
@@ -53,18 +62,19 @@ function Companies() {
             </p>
             {companies.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
-                {companies.map((comp) => (
+                {companies.map((company) => (
                   <div
-                    key={comp._id}
+                    key={company._id}
                     className="flex flex-col items-start px-6 py-5 w-full max-w-xs border rounded shadow hover:shadow-lg transition-shadow"
+                    onClick={() => handleClickCompany(company)}
                   >
                     <img
-                      src={comp.profilePicture}
-                      alt={`${comp.name} Logo`}
+                      src={company.profilePicture}
+                      alt={`${company.name} Logo`}
                       className="w-21 h-16 rounded-full mb-4"
                     />
-                    <h2 className="font-bold text-xl mb-2">{comp.name}</h2>
-                    <p className="text-gray-600 mb-4">{comp.name} is one of the companies in partnership with SkillSpace. Click here to view more about {comp.name}.</p>
+                    <h2 className="font-bold text-xl mb-2">{company.name}</h2>
+                    <p className="text-gray-600 mb-4">{company.name} is one of the companies in partnership with SkillSpace. Click here to view more about {company.name}.</p>
                     <div className="border-2 rounded-md">
                     <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
                     </div>
