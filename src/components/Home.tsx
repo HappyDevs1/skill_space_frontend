@@ -175,10 +175,10 @@ function Home() {
     navigate(`/about/company/${company._id}`);
   };
 
-  const handleJobClick = (service: any) => {
+  const handleJobClick = (service: any, services: any) => {
     try {
-      console.log("Clicked company: ", service);
-      navigate(`/job/${service._id}`);
+      console.log("Clicked company: ", service || services);
+      navigate(`/job/${service._id}` || `/job/${services._id}`);
     } catch (error) {
       console.error("Failed to view job details");
     }
@@ -290,7 +290,8 @@ function Home() {
           {
             featured.length > 0 ? (
               featured.map((job) => (
-                <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto cursor-pointer">
+                <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto cursor-pointer"
+                onClick={() => handleJobClick(job)}>
                 <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
                   <img src={job.company.profilePicture} className="w-13 h-11"></img>
                 </div>
