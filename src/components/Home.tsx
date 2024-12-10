@@ -175,8 +175,14 @@ function Home() {
     navigate(`/about/company/${company._id}`);
   };
 
-  
-  
+  const handleJobClick = (service: any) => {
+    try {
+      console.log("Clicked company: ", service);
+      navigate(`/job/${service._id}`);
+    } catch (error) {
+      console.error("Failed to view job details");
+    }
+  }
 
   if (loading) return <CircularIndeterminate />;
   if (error) return <p>{error}</p>;
@@ -324,7 +330,8 @@ function Home() {
           <p className="font-semibold text-xl mb-6">Latest jobs</p>
           {jobs.length > 0 ? (
             jobs.map((job) => (
-              <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto cursor-pointer mb-5">
+              <div key={job._id} className="flex border rounded border-gray-400 px-3 py-3 w-auto cursor-pointer mb-5"
+              onClick={() => handleJobClick(job)}>
                 <div className="flex rounded items center justify-center w-full flex-grow bg-sky-100 px-11 py-14">
                   <img src={job.company.profilePicture} className="w-13 h-11"></img>
                 </div>
