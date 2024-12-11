@@ -50,7 +50,8 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
           </li>
           <li>
             {isAuthenticated ? (
-              <button onClick={logout} className="flex items-center">
+              <div>
+                <button className="flex items-center bg-red-600 px-1 py-1 rounded-md text-white" onClick={logout}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -67,6 +68,7 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
                 </svg>
                 Logout
               </button>
+              </div>
             ) : (
               <Link to="/user/login" className="flex items-center">
                 <svg
