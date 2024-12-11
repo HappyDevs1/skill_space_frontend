@@ -125,7 +125,10 @@ function ViewJob() {
 
                 {/* Job description */}
                 <div className="flex flex-col px-10">
-                  <div className="flex justify-between mt-20 mb-7">
+                <div className="flex justify-end my-[8%]">
+                    <button onClick={handleApplyJob} className="bg-blue-600 text-white px-[1%] py-[1%] rounded-lg font-bold flex justify-end self-end">Apply now</button>
+                  </div>
+                  <div className="flex justify-between mt-5 mb-7">
                     <p className="font-bold text-xl">Job description</p>
                     <div className="flex items-center gap-1">
                     <CiCalendar className="text-xl"/>
