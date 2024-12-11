@@ -16,6 +16,12 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
     navigate("/user/login");
   };
 
+  const confirmLogout = () => {
+    if (window.confirm("Are you sure you want to log out?")) {
+      logout()
+    }
+  }
+
   return (
     <nav className="flex h-20 items-center border-b-2">
       <div className="items-start ml-20">
@@ -54,7 +60,7 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
           <li>
             {isAuthenticated ? (
               <div>
-                <button className="flex items-center bg-red-600 px-1 py-1 rounded-md text-white" onClick={logout}>
+                <button className="flex items-center bg-red-600 px-1 py-1 rounded-md text-white" onClick={confirmLogout}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
