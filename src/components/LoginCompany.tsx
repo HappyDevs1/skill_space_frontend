@@ -9,7 +9,7 @@ type NavBarProps = {
   setIsAuthenticated: (auth: boolean) => void;
 };
 
-function LoginCompany({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
+function LoginCompany({ isAuthenticated, setIsAuthenticated }: NavBarProps): JSX.Element {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
