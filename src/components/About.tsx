@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import Postjob from "./Postjob";
 import { LiaLightbulb } from "react-icons/lia";
 import { FaRegStar } from "react-icons/fa6";
@@ -6,6 +7,12 @@ import { AiOutlineTeam, AiOutlineSafety } from "react-icons/ai";
 import { IoSearch } from "react-icons/io5";
 
 function About() {
+  const valuesRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    valuesRef.current?.scrollIntoView({ behavior: "smooth" });
+  }
+  
   return (
     <div>
       {/* About Section */}
@@ -17,7 +24,7 @@ function About() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <button className="bg-blue-500 text-white rounded px-4 py-2">Post a free job</button>
-            <button className="border border-gray-300 rounded px-4 py-2">Learn more</button>
+            <button className="border border-gray-300 rounded px-4 py-2" onClick={handleScroll}>Learn more</button>
           </div>
         </div>
       </div>
@@ -43,7 +50,7 @@ function About() {
       </div>
 
       {/* Values Section */}
-      <div className="flex justify-center py-16 px-4">
+      <div className="flex justify-center py-16 px-4" ref={valuesRef}>
         <div className="flex flex-col items-center text-center">
           <p className="font-bold text-2xl md:text-3xl mb-6">Our values</p>
           <p className="text-gray-500 mb-10 text-sm md:text-base leading-relaxed">
