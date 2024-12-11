@@ -17,6 +17,7 @@ import CompanyProfile from "./components/CompanyProfile";
 import AboutCompany from "./components/AboutCompany";
 import SignUpCompany from "./components/SignupCompany";
 import Companies from "./components/Companies";
+import ViewBlog from "./components/ViewBlog";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
@@ -53,6 +54,7 @@ function App() {
           <Route path="/profile/user/:id" element={<UserProfile />} />
           <Route path="/profile/company/:id" element={<CompanyProfile />} />
           <Route path="/about/company/:id" element={<AboutCompany />} />
+          <Route path="/view/blog" element={<ViewBlog />} />
         </Routes>
     </div>
   )
