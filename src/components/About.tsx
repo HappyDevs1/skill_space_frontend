@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Postjob from "./Postjob";
 import { LiaLightbulb } from "react-icons/lia";
 import { FaRegStar } from "react-icons/fa6";
@@ -8,6 +9,7 @@ import { IoSearch } from "react-icons/io5";
 
 function About() {
   const valuesRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const handleScroll = () => {
     valuesRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -23,7 +25,7 @@ function About() {
             This is a small description about the company. I will come back to this text and edit this text so that it makes more sense. This is a test text, I will come back to it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-blue-500 text-white rounded px-4 py-2">Post a free job</button>
+            <button className="bg-blue-500 text-white rounded px-4 py-2" onClick={() => navigate("/create/job")}>Post a free job</button>
             <button className="border border-gray-300 rounded px-4 py-2" onClick={handleScroll}>Learn more</button>
           </div>
         </div>
