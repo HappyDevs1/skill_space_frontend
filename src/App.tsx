@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes,useNavigate } from 'react-router-dom';
 import NavBar from "./components/NavBar";
 import Home from "../src/components/Home";
 import About from "../src/components/About";
@@ -20,7 +20,23 @@ import Companies from "./components/Companies";
 import ViewBlog from "./components/ViewBlog";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    try {
+      const token = localStorage.getItem("token");
+      if (token) {
+        setIsAuthenticated(true);
+        console.log("User authenticated")
+      } else {
+        setIsAuthenticated(false);
+        console.log("User not authenticated")
+      }
+    } catch (error) {
+      console.error("Failed to fetch token from local storage");
+    }
+  })
 
   return (
     <div className="">
@@ -49,9 +65,9 @@ function App() {
           <Route path="/company/create" element={<SignUpCompany />} />
           <Route path="/filter" element={<SearchedJobsPage />} />
           <Route path="/job/:id" element={<ViewJob />} />
-          <Route path="/create/job" element={<PostJobForm />} />
+          <Route path="/create/job" element={isAuthenticated ? <PostJobForm /> : <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>} />
           <Route path="/view/companies" element={<Companies />} />
-          <Route path="/profile/user/:id" element={<UserProfile />} />
+          <Route path="/profile/user/:id" element={isAuthenticated ? <UserProfile /> : <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/profile/company/:id" element={<CompanyProfile />} />
           <Route path="/about/company/:id" element={<AboutCompany />} />
           <Route path="/view/blog" element={<ViewBlog />} />
