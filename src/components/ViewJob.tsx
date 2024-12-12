@@ -63,7 +63,7 @@ function ViewJob() {
 
   const handleApplyJob = async () => {
     try {
-
+      navigate(`/job/apply/${job._id}`);
     } catch (error) {
       console.error("Error in applying for a job");
     }
