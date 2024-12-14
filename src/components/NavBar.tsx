@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 type NavBarProps = {
@@ -6,25 +7,25 @@ type NavBarProps = {
 };
 
 function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle mobile menu
   let navigate = useNavigate();
 
   const logout = () => {
     localStorage.removeItem("token");
-
     setIsAuthenticated(false);
-
     navigate("/user/login");
   };
 
   const confirmLogout = () => {
     if (window.confirm("Are you sure you want to log out?")) {
-      logout()
+      logout();
     }
-  }
+  };
 
   return (
-    <nav className="flex h-20 items-center border-b-2">
-      <div className="items-start ml-20">
+    <nav className="flex items-center justify-between h-20 border-b-2 px-4 md:px-10">
+      {/* Logo Section */}
+      <div className="flex items-center">
         <Link to="/" className="flex items-center font-semibold text-xl">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +33,7 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-6 mx-1.5 text-sky-500"
+            className="w-6 h-6 mx-1.5 text-sky-500"
           >
             <path
               strokeLinecap="round"
@@ -43,8 +44,10 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
           SkillSpace
         </Link>
       </div>
-      <div className="ml-auto">
-        <ul className="flex gap-10 mr-20">
+
+      {/* Desktop Menu */}
+      <div className="hidden md:flex">
+        <ul className="flex gap-6 md:gap-10">
           <li className="hover:text-sky-500">
             <Link to="/">Home</Link>
           </li>
@@ -59,15 +62,17 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
           </li>
           <li>
             {isAuthenticated ? (
-              <div>
-                <button className="flex items-center bg-red-600 px-1 py-1 rounded-md text-white" onClick={confirmLogout}>
+              <button
+                className="flex items-center bg-red-600 px-3 py-1 rounded-md text-white"
+                onClick={confirmLogout}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="size-3.5 mx-1"
+                  className="w-5 h-5 mx-1"
                 >
                   <path
                     strokeLinecap="round"
@@ -77,7 +82,6 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
                 </svg>
                 Logout
               </button>
-              </div>
             ) : (
               <Link to="/user/login" className="flex items-center">
                 <svg
@@ -86,7 +90,7 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="size-3.5 mx-1"
+                  className="w-5 h-5 mx-1"
                 >
                   <path
                     strokeLinecap="round"
@@ -100,6 +104,64 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
           </li>
         </ul>
       </div>
+
+      {/* Hamburger Menu */}
+      <div className="md:hidden">
+        <button
+          className="p-2"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle Menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.5 6.75h15m-15 5.25h15m-15 5.25h15"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      {isMenuOpen && (
+        <div className="absolute top-20 left-0 w-full bg-white border-t-2 shadow-md z-10 md:hidden">
+          <ul className="flex flex-col gap-4 p-4">
+            <li className="hover:text-sky-500">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="hover:text-sky-500">
+              <Link to="/about">About</Link>
+            </li>
+            <li className="hover:text-sky-500">
+              <Link to="/blog">Blog</Link>
+            </li>
+            <li className="hover:text-sky-500">
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li>
+              {isAuthenticated ? (
+                <button
+                  className="flex items-center bg-red-600 px-3 py-1 rounded-md text-white"
+                  onClick={confirmLogout}
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link to="/user/login" className="flex items-center">
+                  Login
+                </Link>
+              )}
+            </li>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }
