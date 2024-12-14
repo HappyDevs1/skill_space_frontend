@@ -18,7 +18,7 @@ import AboutCompany from "./components/AboutCompany";
 import SignUpCompany from "./components/SignupCompany";
 import Companies from "./components/Companies";
 import ViewBlog from "./components/ViewBlog";
-import JobApplicationForm from "./components/JobApplicationForm";
+import JobApplication from "./components/JobApplication";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -29,10 +29,8 @@ function App() {
       const token = localStorage.getItem("token");
       if (token) {
         setIsAuthenticated(true);
-        console.log("User authenticated")
       } else {
         setIsAuthenticated(false);
-        console.log("User not authenticated")
       }
     } catch (error) {
       console.error("Failed to fetch token from local storage");
@@ -66,7 +64,7 @@ function App() {
           <Route path="/company/create" element={<SignUpCompany />} />
           <Route path="/filter" element={<SearchedJobsPage />} />
           <Route path="/job/:id" element={<ViewJob />} />
-          <Route path="job/apply/:id" element={isAuthenticated ? <JobApplicationForm /> : <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="job/apply/:id" element={isAuthenticated ? <JobApplication /> : <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/create/job" element={isAuthenticated ? <PostJobForm /> : <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>} />
           <Route path="/view/companies" element={<Companies />} />
           <Route path="/profile/user/:id" element={isAuthenticated ? <UserProfile /> : <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
