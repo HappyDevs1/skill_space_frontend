@@ -377,12 +377,14 @@ function Home() {
 
             {/* Displaying latest jobs */}
             <div className="flex flex-col items-center justify-center w-full flex-grow mt-24 px-4">
-              <p className="font-semibold text-xl mb-6">Latest jobs</p>
+              <p className="font-semibold text-xl mb-6 text-center">
+                Latest jobs
+              </p>
               {jobs.length > 0 ? (
                 jobs.map((job) => (
                   <div
                     key={job._id}
-                    className="flex flex-col md:flex-row border rounded border-gray-400 px-3 py-3 w-full cursor-pointer mb-5"
+                    className="flex flex-col md:flex-row border rounded border-gray-400 px-3 py-3 w-full md:w-auto cursor-pointer mb-4"
                     onClick={() => handleJobClick(job)}
                   >
                     {/* Left Section: Profile Picture */}
