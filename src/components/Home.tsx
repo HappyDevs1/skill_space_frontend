@@ -238,7 +238,7 @@ function Home() {
               </div>
             </div>
             <div className="flex flex-col items-center justify-center w-full flex-grow px-4 sm:px-8 md:px-16">
-              <form onSubmit={handleSearch} className="w-full max-w-4xl">
+              <form onSubmit={handleSearch} className="w-full max-w-6xl">
                 <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 items-center border border-gray-400 rounded p-4">
                   <div className="flex items-center w-full sm:w-auto border border-gray-300 rounded p-2">
                     <FaSearch className="text-gray-500" />
@@ -436,7 +436,7 @@ function Home() {
 
               {/* Pagination */}
               <div className="flex flex-row mt-16 items-center">
-                <p className="mx-8 font-medium">1/2</p>
+                <p className="mx-8 font-medium">1/1</p>
                 <button className="bg-blue-500 text-white font-bold px-3 py-1.5 rounded">
                   Next
                 </button>
