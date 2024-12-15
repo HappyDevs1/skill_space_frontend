@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { getCompanyById, getFeaturedCompany } from "../services/companyService";
+import { getAllJobs } from "../services/jobService";
 import Postjob from "./Postjob";
 import CircularIndeterminate from "./CircularIndeterminate";
 import { CiLocationOn } from "react-icons/ci";
@@ -32,6 +33,9 @@ function AboutCompany() {
   const [company, setCompany] = useState<Company | null>(null)
   const [activeButton, setActiveButton] = useState<string>("jobs");
   const [loading, setLoading] = useState<boolean>(false);
+  const [allJobs, setAllJobs] = useState<any>([]);
+  const [companiesJobs, setCompaniesJobs] = useState<any>([]);
+  const jobs: any = [];
   const location = useLocation();
   const { id } = useParams<{ id: string }>();
   // const { id } = useParams();
@@ -45,18 +49,40 @@ function AboutCompany() {
     const fetchedFeaturedCompany = async () => {
       setLoading(true);
       try {
+        // Fetch company data
         const data = await getCompanyById(id);
         setCompany(data);
         console.log("Viewed Company: ", data);
+  
+        // Fetch all jobs
+        const response = await getAllJobs();
+        const foundJobs = response.service; // Access the 'service' array from the API response
+        console.log("Found jobs: ", foundJobs);
+  
+        // Safeguard: Ensure foundJobs is an array
+        if (!Array.isArray(foundJobs)) {
+          console.error("Expected an array in 'service', but got: ", foundJobs);
+          setCompaniesJobs([]); // Set empty if it's not an array
+          return;
+        }
+  
+        setAllJobs(foundJobs);
+  
+        // Filter jobs belonging to the specific company
+        const companyJobs = foundJobs.filter((job) => job.company._id === data._id);
+        setCompaniesJobs(companyJobs);
+  
+        console.log("The jobs under this company are: ", companyJobs);
       } catch (error) {
-        console.error("Error fetching company information: ", error)
+        console.error("Error fetching company information: ", error);
       } finally {
         setLoading(false);
       }
     };
-
+  
     fetchedFeaturedCompany();
   }, [id])
+
 
   const handleButtonClick = (button: string) => {
     setActiveButton(button)
