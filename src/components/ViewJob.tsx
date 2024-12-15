@@ -70,17 +70,17 @@ function ViewJob() {
   }
 
   return (
-    <div>
-      {
-        loading ? (
-          <div>
-          <CircularIndeterminate />
-          </div>
-        ) :
-        (
-          <div className="mx-36 my-8 flex">
+<div>
+  {
+    loading ? (
+      <div>
+        <CircularIndeterminate />
+      </div>
+    ) :
+    (
+      <div className="mx-4 my-4 sm:mx-36 sm:my-8 flex flex-col sm:flex-row">
         {job ? (
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col sm:w-7/10">
             {/* Back button */}
             <div className="flex items-center">
               <IoIosArrowRoundBack className="h-7 w-7 text-gray-500 cursor-pointer" onClick={handleBack} />
@@ -88,14 +88,14 @@ function ViewJob() {
             </div>
 
             {/* Main content container */}
-            <div className="flex my-10 justify-between">
-              {/* Left side (70%) */}
-              <div className="border-2 w-[70%]">
+            <div className="flex flex-col sm:flex-row my-10 justify-between">
+              {/* Left side (Main content) */}
+              <div className="border-2 w-full sm:w-[70%]">
                 <div className="flex flex-col px-8 py-7 bg-gray-100">
                   <div className="flex gap-5">
                     <div className="bg-blue-100 px-3 py-3 rounded-lg">
-                  <img src={job.company.profilePicture} className="h-16 w-auto rounded-lg"></img>
-                  </div>
+                      <img src={job.company.profilePicture} className="h-16 w-auto rounded-lg" />
+                    </div>
                     <div className="flex flex-col justify-center gap-1">
                       <p className="font-bold text-gray-500">{job.company.name}</p>
                       <p className="font-bold text-xl">{job.title}</p>
@@ -106,26 +106,25 @@ function ViewJob() {
                     <p className="text-gray-500">{job.company.name} is looking for a {job.title} to join their team.</p>
                   </div>
 
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 flex-wrap">
                     <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
-                      <CiLocationOn className="text-blue-600" />
+                      <CiLocationOn className="text-blue-600 text-base sm:text-lg" />
                       <p>{job.location}</p>
                     </div>
                     <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
-                      <IoBriefcaseOutline className="text-blue-600" />
+                      <IoBriefcaseOutline className="text-blue-600 text-base sm:text-lg" />
                       <p>{job.department}</p>
                     </div>
                     <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
-                      <VscGraph className="text-blue-600" />
+                      <VscGraph className="text-blue-600 text-base sm:text-lg" />
                       <p>{job.level}</p>
                     </div>
                     <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
-                      <IoMdTime className="text-blue-600 font-bold" />
-                      {/* Will come back to edit this to make it dynamic */}
+                      <IoMdTime className="text-blue-600 font-bold text-base sm:text-lg" />
                       <p>Full Time</p>
                     </div>
                     <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
-                      <RiMoneyDollarCircleLine className="text-blue-600" />
+                      <RiMoneyDollarCircleLine className="text-blue-600 text-base sm:text-lg" />
                       <p>R {job.price} ZAR</p>
                     </div>
                   </div>
@@ -133,32 +132,32 @@ function ViewJob() {
 
                 {/* Job description */}
                 <div className="flex flex-col px-10">
-                <div className="flex justify-end my-[8%]">
-                    <button onClick={handleApplyJob} className="bg-blue-600 text-white px-[1%] py-[1%] rounded-lg font-bold flex justify-end self-end">Apply now</button>
+                  <div className="flex justify-end my-[8%]">
+                    <button onClick={handleApplyJob} className="bg-blue-600 text-white px-[1%] py-[1%] rounded-lg font-bold">Apply now</button>
                   </div>
                   <div className="flex justify-between mt-5 mb-7">
                     <p className="font-bold text-xl">Job description</p>
                     <div className="flex items-center gap-1">
-                    <CiCalendar className="text-xl"/>
-                    <p className="text-gray-500">
-                      <span className="font-bold text-black">Posted on:</span>{" "}
-                      {new Date(job.createdAt).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </p>
+                      <CiCalendar className="text-xl sm:text-2xl" />
+                      <p className="text-gray-500">
+                        <span className="font-bold text-black">Posted on:</span>{" "}
+                        {new Date(job.createdAt).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </p>
                     </div>
                   </div>
-                  <p className="text-gray-500">{job.description} This is a test message, I will come back to it to edit it. This is just a test message I will come back to edit it later on. This is just a test message I will come back to it later on to make it make much more sense.</p>
+                  <p className="text-gray-500">{job.description}</p>
                 </div>
               </div>
 
-              {/* Right side (30%) */}
-              <div className="flex flex-col w-[30%] p-4 gap-5">
+              {/* Right side (Sidebar) */}
+              <div className="flex flex-col w-full sm:w-[30%] p-4 gap-5">
                 <div className="flex flex-col gap-4 border-2 px-5 py-5 rounded-lg">
                   <div className="flex">
-                    <img src={job.company.profilePicture} className="h-10 w-auto rounded-lg"></img>
+                    <img src={job.company.profilePicture} className="h-10 w-auto rounded-lg" />
                   </div>
                   <p className="font-bold text-xl">About {job.company.name}</p>
                   <p className="text-gray-500">{job.company.about}</p>
@@ -167,99 +166,95 @@ function ViewJob() {
                 <div className="flex flex-col gap-4 border-2 px-5 py-5 rounded-lg">
                   <div className="flex">
                     <div className="border-2 rounded-lg px-1 py-1">
-                    <MdOutlinePostAdd className="text-4xl text-blue-500"/>
+                      <MdOutlinePostAdd className="text-4xl text-blue-500 sm:text-5xl" />
                     </div>
                   </div>
                   <p className="font-bold text-xl">Post a job today</p>
-                  <p className="text-gray-500">This is the about information about this company. This is still a test message I will come back to it to make it make sense though.</p>
+                  <p className="text-gray-500">This is the about information about this company.</p>
                   <button className="bg-blue-500 text-white px-3 py-1 rounded font-bold">Post a job</button>
                   <p className="text-gray-500 underline self-center text-lg cursor-pointer">or post a free job</p>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col">
-              <div className="flex justify-between">
-                <p className="font-bold text-xl">More job openings</p>
-                <button className="bg-gray-100 border-2 px-3 py-1 rounded font-bold text-sm">See all jobs</button>
-              </div>
-          <div className="flex justify-evenly gap-10 my-7">
-          <div className="flex flex-col border-2 rounded-lg px-10 py-10 w-[50%] gap-5 cursor-pointer">
-              <div className="flex items-center gap-5">
-              <div className="flex">
-              <img src={job.company.profilePicture} className="h-14 rounded-xl"></img>
-              </div>
-              <div>
-                <p className="font-bold text-gray-400">Microsoft</p>
-                <p className="font-bold text-lg">Systems Administator</p>
-              </div>
-              </div>
-              <div>
-                <p className="text-gray-500">This is a test message, but I will come back to it to edit it to make it make sense. But for now I will use it just to test.</p>
-              </div>
-              <div className="flex justify-between">
-                <div className="flex gap-1 text-sm">
-                <div className="flex gap-2 border-2 rounded px-2 items-center">
-                  <CiLocationOn />
-                  <p>Location</p>
-                </div>
-                <div className="flex gap-2 border-2 rounded px-2 items-center">
-                <VscGraph />
-                  <p>Level</p>
-                </div>
-                <div className="flex gap-2 border-2 rounded px-2 items-center">
-                  <IoBriefcaseOutline />
-                  <p>Department</p>
-                </div>
-              </div>
-              <div>
-                <button className="bg-gray-100 px-3 py-1 rounded border-2 text-sm font-bold">Apply now</button>
-              </div>
-              </div>
+
+            {/* More job openings */}
+            <div className="flex flex-col sm:flex-row justify-between">
+              <p className="font-bold text-xl">More job openings</p>
+              <button className="bg-gray-100 border-2 px-3 py-1 rounded font-bold text-sm">See all jobs</button>
             </div>
-            <div className="flex flex-col border-2 rounded-lg px-10 py-10 w-[50%] gap-5 cursor-pointer">
-              <div className="flex items-center gap-5">
-              <div className="flex">
-              <img src={job.company.profilePicture} className="h-14 rounded-xl"></img>
-              </div>
-              <div>
-                <p className="font-bold text-gray-400">Google</p>
-                <p className="font-bold text-lg">Mobile product manager</p>
-              </div>
-              </div>
-              <div>
-                <p className="text-gray-500">This is a test message, but I will come back to it to edit it to make it make sense. But for now I will use it just to test.</p>
-              </div>
-              <div className="flex justify-between">
-                <div className="flex gap-1 text-sm">
-                <div className="flex gap-2 border-2 rounded px-2 items-center">
-                  <CiLocationOn />
-                  <p>Location</p>
+
+            <div className="flex flex-col sm:flex-row justify-evenly gap-10 my-7">
+              {/* Job listing 1 */}
+              <div className="flex flex-col border-2 rounded-lg px-10 py-10 w-full sm:w-[48%] gap-5 cursor-pointer">
+                <div className="flex items-center gap-5">
+                  <img src={job.company.profilePicture} className="h-14 rounded-xl" />
+                  <div>
+                    <p className="font-bold text-gray-400">Microsoft</p>
+                    <p className="font-bold text-lg">Systems Administator</p>
+                  </div>
                 </div>
-                <div className="flex gap-2 border-2 rounded px-2 items-center">
-                <VscGraph />
-                  <p>Level</p>
+                <p className="text-gray-500">This is a test message, but I will come back to it to edit it.</p>
+                <div className="flex justify-between">
+                  <div className="flex gap-2 flex-wrap">
+                    <div className="flex gap-2 border-2 rounded px-2 items-center">
+                      <CiLocationOn className="text-base sm:text-lg" />
+                      <p>Location</p>
+                    </div>
+                    <div className="flex gap-2 border-2 rounded px-2 items-center">
+                      <VscGraph className="text-base sm:text-lg" />
+                      <p>Level</p>
+                    </div>
+                    <div className="flex gap-2 border-2 rounded px-2 items-center">
+                      <IoBriefcaseOutline className="text-base sm:text-lg" />
+                      <p>Department</p>
+                    </div>
+                  </div>
+                  <div>
+                  <button className="bg-gray-100 px-3 py-1 rounded border-2 text-sm font-bold">Apply now</button>
+                  </div>
                 </div>
-                <div className="flex gap-2 border-2 rounded px-2 items-center">
-                  <IoBriefcaseOutline />
-                  <p>Department</p>
+              </div>
+
+              {/* Job listing 2 */}
+              <div className="flex flex-col border-2 rounded-lg px-10 py-10 w-full sm:w-[48%] gap-5 cursor-pointer">
+                <div className="flex items-center gap-5">
+                  <img src={job.company.profilePicture} className="h-14 rounded-xl" />
+                  <div>
+                    <p className="font-bold text-gray-400">Google</p>
+                    <p className="font-bold text-lg">Mobile Product Manager</p>
+                  </div>
+                </div>
+                <p className="text-gray-500">This is a test message, but I will come back to it to edit it.</p>
+                <div className="flex justify-between">
+                  <div className="flex gap-2 flex-wrap">
+                    <div className="flex gap-2 border-2 rounded px-2 items-center">
+                      <CiLocationOn className="text-base sm:text-lg" />
+                      <p>Location</p>
+                    </div>
+                    <div className="flex gap-2 border-2 rounded px-2 items-center">
+                      <VscGraph className="text-base sm:text-lg" />
+                      <p>Level</p>
+                    </div>
+                    <div className="flex gap-2 border-2 rounded px-2 items-center">
+                      <IoBriefcaseOutline className="text-base sm:text-lg" />
+                      <p>Department</p>
+                    </div>
+                  </div>
+                  <div>
+                  <button className="bg-gray-100 px-3 py-1 rounded border-2 text-sm font-bold">Apply now</button>
+                  </div>
                 </div>
               </div>
-              <div>
-                <button className="bg-gray-100 px-3 py-1 rounded border-2 text-sm font-bold">Apply now</button>
-              </div>
-              </div>
-            </div>
-          </div>
             </div>
           </div>
         ) : (
-          <p>Job not found</p>
+          <div>No job found</div>
         )}
       </div>
-        )
-      }
-      
-    </div>
+    )
+  }
+</div>
+
   );
 }
 
