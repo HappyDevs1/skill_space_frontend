@@ -46,7 +46,7 @@ function SignupUser() {
   };
 
   const redirectToLogin = () => {
-    navigate("/user/create");
+    navigate("/user/login");
   };
 
   const handleCompanySignup = () => {
@@ -85,7 +85,6 @@ function SignupUser() {
                     onChange={(event) => {
                       setName(event.target.value);
                     }}
-                    required
                   />
                 </div>
                 <div className="flex flex-col gap-3 w-full md:w-1/2">
@@ -95,7 +94,6 @@ function SignupUser() {
                     placeholder="Email address"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                    required
                   />
                 </div>
               </div>
@@ -107,7 +105,6 @@ function SignupUser() {
                   type="password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
-                  required
                 />
               </div>
               <div className="flex flex-col gap-3 mt-5">
@@ -116,7 +113,6 @@ function SignupUser() {
                   placeholder="About yourself"
                   value={about}
                   onChange={(event) => setAbout(event.target.value)}
-                  required
                 />
               </div>
               {/* <div>
