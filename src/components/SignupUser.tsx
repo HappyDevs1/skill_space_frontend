@@ -46,7 +46,7 @@ function SignupUser() {
   };
 
   const redirectToLogin = () => {
-    navigate("/login");
+    navigate("/user/create");
   };
 
   const handleCompanySignup = () => {
