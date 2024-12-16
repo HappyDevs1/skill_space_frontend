@@ -4,6 +4,9 @@ import { getCompanyById, getFeaturedCompany } from "../services/companyService";
 import { getAllJobs } from "../services/jobService";
 import Postjob from "./Postjob";
 import CircularIndeterminate from "./CircularIndeterminate";
+import { VscGraph } from "react-icons/vsc";
+import { IoBriefcaseOutline } from "react-icons/io5";
+import { IoIosArrowRoundForward } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { GoPerson } from "react-icons/go";
 
@@ -88,6 +91,10 @@ function AboutCompany() {
     setActiveButton(button)
   };
 
+  const handleJobClick = () => {
+
+  } 
+
   return (
 <div>
   {loading ? (
@@ -164,6 +171,60 @@ function AboutCompany() {
               <p className="font-bold text-lg sm:text-xl text-black">About Company</p>
               <p>{company.about}</p>
               <p className="font-bold text-lg sm:text-xl text-black">Company Job Openings</p>
+              {
+                companiesJobs.length > 0 ? (
+                  companiesJobs.map((companyJob: any) => (
+                    <div
+                    key={companyJob._id}
+                    className="flex flex-col md:flex-row border rounded border-gray-400 px-3 py-3 w-full md:w-auto cursor-pointer mb-4"
+                    onClick={() => handleJobClick(companyJob)}
+                  >
+                    {/* Left Section: Image */}
+                    <div className="flex items-center justify-center bg-sky-100 px-6 py-8 rounded-md md:px-11 md:py-14">
+                      <img
+                        src={companyJob.company.profilePicture}
+                        className="w-16 h-16 md:w-13 md:h-11 object-cover rounded"
+                        alt={companyJob.company.name}
+                      />
+                    </div>
+
+                    {/* Middle Section: Job Info */}
+                    <div className="mt-4 md:mt-0 md:pl-7 md:pr-20">
+                      <p className="font-semibold text-gray-400 my-2 text-center md:text-left">
+                        {companyJob.company.name}
+                      </p>
+                      <p className="font-bold text-xl text-center md:text-left">
+                        {companyJob.title}
+                      </p>
+                      <div className="flex flex-wrap gap-2.5 mt-4 justify-center md:justify-start">
+                        <div className="flex items-center border border-gray-300 rounded p-1">
+                          <CiLocationOn className="text-blue-500 mr-1.5 h-3 w-3" />
+                          <p className="text-xs font-medium">{companyJob.location}</p>
+                        </div>
+                        <div className="flex items-center border border-gray-300 rounded p-1">
+                          <VscGraph className="text-blue-500 mr-1.5 h-3 w-3" />
+                          <p className="text-xs font-medium">{companyJob.level}</p>
+                        </div>
+                        <div className="flex items-center border border-gray-300 rounded p-1">
+                          <IoBriefcaseOutline className="text-blue-500 mr-1.5 h-3 w-3" />
+                          <p className="text-xs font-medium">
+                            {companyJob.department}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right Section: Arrow */}
+                    <div className="mt-4 md:mt-0 flex items-center justify-center">
+                      <div className="border border-gray-400 rounded p-1">
+                        <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div>No jobs available</div>
+              )}
             </div>
           )}
           {activeButton === "about" && (
