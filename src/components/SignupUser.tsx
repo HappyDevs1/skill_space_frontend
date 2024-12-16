@@ -51,7 +51,7 @@ function SignupUser() {
 
   const handleCompanySignup = () => {
     try {
-      navigate("/company/signup");
+      navigate("/company/create");
     } catch (error) {
       console.log("Error redirecting to company signup");
     }
