@@ -135,7 +135,7 @@ function SignUpCommpany () {
               </button>
               <button 
                 className="text-green underline mt-3 w-full sm:w-auto"
-                onClick={handleUserSignup}>Signup as a company?</button>
+                onClick={handleUserSignup}>Signup as an individual?</button>
             </div>
           </div>
 
