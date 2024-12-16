@@ -111,6 +111,13 @@ function SignUpCommpany () {
                   required
                 />
               </div>
+              <label>Profile Picture</label>
+                <input
+                  className="border-2 rounded px-3 py-1 w-full"
+                  type="file"
+                  onChange={(event) => setProfilePicture(event.target.files ? event.target.files[0] : null)}
+                  required
+                />
               {/* <div>
                 <label>Profile Picture</label>
                 <input type="file" accept="image/*" onChange={(event) => {
