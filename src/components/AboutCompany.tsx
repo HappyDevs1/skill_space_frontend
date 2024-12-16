@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { getCompanyById, getFeaturedCompany } from "../services/companyService";
 import { getAllJobs } from "../services/jobService";
 import Postjob from "./Postjob";
@@ -40,6 +40,7 @@ function AboutCompany() {
   const [companiesJobs, setCompaniesJobs] = useState<any>([]);
   const jobs: any = [];
   const location = useLocation();
+  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   // const { id } = useParams();
 
@@ -91,9 +92,14 @@ function AboutCompany() {
     setActiveButton(button)
   };
 
-  const handleJobClick = () => {
-
-  } 
+  const handleJobClick = (service: any, services: any) => {
+    try {
+      console.log("Clicked company: ", service || services)
+      navigate(`/job/${service._id}` || `/job/${services._id}`);
+    } catch (error) {
+      console.error("Failed to view job details");
+    }
+  };
 
   return (
 <div>
