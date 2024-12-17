@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 type NavBarProps = {
@@ -12,6 +12,7 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setIsAuthenticated(false);
     navigate("/user/login");
   };
