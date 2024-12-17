@@ -1,4 +1,39 @@
+import { useState, useEffect } from "react";
+
+interface Company {
+  name: string,
+  email: string,
+  about: string,
+  profilePicture: string,
+}
+
+interface Job {
+  title: string,
+  description: string,
+  price: string,
+  location: string,
+  department: string,
+  service: string
+}
 function CompanyJobs () {
+  const [company, setCompany] = useState<Company | null>(null);
+  const [jobs, setJobs] = useState<Job | null>(null);
+
+  const handleFetchJobs = async () => {
+    try {
+      const loggedInCompany: any = localStorage.getItem("user");
+      console.log("Logged in user: ", loggedInCompany);
+      setCompany(loggedInCompany);
+      
+    } catch (error) {
+      console.error("Failed to fetch jobs under this company");
+    }
+  }
+
+  useEffect(() => {
+    handleFetchJobs();
+  }, [])
+
   return (
     <div>
       {/* This is the component I will use to display the jobs of a company
@@ -11,6 +46,7 @@ function CompanyJobs () {
       1. Get the job id then get all application by id
       2.If the id match then return the application details
       3. Display all the applications */}
+      
     </div>
   )
 }
