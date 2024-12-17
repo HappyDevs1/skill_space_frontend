@@ -7,6 +7,7 @@ interface Company {
   name: string;
   email: string;
   profilePicture: string;
+  about: string;
 };
 
 function CompanyProfile() {
@@ -136,6 +137,23 @@ function CompanyProfile() {
                           value={company?.password || ''}
                           onChange={(e) => setCompany({ ...company, password: e.target.value })}
                         />
+                      </div>
+                      <div className="w-full">
+                      <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-indigo-900">
+                          About Company
+                        </label>
+                      <textarea
+                        id="about"
+                        className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg p-2.5 w-full resize-none overflow-hidden"
+                        placeholder="Write about yourself..."
+                        value={company?.about || ""}
+                        rows={10} // Initial rows
+                        onChange={(e) => {
+                          setCompany({ ...company, about: e.target.value });
+                          e.target.style.height = "auto"; // Reset height to auto
+                          e.target.style.height = `${e.target.scrollHeight}px`; // Adjust height dynamically
+                        }}
+                      ></textarea>
                       </div>
 
                     <div className="flex justify-end mt-3">
