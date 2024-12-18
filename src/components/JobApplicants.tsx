@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 interface Applicant {
   name: string,
@@ -15,11 +16,17 @@ function JobApplicants () {
 
   const handleFetchApplicants = async () => {
     try {
+      const response = await axios.get(`http://localhost:4000/application/applications`);
+      console.log(response);
 
-    } catch (error) {
+    } catch (error) {1
       console.error("Failed to fetch applicants of a job");
     }
   }
+
+  useEffect(() => {
+    handleFetchApplicants();
+  }, [])
   return (
     <div>
 
