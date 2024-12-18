@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { getAllJobs } from "../services/jobService";
 import { CiLocationOn } from "react-icons/ci";
 import { VscGraph } from "react-icons/vsc";
@@ -23,6 +24,7 @@ interface Job {
 function CompanyJobs () {
   const [company, setCompany] = useState<Company | null>(null);
   const [companyJobs, setCompanyJobs] = useState<Job | []>([]);
+  const navigate = useNavigate();
 
   const handleFetchJobs = async () => {
     try {
@@ -51,11 +53,12 @@ function CompanyJobs () {
     }
   };
 
-  const handleJobClick = async () => {
+  const handleJobClick = async (job: any) => {
     try {
-
+      navigate(`/job/applicants/${job._id}`)
+      console.log("Clicked company id is: ", job._id);
     } catch (error) {
-      console.error("Failed to view job applicants");
+      console.error("Failed to view job applicants", error);
     }
   }
   
