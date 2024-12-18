@@ -19,6 +19,7 @@ import SignUpCompany from "./components/SignupCompany";
 import Companies from "./components/Companies";
 import ViewBlog from "./components/ViewBlog";
 import JobApplication from "./components/JobApplication";
+import CompanyJobs from "./components/CompanyJobs";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -63,6 +64,7 @@ function App() {
           <Route path="/user/create" element={<SignupUser />} />
           <Route path="/company/create" element={<SignUpCompany />} />
           <Route path="/filter" element={<SearchedJobsPage />} />
+          <Route path="/company/jobs" element={isAuthenticated ? <CompanyJobs /> : <LoginCompany isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/job/:id" element={<ViewJob />} />
           <Route path="job/apply/:id" element={isAuthenticated ? <JobApplication /> : <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/create/job" element={isAuthenticated ? <PostJobForm /> : <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>} />
