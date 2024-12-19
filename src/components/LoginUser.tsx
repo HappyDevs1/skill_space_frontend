@@ -61,7 +61,14 @@ function Login({
           >
             <div className="grid grid-cols-1 md:grid-cols-1 gap-6 md:gap-8">
               <div className="flex flex-col bg-white rounded-lg border-2 py-16 px-6 sm:px-12 md:px-16">
-                <div className="border-2 px-3 py-2 mb-4 rounded-xl self-start">
+                      <button
+                        className="self-start text-red-400 underline ml-2 text-sm sm:text-base"
+                        type="submit"
+                        onClick={() => {navigate("/company/login")}}
+                      >
+                        Sign in as a company?
+                      </button>
+                <div className="border-2 px-3 py-2 mb-4 mt-4 rounded-xl self-start">
                   <FaRegUserCircle className="text-5xl text-blue-500" />
                 </div>
                 <div className="flex flex-col gap-2 mb-7">
