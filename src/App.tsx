@@ -68,7 +68,7 @@ function App() {
           <Route path="/company/jobs" element={isAuthenticated ? <CompanyJobs /> : <LoginCompany isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/job/:id" element={<ViewJob />} />
           <Route path="job/apply/:id" element={isAuthenticated ? <JobApplication /> : <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
-          <Route path="/job/applicants/:id" element={<JobApplicants />} />
+          <Route path="/:id/job/applicants" element={<JobApplicants />} />
           <Route path="/create/job" element={isAuthenticated ? <PostJobForm /> : <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>} />
           <Route path="/view/companies" element={<Companies />} />
           <Route path="/profile/user/:id" element={isAuthenticated ? <UserProfile /> : <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />

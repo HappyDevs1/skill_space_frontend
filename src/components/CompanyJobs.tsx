@@ -55,7 +55,7 @@ function CompanyJobs () {
 
   const handleJobClick = async (job: any) => {
     try {
-      navigate(`/job/applicants/${job._id}`)
+      navigate(`/${job._id}/job/applicants`)
       console.log("Clicked company id is: ", job._id);
     } catch (error) {
       console.error("Failed to view job applicants", error);
