@@ -75,7 +75,9 @@ function JobApplicants () {
                 <td className="border border-gray-300 p-2">{applicant.email}</td>
                 <td className="border border-gray-300 p-2">{applicant.phone}</td>
                 <td className="border border-gray-300 p-2">{applicant.about}</td>
-                <td className="border border-gray-300 p-2">{applicant.portfolio}</td>
+                <td className="border border-gray-300 p-2">
+                  <a href={applicant.portfolio} target="_blank">{applicant.portfolio}</a>
+                </td>
                 <td className="border border-gray-300 p-2">{applicant.cv}</td>
                 <td className="border border-gray-300 p-2">{applicant.status}</td>
               </tr>
