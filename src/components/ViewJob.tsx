@@ -69,6 +69,14 @@ function ViewJob() {
     }
   }
 
+  const handleViewCompany = async () => {
+    try {
+      navigate(`/about/company/${job.company._id}`)
+    } catch (error) {
+      console.error("Failed to fetch company's information", error);
+    }
+  }
+
   return (
 <div>
   {
@@ -161,7 +169,7 @@ function ViewJob() {
                   </div>
                   <p className="font-bold text-xl">About {job.company.name}</p>
                   <p className="text-gray-500">{job.company.about}</p>
-                  <button className="bg-gray-100 border-2 font-bold px-3 py-1 rounded">View Company</button>
+                  <button className="bg-gray-100 border-2 font-bold px-3 py-1 rounded" onClick={handleViewCompany}>View Company</button>
                 </div>
                 <div className="flex flex-col gap-4 border-2 px-5 py-5 rounded-lg">
                   <div className="flex">
