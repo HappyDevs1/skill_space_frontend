@@ -180,7 +180,7 @@ function ViewJob() {
             {/* More job openings */}
             <div className="flex flex-col sm:flex-row justify-between">
               <p className="font-bold text-xl">More job openings</p>
-              <button className="bg-gray-100 border-2 px-3 py-1 rounded font-bold text-sm">See all jobs</button>
+              <button className="bg-gray-100 border-2 px-3 py-1 rounded font-bold text-sm" onClick={() => {navigate("/")}}>See all jobs</button>
             </div>
 
             <div className="flex flex-col sm:flex-row justify-evenly gap-10 my-7">
