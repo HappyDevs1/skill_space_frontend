@@ -171,8 +171,8 @@ function ViewJob() {
                   </div>
                   <p className="font-bold text-xl">Post a job today</p>
                   <p className="text-gray-500">This is the about information about this company.</p>
-                  <button className="bg-blue-500 text-white px-3 py-1 rounded font-bold">Post a job</button>
-                  <p className="text-gray-500 underline self-center text-lg cursor-pointer">or post a free job</p>
+                  <button className="bg-blue-500 text-white px-3 py-1 rounded font-bold" onClick={() => {navigate("/create/job")}}>Post a job</button>
+                  <p className="text-gray-500 underline self-center text-lg cursor-pointer" onClick={() => {navigate("/create/job")}}>or post a free job</p>
                 </div>
               </div>
             </div>
