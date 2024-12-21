@@ -38,9 +38,11 @@ export const loginCompany = async (userData: FormData) => {
 
     const token = response.data.loginToken;
     const user = response.data.loggedCompany;
+    const role = response.data.role;
 
     localStorage.setItem("token", token);
-    localStorage.setItem("user", user)
+    localStorage.setItem("user", user);
+    localStorage.setItem("role", role);
 
     return response.data.redirectUrl;
 

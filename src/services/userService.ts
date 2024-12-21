@@ -27,12 +27,14 @@ export const loginUser = async (userData: FormData) => {
 
     const token = response.data.loginToken;
     const user = response.data.loggedUser;
+    const role = response.data.role;
 
     console.log("token is: ", token);
     console.log("User is: ", user);
 
     localStorage.setItem("token", token);
     localStorage.setItem("user", user)
+    localStorage.setItem("role", role);
 
     return response.data.redirectUrl;
 
