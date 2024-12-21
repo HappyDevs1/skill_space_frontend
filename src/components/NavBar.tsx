@@ -8,11 +8,14 @@ type NavBarProps = {
 
 function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle mobile menu
+  const [isCompany, setIsCompany] = useState<boolean>(false);
   let navigate = useNavigate();
+
 
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    localStorage.removeItem("role");
     setIsAuthenticated(false);
     navigate("/user/login");
   };
@@ -22,6 +25,38 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
       logout();
     }
   };
+
+  const handleMyJobs = async () => {
+    try {
+      const userId = localStorage.getItem("user");
+      navigate(`/profile/user/${userId}`)
+    } catch (error) {
+      console.error("Failed to redirect to jobs under this profile", error);
+    }
+  }
+
+  const checkRole = async () => {
+    try {
+      const userRole:any = localStorage.getItem("role");
+      setIsCompany(userRole);
+      if (userRole === "true") {
+        setIsCompany(true);
+        console.log("Role is definitely company")
+      } else if (userRole === "false") {
+        setIsCompany(false);
+        console.log("Role is definitely not user")
+      } else {
+        console.log("Role state not found")
+      }
+      console.log("Is it a company? ", userRole)
+    } catch (error) {
+      console.error("Failed to check role", error);
+    }
+  }
+
+  useEffect(() => {
+    checkRole()
+  }, [])
 
   return (
     <nav className="flex items-center justify-between h-20 border-b-2 px-4 md:px-10">
@@ -63,7 +98,19 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
           </li>
           <li>
             {isAuthenticated ? (
-              <button
+              <div className="flex gap-6 md-gap-10">
+                {
+                  isCompany === true ? (
+                    <li>
+                      <button onClick={() => navigate("/company/jobs")}>My Jobs</button>
+                    </li>
+                  ) : (
+                    <li>
+                      <button onClick={() => navigate("/user/job/applications")}>My Applications</button>
+                    </li>
+                  )
+                }
+                <button
                 className="flex items-center bg-red-600 px-3 py-1 rounded-md text-white"
                 onClick={confirmLogout}
               >
@@ -83,8 +130,10 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
                 </svg>
                 Logout
               </button>
+              </div>
             ) : (
-              <Link to="/user/login" className="flex items-center">
+              <li>
+                <Link to="/user/login" className="flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -101,6 +150,7 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
                 </svg>
                 Login
               </Link>
+              </li>
             )}
           </li>
         </ul>
@@ -146,7 +196,6 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
             <li className="hover:text-sky-500">
               <Link to="/contact">Contact</Link>
             </li>
-            <li>
               {isAuthenticated ? (
                 <button
                   className="flex items-center bg-red-600 px-3 py-1 rounded-md text-white"
@@ -159,7 +208,6 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
                   Login
                 </Link>
               )}
-            </li>
           </ul>
         </div>
       )}
