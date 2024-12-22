@@ -3,10 +3,12 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { motion } from "framer-motion";
 
 export default function AccordionExpandIcon() {
   return (
-    <div className='flex flex-col gap-5 my-14'>
+    <motion.div className='flex flex-col gap-5 my-14' initial={{ scale: 0.5 }}
+    animate={{ scale: 1, transition: { duration: 0.8 } }}>
       <Accordion className='border px-2 py-3'>
         <AccordionSummary
           expandIcon={<ArrowDownwardIcon />}
@@ -86,6 +88,6 @@ export default function AccordionExpandIcon() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-    </div>
+    </motion.div>
   );
 }
