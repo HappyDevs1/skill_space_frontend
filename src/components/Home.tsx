@@ -16,6 +16,7 @@ import { GrTechnology } from "react-icons/gr";
 import { DiCompass } from "react-icons/di";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import CircularIndeterminate from "./CircularIndeterminate";
+import { motion } from "framer-motion"
 
 // interface Job {
 //   _id: string;
@@ -204,21 +205,21 @@ function Home() {
       ) : (
         <div className="flex flex-col items-center min-h-screen mb-52">
           <div className="w-full">
-            <div className="m-5 sm:m-10 lg:m-20 self-start">
-              <p className="font-bold text-sky-500 text-lg sm:text-xl lg:text-2xl">
+            <motion.div className="m-5 sm:m-10 lg:m-20 self-start" >
+              <motion.p className="font-bold text-sky-500 text-lg sm:text-xl lg:text-2xl" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.2 } }}>
                 TOP CAREER OPPORTUNITIES
-              </p>
-              <p className="text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2 mb-5">
+              </motion.p>
+              <motion.p className="text-2xl sm:text-3xl lg:text-4xl font-semibold mt-2 mb-5"initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.4 } }}>
                 Find your ideal job <br /> across all industries
-              </p>
-              <p className="text-slate-600 text-base sm:text-lg lg:text-xl">
+              </motion.p>
+              <motion.p className="text-slate-600 text-base sm:text-lg lg:text-xl" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.6 } }}>
                 Explore a diverse array of career opportunities in <br />{" "}
                 multiple sectors. Whether you're seeking <br /> a position in
                 technology, healthcare, finance, <br /> or any other industry,
                 we have the perfect role <br /> to match your skills and
                 aspirations.
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mt-4 text-slate-500 font-bold">
+              </motion.p>
+              <motion.div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mt-4 text-slate-500 font-bold" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.8 } }}>
                 <div className="flex items-center justify-center">
                   <DiCompass className="mr-2" />
                   <p>agency</p>
@@ -235,9 +236,9 @@ function Home() {
                   <FaCentercode className="mr-2" />
                   <p>company</p>
                 </div>
-              </div>
-            </div>
-            <div className="flex flex-col items-center justify-center w-full flex-grow px-4 sm:px-8 md:px-16">
+              </motion.div>
+            </motion.div>
+            <motion.div className="flex flex-col items-center justify-center w-full flex-grow px-4 sm:px-8 md:px-16" initial={{ scale: 0.3 }} animate={{ scale: 1, transition: { duration: 0.8 } }}>
               <form onSubmit={handleSearch} className="w-full max-w-6xl">
                 <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 items-center border border-gray-400 rounded p-4">
                   <div className="flex items-center w-full sm:w-auto border border-gray-300 rounded p-2">
@@ -314,18 +315,19 @@ function Home() {
                   </div>
                 </div>
               </form>
-            </div>
+            </motion.div>
 
             <div className="flex flex-col items-center justify-center w-full flex-grow mt-28 px-4">
-              <p className="font-semibold text-xl mb-6 text-center">
+              <motion.p className="font-semibold text-xl mb-6 text-center" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.8 } }}>
                 Featured Jobs
-              </p>
+              </motion.p>
               {featured.length > 0 ? (
                 featured.map((job) => (
-                  <div
+                  <motion.div
                     key={job._id}
                     className="flex flex-col md:flex-row border rounded border-gray-400 px-3 py-3 w-full md:w-auto cursor-pointer mb-4"
                     onClick={() => handleJobClick(job)}
+                    initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.9 } }}
                   >
                     {/* Left Section: Image */}
                     <div className="flex items-center justify-center bg-sky-100 px-6 py-8 rounded-md md:px-11 md:py-14">
@@ -368,7 +370,7 @@ function Home() {
                         <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))
               ) : (
                 <div>No jobs available</div>
@@ -377,15 +379,16 @@ function Home() {
 
             {/* Displaying latest jobs */}
             <div className="flex flex-col items-center justify-center w-full flex-grow mt-24 px-4">
-              <p className="font-semibold text-xl mb-6 text-center">
+              <motion.p className="font-semibold text-xl mb-6 text-center" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.8 } }}>
                 Latest jobs
-              </p>
+              </motion.p>
               {jobs.length > 0 ? (
                 jobs.map((job) => (
-                  <div
+                  <motion.div
                     key={job._id}
                     className="flex flex-col md:flex-row border rounded border-gray-400 px-3 py-3 w-full md:w-auto cursor-pointer mb-4"
                     onClick={() => handleJobClick(job)}
+                    initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.9 } }}
                   >
                     {/* Left Section: Profile Picture */}
                     <div className="flex items-center justify-center bg-sky-100 px-6 py-8 rounded-md md:px-11 md:py-14">
@@ -428,7 +431,7 @@ function Home() {
                         <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))
               ) : (
                 <div>No jobs available</div>
@@ -446,30 +449,32 @@ function Home() {
               <div className="mt-20">
                 <div className="flex flex-col md:flex-row items-center gap-4 mx-4 md:gap-x-36 md:mx-10 my-10">
                   <div className="text-center md:text-left">
-                    <p className="font-bold text-3xl">Featured companies</p>
-                    <p className="text-gray-500">
+                    <motion.p className="font-bold text-3xl" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.9 } }}>Featured companies</motion.p>
+                    <motion.p className="text-gray-500" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.9 } }}>
                       These are the featured companies. I will come back to edit
                       this text to <br />
                       ensure that it makes sense.
-                    </p>
+                    </motion.p>
                   </div>
                   <div>
-                    <button
+                    <motion.button
                       className="border border-gray-300 rounded px-4 py-2"
                       onClick={() => navigate("/view/companies")}
+                      initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.9 } }}
                     >
                       See all companies
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
                 <div className="container mx-auto">
                   {featCompany.length > 0 ? (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
                       {featCompany.map((company) => (
-                        <div
+                        <motion.div
                           key={company._id}
                           className="bg-gray-300 px-4 py-5 rounded flex items-center gap-4 cursor-pointer"
                           onClick={() => handleCompanyClick(company)}
+                          initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.9 } }}
                         >
                           <img
                             className="h-16 w-16 object-cover rounded-lg"
@@ -483,7 +488,7 @@ function Home() {
                               <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
                   ) : (
