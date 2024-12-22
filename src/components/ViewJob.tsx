@@ -10,6 +10,7 @@ import { IoMdTime } from "react-icons/io";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { MdOutlinePostAdd } from "react-icons/md";
 import { CiCalendar } from "react-icons/ci";
+import { motion } from "framer-motion";
 
 interface Company {
   _id: string;
@@ -100,7 +101,8 @@ function ViewJob() {
               {/* Left side (Main content) */}
               <div className="border-2 w-full sm:w-[70%]">
                 <div className="flex flex-col px-8 py-7 bg-gray-100">
-                  <div className="flex gap-5">
+                  <motion.div className="flex gap-5" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.4 } }}>
                     <div className="bg-blue-100 px-3 py-3 rounded-lg">
                       <img src={job.company.profilePicture} className="h-16 w-auto rounded-lg" />
                     </div>
@@ -108,13 +110,15 @@ function ViewJob() {
                       <p className="font-bold text-gray-500">{job.company.name}</p>
                       <p className="font-bold text-xl">{job.title}</p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex my-5">
+                  <motion.div className="flex my-5"initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.5 } }}>
                     <p className="text-gray-500">{job.company.name} is looking for a {job.title} to join their team.</p>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex gap-3 flex-wrap">
+                  <motion.div className="flex gap-3 flex-wrap" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.6 } }}>
                     <div className="flex items-center gap-1 border-2 rounded px-1 py-1 text-xs">
                       <CiLocationOn className="text-blue-600 text-base sm:text-lg" />
                       <p>{job.location}</p>
@@ -135,11 +139,12 @@ function ViewJob() {
                       <RiMoneyDollarCircleLine className="text-blue-600 text-base sm:text-lg" />
                       <p>R {job.price} ZAR</p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Job description */}
-                <div className="flex flex-col px-10">
+                <motion.div className="flex flex-col px-10" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.6 } }}>
                   <div className="flex justify-end my-[8%]">
                     <button onClick={handleApplyJob} className="bg-blue-600 text-white px-[1%] py-[1%] rounded-lg font-bold">Apply now</button>
                   </div>
@@ -158,20 +163,22 @@ function ViewJob() {
                     </div>
                   </div>
                   <p className="text-gray-500">{job.description}</p>
-                </div>
+                </motion.div>
               </div>
 
               {/* Right side (Sidebar) */}
               <div className="flex flex-col w-full sm:w-[30%] p-4 gap-5">
-                <div className="flex flex-col gap-4 border-2 px-5 py-5 rounded-lg">
+                <motion.div className="flex flex-col gap-4 border-2 px-5 py-5 rounded-lg" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.6 } }}>
                   <div className="flex">
                     <img src={job.company.profilePicture} className="h-10 w-auto rounded-lg" />
                   </div>
                   <p className="font-bold text-xl">About {job.company.name}</p>
                   <p className="text-gray-500">{job.company.about}</p>
                   <button className="bg-gray-100 border-2 font-bold px-3 py-1 rounded" onClick={handleViewCompany}>View Company</button>
-                </div>
-                <div className="flex flex-col gap-4 border-2 px-5 py-5 rounded-lg">
+                </motion.div>
+                <motion.div className="flex flex-col gap-4 border-2 px-5 py-5 rounded-lg" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.7 } }}>
                   <div className="flex">
                     <div className="border-2 rounded-lg px-1 py-1">
                       <MdOutlinePostAdd className="text-4xl text-blue-500 sm:text-5xl" />
@@ -181,17 +188,19 @@ function ViewJob() {
                   <p className="text-gray-500">This is the about information about this company.</p>
                   <button className="bg-blue-500 text-white px-3 py-1 rounded font-bold" onClick={() => {navigate("/create/job")}}>Post a job</button>
                   <p className="text-gray-500 underline self-center text-lg cursor-pointer" onClick={() => {navigate("/create/job")}}>or post a free job</p>
-                </div>
+                </motion.div>
               </div>
             </div>
 
             {/* More job openings */}
-            <div className="flex flex-col sm:flex-row justify-between">
+            <motion.div className="flex flex-col sm:flex-row justify-between" initial={{ scale: 0.9 }}
+                animate={{ scale: 1, transition: { duration: 0.6 } }}>
               <p className="font-bold text-xl">More job openings</p>
               <button className="bg-gray-100 border-2 px-3 py-1 rounded font-bold text-sm" onClick={() => {navigate("/")}}>See all jobs</button>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col sm:flex-row justify-evenly gap-10 my-7">
+            <motion.div className="flex flex-col sm:flex-row justify-evenly gap-10 my-7" initial={{ scale: 0.7 }}
+                animate={{ scale: 1, transition: { duration: 0.8 } }}>
               {/* Job listing 1 */}
               <div className="flex flex-col border-2 rounded-lg px-10 py-10 w-full sm:w-[48%] gap-5 cursor-pointer">
                 <div className="flex items-center gap-5">
@@ -253,7 +262,7 @@ function ViewJob() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         ) : (
           <div>No job found</div>
