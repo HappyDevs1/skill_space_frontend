@@ -7,20 +7,21 @@ import { BsTelephone } from "react-icons/bs";
 import { TiSocialYoutube, TiSocialLinkedin, TiSocialTwitter, TiSocialFacebook } from "react-icons/ti";
 import { AiFillInstagram } from "react-icons/ai";
 import { Accordion } from "@mui/material";
+import { motion } from "framer-motion";
 
 
 function Contact() {
   return (
     <div>
       <div className="flex flex-col items-center mx-4 sm:mx-16 lg:mx-72 my-24">
-        <p className="font-bold text-4xl mb-5">Get in touch today</p>
-        <p className="text-gray-500 text-center sm:text-left">
+        <motion.p className="font-bold text-4xl mb-5" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.2 } }}>Get in touch today</motion.p>
+        <motion.p className="text-gray-500 text-center sm:text-left" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.4 } }}>
           This is a test message, I will come back to it later on. <br />
           This is a test message right, I will adjust it later. Great!
-        </p>
+        </motion.p>
 
         {/* Contact Info Section */}
-        <div className="container mx-auto p-4">
+        <motion.div className="container mx-auto p-4" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.5 } }}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-5">
             <div className="flex gap-6 items-center border-2 rounded-xl px-5 py-3">
               <div className="border-2 px-1 py-1 rounded-lg">
@@ -52,12 +53,12 @@ function Contact() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Contact Form Section */}
         <div className="container mx-auto p-4">
           <div className="grid grid-cols-1 md:grid-cols-1 gap-18">
-            <div className="flex items-center rounded-md border-2 my-20">
+            <motion.div className="flex items-center rounded-md border-2 my-20" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.7 } }}>
               <div className="flex flex-col gap-7 bg-white w-full px-5 py-5">
                 <div className="flex flex-col sm:flex-row gap-5">
                   <div className="flex flex-col w-full">
@@ -87,10 +88,10 @@ function Contact() {
                 </div>
                 <button className="self-start bg-blue-500 text-white px-3 py-2 rounded text-sm font-bold">Submit Message</button>
               </div>
-            </div>
+            </motion.div>
 
             {/* Contact Details Card */}
-            <div className="bg-gray-100 w-full px-5 py-8 sm:py-28">
+            <motion.div className="bg-gray-100 w-full px-5 py-8 sm:py-28" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.8 } }}>
               <p className="font-bold text-2xl mb-2">Contact details</p>
               <p className="text-gray-600">This is a test message, I will come back to this text to change it.</p>
               <div className="flex flex-row items-center gap-3 mt-3">
@@ -109,17 +110,17 @@ function Contact() {
                 <TiSocialLinkedin className="text-2xl" />
                 <TiSocialYoutube className="text-2xl" />
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* FAQ Section */}
         <div className="flex flex-col items-center">
-          <p className="text-4xl font-bold">Frequently asked questions</p>
-          <p className="mt-7 text-center sm:text-left">
+          <motion.p className="text-4xl font-bold" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.8 } }}>Frequently asked questions</motion.p>
+          <motion.p className="mt-7 text-center sm:text-left" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.9 } }}>
             This is a test message I will come back to it later on to edit it so that it makes sense. <br />
             This is just a test message I will therefore come back to it later on to edit it. Great!
-          </p>
+          </motion.p>
         </div>
         <div className="mx-30">
           <AccordionExpandIcon />
