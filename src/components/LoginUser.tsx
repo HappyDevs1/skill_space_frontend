@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { loginUser } from "../services/userService";
 import CircularIndeterminate from "./CircularIndeterminate";
 import { FaRegUserCircle } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 type NavBarProps = {
   isAuthenticated: boolean;
@@ -54,7 +55,8 @@ function Login({
           <CircularIndeterminate />
         </div>
       ) : (
-        <div className="container mx-auto p-4 flex justify-center items-center">
+        <motion.div className="container mx-auto p-4 flex justify-center items-center" initial={{ scale: 0.8 }}
+        animate={{ scale: 1, transition: { duration: 0.4 } }}>
           <form
             onSubmit={handleSubmit}
             className="w-full max-w-2xl md:max-w-4xl"
@@ -126,7 +128,7 @@ function Login({
               </div>
             </div>
           </form>
-        </div>
+        </motion.div>
       )}
     </div>
   );
