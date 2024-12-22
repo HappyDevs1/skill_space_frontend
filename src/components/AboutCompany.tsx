@@ -9,6 +9,7 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { GoPerson } from "react-icons/go";
+import { motion } from "framer-motion";
 
 interface Company {
   _id: string;
@@ -109,19 +110,22 @@ function AboutCompany() {
     <div className="flex flex-col items-center w-full">
       <div className="flex flex-col items-center w-full max-w-4xl border-2 rounded-xl my-6 p-4 sm:p-6 lg:py-8 lg:px-10">
         {/* Company Image */}
-        <div className="w-full">
+        <motion.div className="w-full" initial={{ scale: 0.8 }}
+                animate={{ scale: 1, transition: { duration: 0.3 } }}>
           <img src={image} className="w-full rounded-t-xl object-cover" alt="Company banner" />
-        </div>
+        </motion.div>
 
         {/* Profile Picture and Company Details */}
         <div className="w-full relative flex flex-col items-center mt-[-4rem] sm:mt-[-6rem]">
           {/* Profile Picture */}
-          <div className="w-10 h-10 mt-20 md:w-14 md:h-14 md:mt-28 lg:w-20 lg:h-20 lg:mt-12 rounded-xl overflow-hidden shadow-lg border border-gray-300 lg:self-start lg:ml-10">
+          <motion.div className="w-10 h-10 mt-20 md:w-14 md:h-14 md:mt-28 lg:w-20 lg:h-20 lg:mt-12 rounded-xl overflow-hidden shadow-lg border border-gray-300 lg:self-start lg:ml-10" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.3 } }}>
             <img src={company.profilePicture} className="w-full h-full object-cover" alt="Company profile" />
-          </div>
+          </motion.div>
 
           {/* Company Info */}
-          <div className="w-full mt-6 px-4 sm:px-6 lg:px-8">
+          <motion.div className="w-full mt-6 px-4 sm:px-6 lg:px-8" initial={{ scale: 0.7 }}
+                animate={{ scale: 1, transition: { duration: 0.5 } }}>
             <div className="flex flex-col lg:flex-row justify-between items-center gap-4 text-center lg:text-left">
               <p className="font-bold text-xl sm:text-2xl lg:text-3xl">{company.name}</p>
               <button className="bg-gray-100 px-3 py-2 rounded font-bold border border-gray-200 text-sm hover:bg-gray-200">
@@ -133,11 +137,12 @@ function AboutCompany() {
               <br />
               I will come back at a later stage to edit it so it makes sense.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Location and Size */}
-        <div className="flex flex-wrap justify-center lg:justify-start gap-6 mt-5 px-4">
+        <motion.div className="flex flex-wrap justify-center lg:justify-start gap-6 mt-5 px-4" initial={{ scale: 0.7 }}
+                animate={{ scale: 1, transition: { duration: 0.6 } }}>
           <div className="flex items-center gap-2 text-gray-500 text-sm sm:text-base">
             <CiLocationOn />
             <p>Gauteng</p>
@@ -146,10 +151,11 @@ function AboutCompany() {
             <GoPerson />
             <p>100 - 1,000</p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 sm:gap-8 mt-6 border-b-2 border-gray-300 w-full px-4">
+        <motion.div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 sm:gap-8 mt-6 border-b-2 border-gray-300 w-full px-4" initial={{ scale: 0.7 }}
+                animate={{ scale: 1, transition: { duration: 0.7 } }}>
           <button
             onClick={() => handleButtonClick("jobs")}
             className={`px-2 sm:px-4 py-2 text-sm sm:text-base ${activeButton === "jobs" ? "border-b-2 border-blue-500 font-bold" : "text-gray-500"}`}
@@ -168,10 +174,11 @@ function AboutCompany() {
           >
             Company Perks & Benefits
           </button>
-        </div>
+        </motion.div>
 
         {/* Tab Content */}
-        <div className="mt-6 px-4 sm:px-6 lg:px-8 text-sm sm:text-base">
+        <motion.div className="mt-6 px-4 sm:px-6 lg:px-8 text-sm sm:text-base" initial={{ scale: 0.8 }}
+                animate={{ scale: 1, transition: { duration: 0.7 } }}>
           {activeButton === "jobs" && (
             <div className="flex flex-col gap-5 text-gray-500">
               <p className="font-bold text-lg sm:text-xl text-black">About Company</p>
@@ -257,7 +264,7 @@ function AboutCompany() {
               </p>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
       <Postjob />
     </div>
