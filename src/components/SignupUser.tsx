@@ -2,9 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../services/userService";
 import CircularIndeterminate from "./CircularIndeterminate";
+import { motion } from "framer-motion";
 
-const freelancer = "freelancer";
-const client = "client";
 
 function SignupUser() {
   const [name, setName] = useState<string>("");
@@ -68,7 +67,8 @@ function SignupUser() {
       <div className="flex mt-24 justify-center mb-20">
         <div className="w-full max-w-screen-xl grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Form Container */}
-          <div className="px-4 py-8 sm:px-10 sm:py-12 md:px-16 md:py-10 rounded border-2">
+          <motion.div className="px-4 py-8 sm:px-10 sm:py-12 md:px-16 md:py-10 rounded border-2" initial={{ scale: 0.7 }}
+                animate={{ scale: 1, transition: { duration: 0.4 } }}>
             <p className="text-2xl sm:text-3xl mb-3 font-bold">Create account</p>
             <div className="flex items-center gap-2">
               <p className="text-gray-500">Already have an account?</p>
@@ -141,20 +141,23 @@ function SignupUser() {
                 className="text-green underline mt-3 w-full sm:w-auto"
                 onClick={handleCompanySignup}>Signup as a company?</button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Our Numbers Container */}
           <div className="flex flex-col items-center px-4 py-8 sm:px-16 sm:py-10 rounded">
             <div className="flex flex-col items-center gap-3">
-              <p className="font-bold text-3xl sm:text-4xl">Our numbers</p>
-              <p className="text-gray-500 text-sm sm:text-base">
+              <motion.p className="font-bold text-3xl sm:text-4xl" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.4 } }}>Our numbers</motion.p>
+              <motion.p className="text-gray-500 text-sm sm:text-base" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.5 } }}>
                 This is a test message I will come back to it later on to fix it
                 so that it makes sense. I will come back to it later on to finalize it.
-              </p>
+              </motion.p>
             </div>
             <div className="container m-auto mt-8">
               <div className="flex grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 mx-auto justify-items-center">
-                <div className="flex justify-center gap-7 py-5 px-3 w-full max-w-xs rounded-lg border-2">
+                <motion.div className="flex justify-center gap-7 py-5 px-3 w-full max-w-xs rounded-lg border-2" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.6 } }}>
                   <div className="flex flex-col items-center">
                     <p className="text-4xl font-bold">
                       20,583 <span className="text-blue-500">+</span>
@@ -163,8 +166,9 @@ function SignupUser() {
                       JOB POSTED
                     </p>
                   </div>
-                </div>
-                <div className="flex justify-center gap-7 py-5 px-3 w-full max-w-xs rounded-lg border-2">
+                </motion.div>
+                <motion.div className="flex justify-center gap-7 py-5 px-3 w-full max-w-xs rounded-lg border-2" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.6 } }}>
                   <div className="flex flex-col items-center">
                     <p className="text-4xl font-bold">
                       581 <span className="text-blue-500">+</span>
@@ -173,8 +177,9 @@ function SignupUser() {
                       VERIFIED COMPANIES
                     </p>
                   </div>
-                </div>
-                <div className="flex justify-center gap-7 py-5 px-3 w-full max-w-xs rounded-lg border-2">
+                </motion.div>
+                <motion.div className="flex justify-center gap-7 py-5 px-3 w-full max-w-xs rounded-lg border-2" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.7 } }}>
                   <div className="flex flex-col items-center">
                     <p className="text-4xl font-bold">
                       3,896 <span className="text-blue-500">+</span>
@@ -183,8 +188,9 @@ function SignupUser() {
                       SUCCESSFUL HIRES
                     </p>
                   </div>
-                </div>
-                <div className="flex justify-center gap-7 py-5 px-3 w-full max-w-xs rounded-lg border-2">
+                </motion.div>
+                <motion.div className="flex justify-center gap-7 py-5 px-3 w-full max-w-xs rounded-lg border-2" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.8 } }}>
                   <div className="flex flex-col items-center">
                     <p className="text-4xl font-bold">
                       100K <span className="text-blue-500">+</span>
@@ -193,7 +199,7 @@ function SignupUser() {
                       MONTHLY VISITS
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
