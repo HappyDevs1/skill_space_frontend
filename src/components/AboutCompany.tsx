@@ -128,9 +128,9 @@ function AboutCompany() {
                 animate={{ scale: 1, transition: { duration: 0.5 } }}>
             <div className="flex flex-col lg:flex-row justify-between items-center gap-4 text-center lg:text-left">
               <p className="font-bold text-xl sm:text-2xl lg:text-3xl">{company.name}</p>
-              <button className="bg-gray-100 px-3 py-2 rounded font-bold border border-gray-200 text-sm hover:bg-gray-200">
-                Visit Website
-              </button>
+                <a href={company.website}>
+                  <button className="bg-gray-100 px-3 py-2 rounded font-bold border border-gray-200 text-sm hover:bg-gray-200">Visit Website</button>
+                </a>
             </div>
             <p className="text-gray-600 mt-4 text-sm sm:text-base">
               This is a test message I will come back later on to edit it so that it makes sense.
