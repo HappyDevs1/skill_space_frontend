@@ -84,7 +84,7 @@ function PostJobForm() {
           </button>
         </div>
 
-        <div className="mt-4 w-full">
+        <div className="mt-4">
           {activeTab === "button1" ? (
             <div className="flex flex-col gap-3 border-2 rounded-lg px-5 sm:px-10 py-8">
               <p className="font-bold text-lg">Job information</p>
