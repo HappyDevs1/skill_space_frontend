@@ -74,7 +74,7 @@ function App() {
           <Route path="/profile/user/:id" element={isAuthenticated ? <UserProfile /> : <Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/profile/company/:id" element={<CompanyProfile />} />
           <Route path="/about/company/:id" element={<AboutCompany />} />
-          <Route path="/view/blog" element={<ViewBlog />} />
+          <Route path="/view/blog/:id" element={<ViewBlog />} />
         </Routes>
     </div>
   )

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 import CircularIndeterminate from "./CircularIndeterminate";
@@ -20,6 +21,7 @@ interface Blog {
 function Blog() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const navigate = useNavigate();
 
   const handleFetchBlogs = async () => {
     try {
@@ -88,6 +90,8 @@ function Blog() {
                       key={blog._id}
                       initial={{ scale: 0.9 }}
                       animate={{ scale: 1, transition: { duration: 0.4 } }}
+                      onClick={() => navigate(`/view/blog/${blog._id}`)}
+                      className="cursor-pointer"
                     >
                       <div className="bg-white rounded-lg shadow-lg">
                         <img
@@ -191,6 +195,8 @@ function Blog() {
                         key={blog._id}
                         initial={{ scale: 0.5 }}
                         animate={{ scale: 1, transition: { duration: 0.9 } }}
+                        onClick={() => navigate(`/view/blog/${blog._id}`)}
+                        className="cursor-pointer"
                       >
                         <div className="bg-white rounded-lg shadow-lg">
                           <img
