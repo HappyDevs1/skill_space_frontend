@@ -25,7 +25,7 @@ function ViewBlog() {
 
   const handleFetchBlog = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/blog/get/${id}`)
+      const response = await axios.get(`https://skill-space-backend.onrender.com/blog/get/${id}`)
 
       if (response && response.data.blog) {
         setBlog(response.data.blog)

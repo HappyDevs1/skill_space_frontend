@@ -25,7 +25,7 @@ function JobApplicants() {
     try {
       // Fetch all applications
       const response = await axios.get(
-        "http://localhost:4000/application/applications"
+        "https://skill-space-backend.onrender.com/application/applications"
       );
       const allApplications = response?.data.applications;
       console.log("Found applications are: ", allApplications);

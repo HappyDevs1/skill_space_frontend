@@ -38,7 +38,7 @@ export default function JobApplication() {
     
 
     axios
-      .post(`http://localhost:4000/application/${id}/upload`, formData)
+      .post(`https://skill-space-backend.onrender.com/application/${id}/upload`, formData)
       .then((res) => {
         console.log(res.data);
         alert("File uploaded successfully");

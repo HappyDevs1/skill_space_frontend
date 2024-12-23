@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:4000/user";
+const API_BASE_URL = "https://skill-space-backend.onrender.com/user";
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
