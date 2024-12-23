@@ -162,7 +162,7 @@ function SignUpCommpany () {
             <div className="container m-auto mt-8">
               <div className="flex grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 mx-auto justify-items-center">
                 <motion.div className="flex justify-center gap-7 py-5 px-3 w-full max-w-xs rounded-lg border-2" initial={{ scale: 0.5 }}
-                animate={{ scale: 1, transition: { duration: 0.4 } }}>
+                animate={{ scale: 1, transition: { duration: 0.5 } }}>
                   <div className="flex flex-col items-center">
                     <p className="text-4xl font-bold">
                       20,583 <span className="text-blue-500">+</span>
