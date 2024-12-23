@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getCompany } from "../services/companyService";
 import Postjob from "./Postjob";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
+import { motion } from "framer-motion";
 
 interface Company {
   _id: string;
@@ -49,24 +50,29 @@ function Companies() {
         <p>Loading...</p>
       ) : (
         <div className="flex flex-col justify-center">
-          <div className="flex items-center gap-3 ml-20 mt-8">
+          <motion.div className="flex items-center gap-3 ml-20 mt-8" initial={{ scale: 0.9 }}
+                animate={{ scale: 1, transition: { duration: 0.3 } }}>
             <IoIosArrowRoundBack className="h-7 w-7 text-gray-500 cursor-pointer"onClick={() => navigate(-1)}/>
             <p>Back to Home</p>
-          </div>
+          </motion.div>
           <div className="mt-20 flex flex-col items-center">
-            <p className="font-bold text-4xl">Companies</p>
-            <p className="text-gray-500 mt-6">
+            <motion.p className="font-bold text-4xl" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.4 } }}>Companies</motion.p>
+            <motion.p className="text-gray-500 mt-6" initial={{ scale: 0.5 }}
+                animate={{ scale: 1, transition: { duration: 0.6 } }}>
               This is all the companies I will come back later to edit this text
               so that it makes sense. <br /> This is the companies that we are
               working with. I will come back later to edit this text.
-            </p>
+            </motion.p>
             {companies.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
                 {companies.map((company) => (
-                  <div
+                  <motion.div
                     key={company._id}
                     className="flex flex-col items-start px-6 py-5 w-full max-w-xs border rounded shadow hover:shadow-lg transition-shadow"
                     onClick={() => handleClickCompany(company)}
+                    initial={{ scale: 0.9 }}
+                animate={{ scale: 1, transition: { duration: 0.8 } }}
                   >
                     <img
                       src={company.profilePicture}
@@ -78,7 +84,7 @@ function Companies() {
                     <div className="border-2 rounded-md">
                     <IoIosArrowRoundForward className="h-7 w-7 text-gray-500" />
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             ) : (
