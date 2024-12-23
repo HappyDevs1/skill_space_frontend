@@ -29,6 +29,7 @@ function JobApplicants() {
       );
       const allApplications = response?.data.applications;
       console.log("Found applications are: ", allApplications);
+      console.log(job)
 
       // Fetch the specific job details
       const jobData = await getJobById(id);

@@ -27,15 +27,6 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
     }
   };
 
-  const handleMyJobs = async () => {
-    try {
-      const userId = localStorage.getItem("user");
-      navigate(`/profile/user/${userId}`)
-    } catch (error) {
-      console.error("Failed to redirect to jobs under this profile", error);
-    }
-  }
-
   const checkRole = async () => {
     try {
       const userRole:any = localStorage.getItem("role");

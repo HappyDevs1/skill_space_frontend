@@ -3,12 +3,6 @@ import Select from "react-select";
 
 function PostJobForm() {
   const [activeTab, setActiveTab] = useState<"button1" | "button2">("button1");
-  const [title, setTitle] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
-  const [salary, setSalary] = useState<string>("");
-  const [location, setLocation] = useState<string>("");
-  const [level, setLevel] = useState<string>("");
-  const [department, setDepartment] = useState<string>("");
 
   const handleTabClick = (tab: "button1" | "button2") => {
     setActiveTab(tab);
@@ -24,21 +18,6 @@ function PostJobForm() {
     { value: "Nothern-Cape", label: "Nothern-Cape" },
     { value: "KwaZulu-Natal", label: "KwaZulu-Natal" },
     { value: "Western-Cape", label: "Western-Cape" },
-  ];
-
-  const levelDropdown = [
-    { value: "Internship", label: "Internship" },
-    { value: "Junior", label: "Junior" },
-    { value: "Mid-level", label: "Mid-level" },
-    { value: "Senior", label: "Senior" },
-  ];
-
-  const departmentDropdown = [
-    { value: "Finance", label: "Finance" },
-    { value: "Technology", label: "Technology" },
-    { value: "Healthcare", label: "Healthcare" },
-    { value: "Real-estate", label: "Real-estate" },
-    { value: "Construction", label: "Construction" },
   ];
 
   const customStyles = {

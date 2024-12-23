@@ -18,19 +18,6 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import CircularIndeterminate from "./CircularIndeterminate";
 import { motion } from "framer-motion"
 
-// interface Job {
-//   _id: string;
-//   title: string;
-//   description: string;
-//   price: number;
-//   location: string;
-//   level: string;
-//   department: string;
-//   featured: boolean;
-//   createdAt: string;
-//   updatedAt: string;
-// }
-
 function Home() {
   const locationDropdown = [
     { value: "Gauteng", label: "Gauteng" },
@@ -83,9 +70,7 @@ function Home() {
   const [location, setLocation] = useState<string>("");
   const [level, setLevel] = useState<string>("");
   const [department, setDepartment] = useState<string>("");
-  const [results, setResults] = useState<any[]>([]);
   const navigate = useNavigate();
-  const locationHook = useLocation();
 
   const fetchJobs = async () => {
     try {

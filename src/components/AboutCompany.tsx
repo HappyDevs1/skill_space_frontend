@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useLocation, useParams, useNavigate } from "react-router-dom";
-import { getCompanyById, getFeaturedCompany } from "../services/companyService";
+import { useParams, useNavigate } from "react-router-dom";
+import { getCompanyById } from "../services/companyService";
 import { getAllJobs } from "../services/jobService";
 import Postjob from "./Postjob";
 import CircularIndeterminate from "./CircularIndeterminate";
@@ -19,18 +19,6 @@ interface Company {
   profilePicture: string;
 }
 
-// interface Job {
-//   _id: string;
-//   title: string;
-//   description: string;
-//   price: number;
-//   location: string;
-//   level: string;
-//   department: string;
-//   freelancer: Freelancer;
-//   createdAt: Date
-// }
-
 function AboutCompany() {
   const image = "https://cdn.prod.website-files.com/6499e85e700d7e4fd7af1144/64b96d206c0fd7f0fadd9e49_facebook-cover-image-jobboardly-webflow-ecommerce-template-p-1080.png";
 
@@ -39,11 +27,8 @@ function AboutCompany() {
   const [loading, setLoading] = useState<boolean>(false);
   const [allJobs, setAllJobs] = useState<any>([]);
   const [companiesJobs, setCompaniesJobs] = useState<any>([]);
-  const jobs: any = [];
-  const location = useLocation();
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  // const { id } = useParams();
 
   useEffect(() => {
     if (!id) {
@@ -61,6 +46,7 @@ function AboutCompany() {
   
         // Fetch all jobs
         const response = await getAllJobs();
+        console.log(allJobs);
         const foundJobs = response.service; // Access the 'service' array from the API response
         console.log("Found jobs: ", foundJobs);
   

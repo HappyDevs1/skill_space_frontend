@@ -11,8 +11,6 @@ function SignupUser() {
   const [password, setPassword] = useState<string>("");
   const [about, setAbout] = useState<string>("");
   const [profilePicture, setProfilePicture] = useState<File | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent) => {
@@ -36,11 +34,10 @@ function SignupUser() {
       setPassword("");
       setAbout("");
       setProfilePicture(null);
-      setSuccessMessage("User created successfully!");
       setLoading(false);
       redirectToLogin()
     } catch (error) {
-      setError((error as Error).message);
+      console.log("Failed to create new user", error)
     }
   };
 

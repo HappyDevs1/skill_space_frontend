@@ -5,7 +5,7 @@ import { getJobById } from "../services/jobService";
 import { motion } from "framer-motion";
 
 export default function JobApplication() {
-  const [user, setUser] = useState<string>("");
+  const [setUser] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
@@ -35,6 +35,7 @@ export default function JobApplication() {
     formData.append("about", about);
     formData.append("portfolio", portfolio);
     formData.append("user", user);
+
     
 
     axios

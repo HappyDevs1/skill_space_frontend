@@ -24,7 +24,6 @@ interface Job {
   service: string;
 }
 function CompanyJobs() {
-  const [company, setCompany] = useState<Company | null>(null);
   const [companyJobs, setCompanyJobs] = useState<Job | []>([]);
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(true);

@@ -11,7 +11,7 @@ function SignUpCommpany () {
   const [about, setAbout] = useState<string>("");
   const [profilePicture, setProfilePicture] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -39,7 +39,7 @@ function SignUpCommpany () {
 
       navigate("/company/login")
     } catch (error) {
-      setError((error as Error).message);
+      console.log("Failed to create new company", error)
     }
   };
   

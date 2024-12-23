@@ -6,7 +6,6 @@ import { CiMail } from "react-icons/ci";
 import { BsTelephone } from "react-icons/bs";
 import { TiSocialYoutube, TiSocialLinkedin, TiSocialTwitter, TiSocialFacebook } from "react-icons/ti";
 import { AiFillInstagram } from "react-icons/ai";
-import { Accordion } from "@mui/material";
 import { motion } from "framer-motion";
 
 

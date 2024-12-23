@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getUserById } from "../services/userService";
 import { motion } from "framer-motion";
 
@@ -15,7 +15,6 @@ function UserProfile() {
   const { id } = useParams<{ id: string }>();
   // const { id } = useParams(id)
   const [user, setUser] = useState<User | null>(null);
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -36,16 +35,11 @@ function UserProfile() {
 
   const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle save logic here, e.g., make API call to save the updated details
   };
 
   if (loading) {
     return <div>Loading...</div>;
   }
-
-  // if (!id) {
-  //   return <div>User ID is missing. Please log in again.</div>;
-  // }
 
   return (
     <div>
