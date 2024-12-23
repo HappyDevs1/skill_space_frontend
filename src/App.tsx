@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import './App.css';
-import { BrowserRouter as Router, Route, Routes,useNavigate } from 'react-router-dom';
+import { BrowserRouter as Route, Routes,useNavigate } from 'react-router-dom';
 import NavBar from "./components/NavBar";
 import Home from "../src/components/Home";
 import About from "../src/components/About";
@@ -24,7 +24,6 @@ import JobApplicants from "./components/JobApplicants";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     try {

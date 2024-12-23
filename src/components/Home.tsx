@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Postjob from "./Postjob";
 import {
   getAllJobs,
@@ -311,7 +311,7 @@ function Home() {
                   <motion.div
                     key={job._id}
                     className="flex flex-col md:flex-row border rounded border-gray-400 px-3 py-3 w-full md:w-auto cursor-pointer mb-4"
-                    onClick={() => handleJobClick(job)}
+                    onClick={() => handleJobClick(job, null)}
                     initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.9 } }}
                   >
                     {/* Left Section: Image */}
@@ -372,7 +372,7 @@ function Home() {
                   <motion.div
                     key={job._id}
                     className="flex flex-col md:flex-row border rounded border-gray-400 px-3 py-3 w-full md:w-auto cursor-pointer mb-4"
-                    onClick={() => handleJobClick(job)}
+                    onClick={() => handleJobClick(job, null)}
                     initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.9 } }}
                   >
                     {/* Left Section: Profile Picture */}

@@ -6,6 +6,7 @@ import CircularIndeterminate from "./CircularIndeterminate";
 import { motion } from "framer-motion";
 
 interface Applicant {
+  _id: string;
   name: string;
   email: string;
   phone: string;
@@ -44,7 +45,7 @@ function JobApplicants() {
 
       // Filter applicants for the specific job
       const filteredApplicants = allApplications.filter(
-        (application) => application.service === id
+        (application: any) => application.service === id
       );
 
       console.log("Filtered applicants for job: ", filteredApplicants);
@@ -126,7 +127,7 @@ function JobApplicants() {
                     </td>
                     <td className="border border-gray-300 p-2">
                       <a
-                        href={`http://localhost:4000/application/${applicant._id}/download/cv`}
+                        href={`https://skill-space-backend.onrender.com/${applicant._id}/download/cv`}
                         download
                       >
                         {applicant.cv}
