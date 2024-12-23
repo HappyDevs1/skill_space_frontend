@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { getJobById } from "../services/jobService";
+import { motion } from "framer-motion";
 
 export default function JobApplication() {
   const [user, setUser] = useState<string>("");
@@ -65,7 +66,8 @@ export default function JobApplication() {
 
   return (
     <div className="flex justify-center">
-      <div className="flex flex-col items-start gap-8 border-2 my-[5%] px-[5%] py-[3%] w-full sm:w-auto">
+      <motion.div className="flex flex-col items-start gap-8 border-2 my-[5%] px-[5%] py-[3%] w-full sm:w-auto" initial={{ scale: 0.9 }}
+                animate={{ scale: 1, transition: { duration: 0.4 } }}>
         <form onSubmit={handleSubmit} className="w-full">
           <p className="font-bold text-3xl text-center sm:text-left">Application form</p>
           <div className="flex flex-col gap-5">
@@ -148,7 +150,7 @@ export default function JobApplication() {
             </div>
           </div>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 }
