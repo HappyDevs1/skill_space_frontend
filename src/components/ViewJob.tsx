@@ -185,7 +185,7 @@ function ViewJob() {
                     </div>
                   </div>
                   <p className="font-bold text-xl">Post a job today</p>
-                  <p className="text-gray-500">This is the about information about this company.</p>
+                  <p className="text-gray-500">Post a job today and find the right talent.</p>
                   <button className="bg-blue-500 text-white px-3 py-1 rounded font-bold" onClick={() => {navigate("/create/job")}}>Post a job</button>
                   <p className="text-gray-500 underline self-center text-lg cursor-pointer" onClick={() => {navigate("/create/job")}}>or post a free job</p>
                 </motion.div>
@@ -210,7 +210,7 @@ function ViewJob() {
                     <p className="font-bold text-lg">Systems Administator</p>
                   </div>
                 </div>
-                <p className="text-gray-500">This is a test message, but I will come back to it to edit it.</p>
+                <p className="text-gray-500">Explore this opportunity, we'll update it soon.</p>
                 <div className="flex justify-between">
                   <div className="flex gap-2 flex-wrap">
                     <div className="flex gap-2 border-2 rounded px-2 items-center">
@@ -241,7 +241,7 @@ function ViewJob() {
                     <p className="font-bold text-lg">Mobile Product Manager</p>
                   </div>
                 </div>
-                <p className="text-gray-500">This is a test message, but I will come back to it to edit it.</p>
+                <p className="text-gray-500">Explore this opportunity, we'll update it soon.</p>
                 <div className="flex justify-between">
                   <div className="flex gap-2 flex-wrap">
                     <div className="flex gap-2 border-2 rounded px-2 items-center">

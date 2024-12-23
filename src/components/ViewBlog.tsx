@@ -12,9 +12,7 @@ function ViewBlog() {
             8 innovative design ideal to <br /> make your resume pop
           </p>
           <p className="text-gray-500">
-            This is a test message, I will come back later to it so that it can
-            make sense <br /> this is just a test message once again, I will
-            come back to it later on to edit.
+          Read our latest articles and updates. <br /> Stay updated with our latest posts and valuable information.
           </p>
         </div>
         <div className="flex justify-center items-center w-full">

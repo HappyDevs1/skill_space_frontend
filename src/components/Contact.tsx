@@ -16,8 +16,8 @@ function Contact() {
       <div className="flex flex-col items-center mx-4 sm:mx-16 lg:mx-72 my-24">
         <motion.p className="font-bold text-4xl mb-5" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.2 } }}>Get in touch today</motion.p>
         <motion.p className="text-gray-500 text-center sm:text-left" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.4 } }}>
-          This is a test message, I will come back to it later on. <br />
-          This is a test message right, I will adjust it later. Great!
+        We're here to assist you with any questions. <br />
+        Contact us anytime, we're ready to help!
         </motion.p>
 
         {/* Contact Info Section */}
@@ -93,7 +93,7 @@ function Contact() {
             {/* Contact Details Card */}
             <motion.div className="bg-gray-100 w-full px-5 py-8 sm:py-28" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.8 } }}>
               <p className="font-bold text-2xl mb-2">Contact details</p>
-              <p className="text-gray-600">This is a test message, I will come back to this text to change it.</p>
+              <p className="text-gray-600">Feel free to reach out to us for any inquiries.</p>
               <div className="flex flex-row items-center gap-3 mt-3">
                 <CiMail className="text-xl" />
                 <p className="font-bold">contact@skillspace.com</p>
@@ -118,11 +118,11 @@ function Contact() {
         <div className="flex flex-col items-center">
           <motion.p className="text-4xl font-bold" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.8 } }}>Frequently asked questions</motion.p>
           <motion.p className="mt-7 text-center sm:text-left" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.9 } }}>
-            This is a test message I will come back to it later on to edit it so that it makes sense. <br />
-            This is just a test message I will therefore come back to it later on to edit it. Great!
+          Find answers to common questions here. <br />
+          Explore helpful insights and solutions to assist you.
           </motion.p>
         </div>
-        
+
         <div className="mx-30">
           <AccordionExpandIcon />
         </div>

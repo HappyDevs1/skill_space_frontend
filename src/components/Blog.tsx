@@ -60,8 +60,8 @@ function Blog() {
                 initial={{ scale: 0.7 }}
                 animate={{ scale: 1, transition: { duration: 0.5 } }}
               >
-                This is a test message about the articles and news, <br /> I
-                will come back and make necessary changes
+                This section features updates and insights, <br />
+                tailored to keep you informed and inspired.
               </motion.p>
               <motion.div
                 className="flex gap-5 items-center"
@@ -137,10 +137,10 @@ function Blog() {
                   Subscribe to our newsletter
                 </h1>
                 <p className="text-white text-center">
-                  This is a test message for the newsletter. I will come back to
-                  it to finalize this <br />
-                  text. This is just a test message. I will come back to it to
-                  edit it later on, sharp.
+                  Subscribe to our newsletter for updates.
+                  <br />
+                  Stay tuned for more exciting news and tips. <br />
+                  Sign up now to never miss a moment, sharp.
                 </p>
                 <div className="flex gap-5 mt-7 justify-center">
                   <input

@@ -451,9 +451,8 @@ function Home() {
                   <div className="text-center md:text-left">
                     <motion.p className="font-bold text-3xl" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.9 } }}>Featured companies</motion.p>
                     <motion.p className="text-gray-500" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.9 } }}>
-                      These are the featured companies. I will come back to edit
-                      this text to <br />
-                      ensure that it makes sense.
+                    Explore our featured companies. <br />
+                    Discover the top employers hiring now.
                     </motion.p>
                   </div>
                   <div>

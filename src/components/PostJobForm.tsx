@@ -60,8 +60,8 @@ function PostJobForm() {
     <div className="flex flex-col items-center my-10 gap-5">
       <p className="font-bold text-4xl">Post a job today</p>
       <p className="text-gray-500 text-center">
-        This is a test message I will come back later to edit it so that it makes sense <br />
-        This is a test message I will come back to it later so that make it make sense
+      Start hiring now and find the right talent. <br />
+      Reach out to top candidates by posting your job.
       </p>
 
       <div className="w-full flex flex-col items-center">

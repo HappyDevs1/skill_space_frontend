@@ -60,9 +60,8 @@ function Companies() {
                 animate={{ scale: 1, transition: { duration: 0.4 } }}>Companies</motion.p>
             <motion.p className="text-gray-500 mt-6" initial={{ scale: 0.5 }}
                 animate={{ scale: 1, transition: { duration: 0.6 } }}>
-              This is all the companies I will come back later to edit this text
-              so that it makes sense. <br /> This is the companies that we are
-              working with. I will come back later to edit this text.
+              Explore the companies we're partnering with. <br/>
+              These are the businesses we collaborate with.
             </motion.p>
             {companies.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
