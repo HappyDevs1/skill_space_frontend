@@ -6,6 +6,7 @@ import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { VscGraph } from "react-icons/vsc";
 import { IoBriefcaseOutline } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 function SearchedJobsPage() {
   const [loading, setLoading] = useState<boolean>(false);
@@ -36,26 +37,31 @@ function SearchedJobsPage() {
         <div className="my-8">
           <div className="flex flex-col gap-8">
             {/* Back Button */}
-            <div className="flex items-center gap-2">
+            <motion.div className="flex items-center gap-2" initial={{ scale: 0.9 }}
+                animate={{ scale: 1, transition: { duration: 0.4 } }}>
               <IoIosArrowRoundBack className="h-7 w-7 text-gray-500 cursor-pointer" onClick={handleBack} />
               <p className="text-sm md:text-base">Back to all jobs</p>
-            </div>
+            </motion.div>
             
             {/* Title and description */}
             <div className="flex flex-col gap-3">
-              <p className="font-bold text-2xl md:text-3xl text-gray-700">Found Results</p>
-              <p className="text-gray-500 text-sm md:text-base mb-3">
+              <motion.p className="font-bold text-2xl md:text-3xl text-gray-700" initial={{ scale: 0.7 }}
+                animate={{ scale: 1, transition: { duration: 0.5 } }}>Found Results</motion.p>
+              <motion.p className="text-gray-500 text-sm md:text-base mb-3" initial={{ scale: 0.7 }}
+                animate={{ scale: 1, transition: { duration: 0.6 } }}>
                 These are all the jobs we have managed to discover for you based on your search.
-              </p>
+              </motion.p>
 
               {/* Job grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {filteredJobs && filteredJobs.length > 0 ? (
                   filteredJobs.map((job: any) => (
-                    <div
+                    <motion.div
                       key={job._id}
                       className="flex gap-4 md:gap-6 justify-center py-4 w-full max-w-xs md:max-w-full rounded-lg border-2 cursor-pointer"
                       onClick={() => { handleJobClick(job._id); }}
+                      initial={{ scale: 0.8 }}
+                animate={{ scale: 1, transition: { duration: 0.8 } }}
                     >
                       <div className="px-4 md:px-7 py-3">
                         <div className="flex justify-between">
@@ -86,7 +92,7 @@ function SearchedJobsPage() {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   ))
                 ) : (
                   <p className="text-center col-span-full">No data available</p>
