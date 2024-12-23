@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 type NavBarProps = {
   isAuthenticated: boolean;
@@ -59,7 +60,8 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
   }, [])
 
   return (
-    <nav className="flex items-center justify-between h-20 border-b-2 px-4 md:px-10">
+    <motion.nav className="flex items-center justify-between h-20 border-b-2 px-4 md:px-10" initial={{ scale: 0.9 }}
+    animate={{ scale: 1, transition: { duration: 0.2 } }}>
       {/* Logo Section */}
       <div className="flex items-center">
         <Link to="/" className="flex items-center font-semibold text-xl">
@@ -102,16 +104,16 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
                 {
                   isCompany === true ? (
                     <li>
-                      <button onClick={() => navigate("/company/jobs")}>My Jobs</button>
+                      <button onClick={() => navigate("/company/jobs")} className="hover:text-sky-500">My Jobs</button>
                     </li>
                   ) : (
                     <li>
-                      <button onClick={() => navigate("/user/job/applications")}>My Applications</button>
+                      <button onClick={() => navigate("/user/job/applications")} className="hover:text-sky-500">My Applications</button>
                     </li>
                   )
                 }
                 <button
-                className="flex items-center bg-red-600 px-3 py-1 rounded-md text-white"
+                className="flex items-center bg-red-600 hover:bg-red-500 px-3 py-1 rounded-md text-white"
                 onClick={confirmLogout}
               >
                 <svg
@@ -211,7 +213,7 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
           </ul>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 }
 
