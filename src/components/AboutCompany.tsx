@@ -250,17 +250,7 @@ function AboutCompany() {
             <div className="flex flex-col gap-5 text-gray-500">
               <p className="font-bold text-lg sm:text-xl text-black">Company Perks and Benefits</p>
               <p>
-                This is a test message about the company's perks and benefits, I will come back to it at a later stage to
-                edit it.
-              </p>
-              <div>
-                <p>- This is the benefit</p>
-                <p>- This is also a benefit</p>
-                <p>- This is another benefit</p>
-              </div>
-              <p>
-                These are all the listed benefits above of working for this company. However, this is just a test I will
-                come back to it and make changes so that it makes sense.
+                {company.perksAndBenefits}
               </p>
             </div>
           )}
