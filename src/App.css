@@ -1,8 +1,59 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
 .background {
   background-image: url("./assets/img/bg-img.jpg");
   background-size: cover;
   background-position: center;
-  position: absolute;
-  height: 60vh;
   width: 100%;
+  height: 40vh; /* Adjust height for the background image */
+  overflow: hidden; /* Ensure no overflow from background */
+}
+
+@media (max-width: 768px) {
+  .background {
+    height: 40vh; /* Maintain 40% height on tablet devices */
+  }
+}
+
+@media (max-width: 480px) {
+  .background {
+    height: 40vh; /* Maintain 40% height on mobile devices */
+  }
+}
+
+.container {
+  max-width: 100%; /* Ensure the container doesn’t exceed the viewport width */
+  width: 100%; /* Ensure it adjusts on smaller screens */
+  padding: 0 1rem; /* Add some padding to prevent content from touching the edge */
+  box-sizing: border-box; /* Ensure padding doesn't add to the width */
+}
+
+.card {
+  max-width: 100%; /* Ensure cards fit within the width */
+  width: 100%;
+  box-sizing: border-box; /* Padding won't cause overflow */
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem; /* Add padding on smaller screens */
+  }
+
+  .card {
+    width: 100%; /* Ensure cards scale to 100% width */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem; /* Same for extra small screens */
+  }
+
+  .card {
+    width: 100%; /* Ensure cards scale to 100% width */
+  }
 }
