@@ -122,6 +122,7 @@ function Contact() {
             This is just a test message I will therefore come back to it later on to edit it. Great!
           </motion.p>
         </div>
+        
         <div className="mx-30">
           <AccordionExpandIcon />
         </div>
