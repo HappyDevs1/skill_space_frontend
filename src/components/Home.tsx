@@ -302,7 +302,7 @@ function Home() {
               </form>
             </motion.div>
 
-            <div className="flex flex-col items-center justify-center w-full flex-grow mt-28 px-4">
+            <div className="flex flex-col items-center justify-center w-full flex-grow mt-24 px-4">
               <motion.p className="font-semibold text-xl mb-6 text-center" initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.8 } }}>
                 Featured Jobs
               </motion.p>
@@ -314,7 +314,7 @@ function Home() {
                     onClick={() => handleJobClick(job, null)}
                     initial={{ scale: 0.5 }} animate={{ scale: 1, transition: { duration: 0.9 } }}
                   >
-                    {/* Left Section: Image */}
+                    {/* Left Section: Profile Picture */}
                     <div className="flex items-center justify-center bg-sky-100 px-6 py-8 rounded-md md:px-11 md:py-14">
                       <img
                         src={job.company.profilePicture}
