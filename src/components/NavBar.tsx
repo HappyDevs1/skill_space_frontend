@@ -12,7 +12,6 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
   const [isCompany, setIsCompany] = useState<boolean>(false);
   let navigate = useNavigate();
 
-
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -29,30 +28,33 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
 
   const checkRole = async () => {
     try {
-      const userRole:any = localStorage.getItem("role");
+      const userRole: any = localStorage.getItem("role");
       setIsCompany(userRole);
       if (userRole === "true") {
         setIsCompany(true);
-        console.log("Role is definitely company")
+        console.log("Role is definitely company");
       } else if (userRole === "false") {
         setIsCompany(false);
-        console.log("Role is definitely not user")
+        console.log("Role is definitely not user");
       } else {
-        console.log("Role state not found")
+        console.log("Role state not found");
       }
-      console.log("Is it a company? ", userRole)
+      console.log("Is it a company? ", userRole);
     } catch (error) {
       console.error("Failed to check role", error);
     }
-  }
+  };
 
   useEffect(() => {
-    checkRole()
-  }, [])
+    checkRole();
+  }, []);
 
   return (
-    <motion.nav className="flex items-center justify-between h-20 border-b-2 px-4 md:px-10" initial={{ scale: 0.9 }}
-    animate={{ scale: 1, transition: { duration: 0.2 } }}>
+    <motion.nav
+      className="flex items-center justify-between h-20 border-b-2 px-4 md:px-10"
+      initial={{ scale: 0.9 }}
+      animate={{ scale: 1, transition: { duration: 0.2 } }}
+    >
       {/* Logo Section */}
       <div className="flex items-center">
         <Link to="/" className="flex items-center font-semibold text-xl">
@@ -92,57 +94,65 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
           <li>
             {isAuthenticated ? (
               <div className="flex gap-6 md-gap-10">
-                {
-                  isCompany === true ? (
-                    <li>
-                      <button onClick={() => navigate("/company/jobs")} className="hover:text-sky-500">My Jobs</button>
-                    </li>
-                  ) : (
-                    <li>
-                      <button onClick={() => navigate("/user/job/applications")} className="hover:text-sky-500">My Applications</button>
-                    </li>
-                  )
-                }
+                {isCompany === true ? (
+                  <li>
+                    <button
+                      onClick={() => navigate("/company/jobs")}
+                      className="hover:text-sky-500"
+                    >
+                      My Jobs
+                    </button>
+                  </li>
+                ) : (
+                  <li>
+                    <button
+                      onClick={() => navigate("/user/job/applications")}
+                      className="hover:text-sky-500"
+                    >
+                      My Applications
+                    </button>
+                  </li>
+                )}
                 <button
-                className="flex items-center bg-red-600 hover:bg-red-500 px-3 py-1 rounded-md text-white"
-                onClick={confirmLogout}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5 mx-1"
+                  className="flex items-center bg-red-600 hover:bg-red-500 px-3 py-1 rounded-md text-white"
+                  onClick={confirmLogout}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 10.5V6.75a4.5 4.5 0 1 1 9 0v3.75M3.75 21.75h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H3.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
-                  />
-                </svg>
-                Logout
-              </button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-5 h-5 mx-1"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13.5 10.5V6.75a4.5 4.5 0 1 1 9 0v3.75M3.75 21.75h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H3.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                    />
+                  </svg>
+                  Logout
+                </button>
               </div>
             ) : (
               <li>
                 <Link to="/user/login" className="flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5 mx-1"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
-                  />
-                </svg>
-                Login
-              </Link>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-5 h-5 mx-1"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                    />
+                  </svg>
+                  Login
+                </Link>
               </li>
             )}
           </li>
@@ -173,41 +183,100 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
         </button>
       </div>
 
-{/* Mobile Dropdown Menu */}
-{isMenuOpen && (
-  <div className="absolute top-20 left-0 w-full bg-white border-t-2 shadow-md z-10 md:hidden">
-    <ul className="flex flex-col gap-4 p-4">
-      <li className="hover:text-sky-500">
-        <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
-      </li>
-      <li className="hover:text-sky-500">
-        <Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
-      </li>
-      <li className="hover:text-sky-500">
-        <Link to="/blog" onClick={() => setIsMenuOpen(false)}>Blog</Link>
-      </li>
-      <li className="hover:text-sky-500">
-        <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
-      </li>
-      {isAuthenticated ? (
-        <button
-          className="flex items-center bg-red-600 px-3 py-1 rounded-md text-white"
-          onClick={() => {
-            confirmLogout();
-            setIsMenuOpen(false);
-          }}
-        >
-          Logout
-        </button>
-      ) : (
-        <Link to="/user/login" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
-          Login
-        </Link>
+      {/* Mobile Dropdown Menu */}
+      {isMenuOpen && (
+        <div className="absolute top-20 left-0 w-full bg-white border-t-2 shadow-md z-10 md:hidden">
+          <ul className="flex flex-col gap-4 p-4">
+            <li className="hover:text-sky-500">
+              <Link to="/" onClick={() => setIsMenuOpen(false)}>
+                Home
+              </Link>
+            </li>
+            <li className="hover:text-sky-500">
+              <Link to="/about" onClick={() => setIsMenuOpen(false)}>
+                About
+              </Link>
+            </li>
+            <li className="hover:text-sky-500">
+              <Link to="/blog" onClick={() => setIsMenuOpen(false)}>
+                Blog
+              </Link>
+            </li>
+            <li className="hover:text-sky-500">
+              <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                Contact
+              </Link>
+            </li>
+            <li>
+              {isAuthenticated ? (
+                <div className="flex flex-col gap-6 md-gap-10">
+                  {isCompany === true ? (
+                    <li>
+                      <button
+                        onClick={() => navigate("/company/jobs")}
+                        className="hover:text-sky-500"
+                      >
+                        My Jobs
+                      </button>
+                    </li>
+                  ) : (
+                    <li>
+                      <button
+                        onClick={() => navigate("/user/job/applications")}
+                        className="hover:text-sky-500"
+                      >
+                        My Applications
+                      </button>
+                    </li>
+                  )}
+                  <div>
+                    <button
+                      className="flex items-center bg-red-600 hover:bg-red-500 px-3 py-1 rounded-md text-white"
+                      onClick={confirmLogout}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-5 h-5 mx-1"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M13.5 10.5V6.75a4.5 4.5 0 1 1 9 0v3.75M3.75 21.75h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H3.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                        />
+                      </svg>
+                      Logout
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <li>
+                  <Link to="/user/login" className="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-5 h-5 mx-1"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                      />
+                    </svg>
+                    Login
+                  </Link>
+                </li>
+              )}
+            </li>
+          </ul>
+        </div>
       )}
-    </ul>
-  </div>
-)}
-
     </motion.nav>
   );
 }
