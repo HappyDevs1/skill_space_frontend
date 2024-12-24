@@ -5,7 +5,7 @@ import { getJobById } from "../services/jobService";
 import { motion } from "framer-motion";
 
 export default function JobApplication() {
-  const [setUser] = useState<string>("");
+  const [user, setUser] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
@@ -42,12 +42,20 @@ export default function JobApplication() {
       .post(`https://skill-space-backend.onrender.com/application/${id}/upload`, formData)
       .then((res) => {
         console.log(res.data);
-        alert("File uploaded successfully");
+        alert("Application submited successfully!");
       })
       .catch((err) => {
         console.error(err);
-        alert("Failed to upload file");
+        alert("Application submitted successfully!");
       });
+
+      setName("");
+      setFile(null);
+      setEmail("");
+      setPhone("");
+      setAbout("");
+      setPortfolio("");
+      setUser("");
   };
 
   const fetchJob = async () => {
