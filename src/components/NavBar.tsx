@@ -173,37 +173,41 @@ function NavBar({ isAuthenticated, setIsAuthenticated }: NavBarProps) {
         </button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
-      {isMenuOpen && (
-        <div className="absolute top-20 left-0 w-full bg-white border-t-2 shadow-md z-10 md:hidden">
-          <ul className="flex flex-col gap-4 p-4">
-            <li className="hover:text-sky-500">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="hover:text-sky-500">
-              <Link to="/about">About</Link>
-            </li>
-            <li className="hover:text-sky-500">
-              <Link to="/blog">Blog</Link>
-            </li>
-            <li className="hover:text-sky-500">
-              <Link to="/contact">Contact</Link>
-            </li>
-              {isAuthenticated ? (
-                <button
-                  className="flex items-center bg-red-600 px-3 py-1 rounded-md text-white"
-                  onClick={confirmLogout}
-                >
-                  Logout
-                </button>
-              ) : (
-                <Link to="/user/login" className="flex items-center">
-                  Login
-                </Link>
-              )}
-          </ul>
-        </div>
+{/* Mobile Dropdown Menu */}
+{isMenuOpen && (
+  <div className="absolute top-20 left-0 w-full bg-white border-t-2 shadow-md z-10 md:hidden">
+    <ul className="flex flex-col gap-4 p-4">
+      <li className="hover:text-sky-500">
+        <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
+      </li>
+      <li className="hover:text-sky-500">
+        <Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
+      </li>
+      <li className="hover:text-sky-500">
+        <Link to="/blog" onClick={() => setIsMenuOpen(false)}>Blog</Link>
+      </li>
+      <li className="hover:text-sky-500">
+        <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+      </li>
+      {isAuthenticated ? (
+        <button
+          className="flex items-center bg-red-600 px-3 py-1 rounded-md text-white"
+          onClick={() => {
+            confirmLogout();
+            setIsMenuOpen(false);
+          }}
+        >
+          Logout
+        </button>
+      ) : (
+        <Link to="/user/login" className="flex items-center" onClick={() => setIsMenuOpen(false)}>
+          Login
+        </Link>
       )}
+    </ul>
+  </div>
+)}
+
     </motion.nav>
   );
 }
