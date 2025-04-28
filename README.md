@@ -1,6 +1,6 @@
 # SkillSpace Frontend
 
-**Live Demo**: [https://your-netlify-app.netlify.app](https://skillspacee.netflify.app)
+**Live Demo**: [https://skillspacee.netlify.app](https://skillspacee.netflify.app)
 
 A modern web interface for SkillSpace job board platform, connecting job seekers with employers through an intuitive user experience.
 
