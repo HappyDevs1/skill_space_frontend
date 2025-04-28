@@ -1,30 +1,38 @@
-# React + TypeScript + Vite
+# SkillSpace Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Demo**: [https://your-netlify-app.netlify.app](https://skillspacee.netflify.app)
 
-Currently, two official plugins are available:
+A modern web interface for SkillSpace job board platform, connecting job seekers with employers through an intuitive user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
+- [Features](#features)
+- [Technologies](#technologies)
+- [API Integration](#api-integration)
+- [Development Setup](#development-setup)
+- [Environment Variables](#environment-variables)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## Features
+- JWT-based user authentication flow
+- Responsive UI with mobile-first design
+- Job search and filtering system
+- Company profile management interface
+- Job application submission portal
+- User dashboard with application tracking
+- File upload for resumes/CV
+- Admin dashboard for content management
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies
+- React (with TypeScript)
+- State Management (Redux/Context API)
+- CSS Framework (Tailwind CSS)
+- Axios for API communication
+- Hosting: Netlify
+- CI/CD: Netlify Deployments
+- Form Handling (React Hook Form)
 
-- Configure the top-level `parserOptions` property like this:
+## API Integration
+**Production API URL**: `https://skill-space-backend.onrender.com`
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The frontend consumes the [SkillSpace Backend API](https://github.com/HappyDevs1/skillspace-backend). Refer to the [backend documentation](https://github.com/HappyDevs1/skillspace-backend/blob/main/README.md) for endpoint details.
